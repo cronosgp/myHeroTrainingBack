@@ -27,6 +27,7 @@ public class AtualizaUsuarioTreinoForms {
         List<Usuario>  usuarios = usuarioRepository.findAllByEmail(email);
         Treino treino = treinoRepository.getOne(this.id);
         treino.setUsuarios(usuarios);
+        System.out.println(treino);
         treinoRepository.save(treino);
         return treino;
 

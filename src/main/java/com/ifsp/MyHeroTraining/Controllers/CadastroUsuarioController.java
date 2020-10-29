@@ -5,6 +5,8 @@ import com.ifsp.MyHeroTraining.Forms.CadastroUsuarioForms;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
 import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,6 +21,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/cadastro-usuario")
 public class CadastroUsuarioController {
+    Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired
     private CadastraUsuarioRepository cadastraUsuarioRepository;
     private UsuarioRepository usuarioRepository;
@@ -43,8 +46,11 @@ public class CadastroUsuarioController {
 
         CadastroUsuario cadastroUsuario = cadastroUsuarioForms.converter();
         //valida se o email já foi cadastrado
-        Optional<CadastroUsuario> cadastroUsuario1 = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
-        if (cadastroUsuario1.isPresent()) {
+        Optional<CadastroUsuario> existeCadastro = cadastraUsuarioRepository.findByEmail(cadastroUsuarioForms.getEmail());
+        if (existeCadastro.isPresent()) {
+            logger.info(existeCadastro.get().getEmail());
+            logger.info("cadastroUsuarioForms.getEmail()");
+            logger.info("ja existe");
             //caso já exista o email cadastrado é retornado a bad request para o cliente
             return ResponseEntity.badRequest().build();
         }

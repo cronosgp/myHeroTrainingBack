@@ -5,7 +5,10 @@ import com.ifsp.MyHeroTraining.DTO.CadastroUsuarioDto;
 import com.ifsp.MyHeroTraining.DTO.EmailDto;
 import com.ifsp.MyHeroTraining.Forms.EmailForms;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
+import com.ifsp.MyHeroTraining.Models.ConfirmationToken;
 import com.ifsp.MyHeroTraining.Models.EmailUsuario;
+import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
+import com.ifsp.MyHeroTraining.repository.ConfirmationTokenRepository;
 import com.ifsp.MyHeroTraining.repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +23,18 @@ import javax.swing.text.html.HTML;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.mail.javamail.JavaMailSender;
 @RestController
 @RequestMapping("/email")
 public class EmailEnvioController {
     @Autowired
     private EmailRepository emailRepository;
+	@Autowired
+	private ConfirmationTokenRepository confirmationTokenRepository;
+	@Autowired
+	private CadastraUsuarioRepository cadastraUsuarioRepository;
         @GetMapping
         public List<EmailUsuario> listaUsuario(){
         List<EmailUsuario> emailUsuarios = emailRepository.findAll();
@@ -38,6 +47,11 @@ public class EmailEnvioController {
         mailSender = em.mailSender();
        // emailRepository.save(emailUsuario);
         try{
+        	Optional<CadastroUsuario> user = cadastraUsuarioRepository.findByEmail(emailusuario);
+			ConfirmationToken confirmationToken = new ConfirmationToken(user.get());
+
+			confirmationTokenRepository.save(confirmationToken);
+
         	MimeMessage mime = mailSender.createMimeMessage();
         	  MimeMessageHelper helper = new MimeMessageHelper(mime, true);
         	  helper.setFrom("myherotraining@gmail.com");
@@ -222,10 +236,10 @@ public class EmailEnvioController {
         	  		"                                            class=\"container590 hide\">\n" + 
         	  		"                                            <tr>\n" + 
         	  		"                                                <td width=\"120\" align=\"center\" style=\"font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;\">\n" + 
-        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\">Sobre o MyheroTraining</a>\n" + 
+        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\"></a>\n" + 
         	  		"                                                </td>\n" + 
         	  		"                                                <td width=\"120\" align=\"center\" style=\"font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;\">\n" + 
-        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\">Exercícíos</a>\n" + 
+        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\"></a>\n" + 
         	  		"                                                </td>\n" + 
         	  		"                                                \n" + 
         	  		"                                            </tr>\n" + 
@@ -261,7 +275,7 @@ public class EmailEnvioController {
         	  		"\n" + 
         	  		"                            <div style=\"line-height: 35px\">\n" + 
         	  		"\n" + 
-        	  		"                                Que bom que você resolver treinar com a gente, seja muito <span style=\"color: #5caad2;\">Bem Vindo !</span>\n" + 
+        	  		"                                Que bom que resolveu treinar com a gente, seja muito <span style=\"color: #5caad2;\">Bem Vindo !</span>\n" + 
         	  		"\n" + 
         	  		"                            </div>\n" + 
         	  		"                        </td>\n" + 
@@ -294,11 +308,11 @@ public class EmailEnvioController {
         	  		"\n" + 
         	  		"                                        <p style=\"line-height: 24px; margin-bottom:15px;\">\n" + 
         	  		"\n" + 
-        	  		"                                            Olá,\n" + 
+        	  		"                                     			\n" + 
         	  		"\n" + 
         	  		"                                        </p>\n" + 
         	  		"                                        <p style=\"line-height: 24px;margin-bottom:15px;\">\n" + 
-        	  		"                                           Ótima Notícia, seu cadastrado já foi validado.\n" + 
+        	  		"                                           Para validar seu cadastro.\n" + 
         	  		"                                        </p>\n" + 
         	  		"                                        <p style=\"line-height: 24px; margin-bottom:20px;\">\n" + 
         	  		"                                         Acesse sua conta\n" + 
@@ -314,7 +328,8 @@ public class EmailEnvioController {
         	  		"                                                    <!-- main section button -->\n" + 
         	  		"\n" + 
         	  		"                                                    <div style=\"line-height: 22px;\">\n" + 
-        	  		"                                                        <a href=\"https://myhtraining.herokuapp.com/\" style=\"color: #ffffff; text-decoration: none;\">Minha Conta</a>\n" + 
+        	  		"                                                        <a href=\"https://myhtraining.herokuapp.com/#/confirm-account?token="+ confirmationToken.getConfirmationToken() +
+					  " \" style=\"color: #ffffff; text-decoration: none;\">Minha Conta</a>\n" +
         	  		"                                                    </div>\n" + 
         	  		"                                                </td>\n" + 
         	  		"                                            </tr>\n" + 
@@ -457,7 +472,7 @@ public class EmailEnvioController {
         	  		"                                            <tr>\n" + 
         	  		"                                                <!-- logo -->\n" + 
         	  		"                                                <td align=\"left\">\n" + 
-        	  		"                                                    <a href=\"\" style=\"display: block; border-style: none !important; border: 0 !important;\"><img width=\"80\" border=\"0\" style=\"display: block; width: 80px;\" src=\"https://mdbootstrap.com/img/logo/mdb-email.png\" alt=\"\" /></a>\n" + 
+        	  		"                                                    <a href=\"\" style=\"display: block; border-style: none !important; border: 0 !important;\"><img width=\"80\" border=\"0\" style=\"display: block; width: 80px;\" src=\"\" alt=\"\" /></a>\n" + 
         	  		"                                                </td>\n" + 
         	  		"                                            </tr>\n" + 
         	  		"\n" + 
@@ -470,7 +485,7 @@ public class EmailEnvioController {
         	  		"                                                    class=\"text_color\">\n" + 
         	  		"                                                    <div style=\"color: #333333; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; font-weight: 600; mso-line-height-rule: exactly; line-height: 23px;\">\n" + 
         	  		"\n" + 
-        	  		"                                                        Email us: <br/> <a href=\"mailto:\" style=\"color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;\">contact@mdbootstrap.com</a>\n" + 
+        	  		"                                                        <br/> <a href=\"mailto:\" style=\"color: #888888; font-size: 14px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;\"></a>\n" + 
         	  		"\n" + 
         	  		"                                                    </div>\n" + 
         	  		"                                                </td>\n" + 
@@ -555,7 +570,7 @@ public class EmailEnvioController {
         	  		"                                    <td align=\"left\" style=\"color: #aaaaaa; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;\">\n" + 
         	  		"                                        <div style=\"line-height: 24px;\">\n" + 
         	  		"\n" + 
-        	  		"                                            <span style=\"color: #333333;\">Material Design for Bootstrap</span>\n" + 
+        	  		"                                            <span style=\"color: #333333;\">MyHeroTraining</span>\n" + 
         	  		"\n" + 
         	  		"                                        </div>\n" + 
         	  		"                                    </td>\n" + 
@@ -578,7 +593,7 @@ public class EmailEnvioController {
         	  		"                                            <tr>\n" + 
         	  		"                                                <td align=\"center\">\n" + 
         	  		"                                                    <a style=\"font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;color: #5caad2; text-decoration: none;font-weight:bold;\"\n" + 
-        	  		"                                                        href=\"{{UnsubscribeURL}}\">UNSUBSCRIBE</a>\n" + 
+        	  		"                                                        href=\"https://myhtraining.herokuapp.com/#/principal" + 
         	  		"                                                </td>\n" + 
         	  		"                                            </tr>\n" + 
         	  		"                                        </table>\n" + 
