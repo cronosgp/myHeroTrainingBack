@@ -54,7 +54,7 @@ public class EmailEnvioRecoverController {
                 mailMessage.setSubject("Password Reset!");
                 mailMessage.setFrom("myherotraining@gmail.com");
                 mailMessage.setText("To complete the password reset process, please click here: "
-                        + "https://myhtraining.herokuapp.com/#/confirm-reset?token=" + confirmationToken.getConfirmationToken());
+                        + "https://mhtraining.herokuapp.com/#/confirm-reset?token=" + confirmationToken.getConfirmationToken());
 
                 // Send the email
                 mailSender.send(mailMessage);

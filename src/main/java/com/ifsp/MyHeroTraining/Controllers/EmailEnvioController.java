@@ -328,7 +328,7 @@ public class EmailEnvioController {
         	  		"                                                    <!-- main section button -->\n" + 
         	  		"\n" + 
         	  		"                                                    <div style=\"line-height: 22px;\">\n" + 
-        	  		"                                                        <a href=\"https://myhtraining.herokuapp.com/#/confirm-account?token="+ confirmationToken.getConfirmationToken() +
+        	  		"                                                        <a href=\"https://mhtraining.herokuapp.com/#/confirm-account?token="+ confirmationToken.getConfirmationToken() +
 					  " \" style=\"color: #ffffff; text-decoration: none;\">Minha Conta</a>\n" +
         	  		"                                                    </div>\n" + 
         	  		"                                                </td>\n" + 
