@@ -21,28 +21,26 @@ public class TreinoUsuarioController {
 
     @Autowired
     private TreinoUsuarioRepository treinoUsuarioRepository;
-
     @PostMapping
-    public ResponseEntity<Treino_Usuario> UpdateUsuario(@RequestBody Treino_Usuario treino_usuario) {
-        try {
-            treinoUsuarioRepository.save(treino_usuario);
-            return ResponseEntity.ok(treino_usuario);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
-
+    public Treino_Usuario UpdateUsuario(@RequestBody Treino_Usuario treino_usuario) {
+    	try {
+        treinoUsuarioRepository.save(treino_usuario);
+        return treino_usuario;
+    	}catch(Exception e) {
+    		System.out.println(e);
+            return treino_usuario;
+    	}
+    
     }
 
     @GetMapping("/recupera")
-    public ResponseEntity<List<Treino_Usuario>> recuperaFase(int id) {
-        List<Treino_Usuario> fase = treinoUsuarioRepository.findByusuario(id);
-        try {
-            return ResponseEntity.ok(fase);
+    public List<Treino_Usuario> recuperaFase(int id){
+        List<Treino_Usuario> fase   = treinoUsuarioRepository.findByusuario(id);
+        return fase;
 
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
         }
-    }
-
-
+    
+    
+    
+    
 }

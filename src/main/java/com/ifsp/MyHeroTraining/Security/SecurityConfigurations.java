@@ -48,18 +48,12 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //definição de requisições que precisam de autenticação
       http.authorizeRequests()
+             // .antMatchers(HttpMethod.GET, "/treinos/*").authenticated()
+              .antMatchers(HttpMethod.GET, "/treinos").permitAll()
               .antMatchers(HttpMethod.POST, "/auth").permitAll()
-              .antMatchers(HttpMethod.GET, "/auth").permitAll()
-              .antMatchers(HttpMethod.POST, "/cadastro-usuario").permitAll()
-              .antMatchers(HttpMethod.POST, "/confirm-reset").permitAll()
-              .antMatchers(HttpMethod.GET, "/confirm-account").permitAll()
-              .antMatchers(HttpMethod.POST, "/confirm-account").permitAll()
-              .antMatchers(HttpMethod.POST, "/email").permitAll()
-              .antMatchers(HttpMethod.POST, "/forgot-password").permitAll();
-             // .anyRequest().authenticated()
-              //.and().csrf().disable()
-              //.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-              //.and().addFilterBefore(new AutenticationTokenFilter(tokenService,usuarioRepository), UsernamePasswordAuthenticationFilter.class);
+              .and().csrf().disable()
+              .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+              .and().addFilterBefore(new AutenticationTokenFilter(tokenService,usuarioRepository), UsernamePasswordAuthenticationFilter.class);
                   }
     @Override
     public void configure(WebSecurity web) throws Exception {

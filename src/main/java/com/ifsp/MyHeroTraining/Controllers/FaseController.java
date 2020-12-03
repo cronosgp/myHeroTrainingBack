@@ -5,7 +5,6 @@ import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.repository.FaseRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -18,48 +17,32 @@ public class FaseController {
     private TreinoRepository treinoRepository;
     @GetMapping
     //("/fase")
-    public ResponseEntity<List<Treino>> listaTreinoFases(@RequestParam Integer id) {
-        try {
-            List<Treino> treinoFase = treinoRepository.findByFasesIdOrderById(id);
-            return ResponseEntity.ok(treinoFase);
-        }
-        catch(Exception e) {
-            return  ResponseEntity.badRequest().build();
-        }
+    public List<Treino> listaTreinoFases(@RequestParam Integer id) {
+        List<Treino> treinoFase = treinoRepository.findByFasesIdOrderById(id);
+        return treinoFase;
     }
     @GetMapping("/treino")
-    public ResponseEntity<List<Fase>> lisIdtreino(@RequestParam Integer id) {
-        try {
-            List<Fase> listFases = faseRepository.findFasesByTreinoId(id);
-            return ResponseEntity.ok(listFases);
-        }
-        catch(Exception e) {
-            return  ResponseEntity.badRequest().build();
-        }
+    public List<Fase> lisIdtreino(@RequestParam Integer id) {
+        List<Fase> listFases = faseRepository.findFasesByTreinoId(id);
+        return listFases;
     }
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<Treino> UpdateFase(@PathVariable Integer id) {
+    public Treino UpdateFase(@PathVariable Integer id) {
         FaseAtualiza faseAtualiza = new FaseAtualiza();
-        try {
-            Treino treino = faseAtualiza.atualizar(id, treinoRepository);
-            return ResponseEntity.ok(treino);
-        }
-        catch(Exception e) {
-            return  ResponseEntity.badRequest().build();
-        }
+        Treino treino = faseAtualiza.atualizar(id, treinoRepository);
+        return treino;
     }
 
     @GetMapping("/recupera")
-    public ResponseEntity <List<Fase>> recuperaFase(int id){
-        try {
-            List<Fase> fase = faseRepository.findById(id);
-            return ResponseEntity.ok(fase);
+    public List<Fase> recuperaFase(int id){
+        List<Fase> fase   = faseRepository.findById(id);
+        return fase;
+
         }
-        catch(Exception e) {
-            return  ResponseEntity.badRequest().build();
-        }
-        }
+    
+    
+    
 
 }
 

@@ -10,8 +10,6 @@ import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
@@ -40,14 +38,10 @@ public class TreinoController {
         }
     }*/
     @GetMapping
-    public ResponseEntity <List<Fase>> listaTreinos(@RequestParam(required = false) Integer id) {
-       try {
-           List<Fase> fase = faseRepository.findAll();
-          return ResponseEntity.ok(fase);
-       }
-       catch (AuthenticationException e) {
-           return ResponseEntity.badRequest().build();
-       }
+    public List<Fase> listaTreinos(@RequestParam(required = false) Integer id) {
+        List<Fase> fase = faseRepository.findAll();
+        return fase;
+
     }
 
     @PostMapping
