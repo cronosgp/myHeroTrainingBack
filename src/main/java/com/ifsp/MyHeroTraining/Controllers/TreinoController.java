@@ -41,7 +41,6 @@ public class TreinoController {
     public List<Fase> listaTreinos(@RequestParam(required = false) Integer id) {
         List<Fase> fase = faseRepository.findAll();
         return fase;
-
     }
 
     @PostMapping

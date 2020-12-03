@@ -33,17 +33,10 @@ public class FaseController {
         Treino treino = faseAtualiza.atualizar(id, treinoRepository);
         return treino;
     }
-
-    @GetMapping("/recupera")
+  @GetMapping("/recupera")
     public List<Fase> recuperaFase(int id){
         List<Fase> fase   = faseRepository.findById(id);
         return fase;
 
         }
-    
-    
-    
-
 }
-
-

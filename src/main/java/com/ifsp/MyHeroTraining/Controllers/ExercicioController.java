@@ -24,7 +24,7 @@ public class ExercicioController {
         if (pagina == null && qnt == null) {
             pagina = 0;
             qnt = 3;
-            Pageable paginacao1 = PageRequest.of(pagina, qnt);
+             Pageable paginacao1 = PageRequest.of(pagina, qnt);
             Page<Exercicio> exercicios = exercicioRepository.findByTreinoId(id, paginacao1);
             return exercicios;
         } else {

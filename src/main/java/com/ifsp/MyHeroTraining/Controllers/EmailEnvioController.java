@@ -236,10 +236,10 @@ public class EmailEnvioController {
         	  		"                                            class=\"container590 hide\">\n" + 
         	  		"                                            <tr>\n" + 
         	  		"                                                <td width=\"120\" align=\"center\" style=\"font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;\">\n" + 
-        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\"></a>\n" + 
+        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\">Sobre o MyheroTraining</a>\n" + 
         	  		"                                                </td>\n" + 
         	  		"                                                <td width=\"120\" align=\"center\" style=\"font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;\">\n" + 
-        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\"></a>\n" + 
+        	  		"                                                    <a href=\"\" style=\"color: #312c32; text-decoration: none;\">Exercícíos</a>\n" + 
         	  		"                                                </td>\n" + 
         	  		"                                                \n" + 
         	  		"                                            </tr>\n" + 
