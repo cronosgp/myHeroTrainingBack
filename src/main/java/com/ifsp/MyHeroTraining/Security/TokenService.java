@@ -15,9 +15,9 @@ import static java.lang.Integer.valueOf;
 
 @Service
 public class TokenService {
-    @Value("${forum.jwt.expiration}")
+    @Value("${jwt.expiration}")
     private String expiration;
-    @Value("${forum.jwt.secret}")
+    @Value("${jwt.secret}")
     private String secret;
 
     public String gerarToken(Authentication authentication) {
