@@ -9,7 +9,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
         //"https://myherotraining.herokuapp.com:49996"
-                .allowedOrigins("*")
+                .allowedOrigins("http://localhost:5000")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 }

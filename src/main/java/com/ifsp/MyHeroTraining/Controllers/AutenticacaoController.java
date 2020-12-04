@@ -36,10 +36,14 @@ public class AutenticacaoController {
     @PostMapping
     public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid UsuarioForms form) {
         UsernamePasswordAuthenticationToken dadosLogin = form.converter();
-        Authentication authentication = authManager.authenticate(dadosLogin);
+        try {
+            Authentication authentication = authManager.authenticate(dadosLogin);
             String token = tokenService.gerarToken(authentication);
-        return ResponseEntity.ok(new TokenDto(token, "Bearer"));
-
+            return ResponseEntity.ok(new TokenDto(token, "Bearer"));
+        }
+        catch (AuthenticationException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
     @PutMapping("/{id}")
     @Transactional
