@@ -56,7 +56,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
               .antMatchers(HttpMethod.POST, "/confirm-account").permitAll()
               .antMatchers(HttpMethod.POST, "/email").permitAll()
               .antMatchers(HttpMethod.POST, "/forgot-password").permitAll()
-              .anyRequest().authenticated()
+              //.anyRequest().authenticated()
               .and().csrf().disable()
               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
               .and().addFilterBefore(new AutenticationTokenFilter(tokenService,usuarioRepository), UsernamePasswordAuthenticationFilter.class);
