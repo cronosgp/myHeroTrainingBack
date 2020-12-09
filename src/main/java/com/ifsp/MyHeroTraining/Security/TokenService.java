@@ -8,15 +8,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.util.Base64;
 import java.util.Date;
 
 import static java.lang.Integer.valueOf;
 
 @Service
 public class TokenService {
-    @Value("${jwt.expiration}")
+    @Value("${forum.jwt.expiration}")
     private String expiration;
-    @Value("${jwt.secret}")
+    @Value("${forum.jwt.secret}")
     private String secret;
 
     public String gerarToken(Authentication authentication) {
@@ -30,15 +31,19 @@ public class TokenService {
                 .setExpiration(dataExpiracao)
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
+
     }
-    public boolean isTokenValidado(String token) {
+        public boolean isTokenValidado(String token) {
         try {
+
             Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token);
+
             return true;
         } catch (Exception e) {
             return false;
         }
     }
+
     public int getIdusuario(String token) {
       Claims claims =  Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody();
         return valueOf(Integer.parseInt(claims.getSubject()));
