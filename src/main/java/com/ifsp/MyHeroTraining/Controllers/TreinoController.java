@@ -19,7 +19,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/treinos")
+@RequestMapping("api/treinos/id")
 public class TreinoController {
     @Autowired
     private TreinoRepository treinoRepository;

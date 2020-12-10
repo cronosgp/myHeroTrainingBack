@@ -27,7 +27,7 @@ import java.util.Optional;
 
 import org.springframework.mail.javamail.JavaMailSender;
 @RestController
-@RequestMapping("/email")
+@RequestMapping("api/email")
 public class EmailEnvioController {
     @Autowired
     private EmailRepository emailRepository;

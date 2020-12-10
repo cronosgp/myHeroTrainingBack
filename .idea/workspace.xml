@@ -20,7 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/CadastroUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/CadastroUsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ChangePasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ChangePasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ConfirmEmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ConfirmEmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/EmailEnvioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/EmailEnvioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/EmailEnvioRecoverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/EmailEnvioRecoverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ExercicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ExercicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/FaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/FaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/LoggingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/LoggingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +118,7 @@
       <workItem from="1607442639462" duration="2487000" />
       <workItem from="1607461623243" duration="8273000" />
       <workItem from="1607518905483" duration="692000" />
+      <workItem from="1607562681423" duration="745000" />
     </task>
     <servers />
   </component>

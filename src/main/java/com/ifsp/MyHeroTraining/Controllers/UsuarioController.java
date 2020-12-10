@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("api/usuario/id")
 public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -46,7 +46,7 @@ public class UsuarioController {
           return  ResponseEntity.badRequest().build();
       }
     }
-    @PostMapping("/{id}")
+    @PutMapping
     public Treino UpdateUsuario(@PathVariable int id, @RequestBody AtualizaUsuarioTreinoForms atualizaUsuarioTreinoForms) {
         Treino treino = atualizaUsuarioTreinoForms.AtualizaId(id, usuarioRepository,treinoRepository);
         return treino;

@@ -21,7 +21,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/forgot-password")
+@RequestMapping("api/usuario/forgot-password")
 public class EmailEnvioRecoverController {
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired

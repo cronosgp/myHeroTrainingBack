@@ -18,7 +18,7 @@ import com.ifsp.MyHeroTraining.Models.UsuarioFaseTempo;
 import com.ifsp.MyHeroTraining.repository.UsuarioFaseTempoRepository;
 
 @RestController
-@RequestMapping("/tempo")
+@RequestMapping("api/usuario/fase/tempo")
 
 public class UsuarioFaseTempoController {
 	@Autowired

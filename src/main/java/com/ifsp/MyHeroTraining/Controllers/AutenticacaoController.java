@@ -19,7 +19,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("api/usuario/auth")
 public class AutenticacaoController {
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired

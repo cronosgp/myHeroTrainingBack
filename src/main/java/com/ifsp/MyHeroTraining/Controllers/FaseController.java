@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
 @RestController
-@RequestMapping("/fase")
+@RequestMapping("api/fase")
 public class FaseController {
     @Autowired
     private FaseRepository faseRepository;
@@ -27,7 +27,7 @@ public class FaseController {
             return  ResponseEntity.badRequest().build();
         }
     }
-    @GetMapping("/treino")
+    @GetMapping("/treino/id")
     public ResponseEntity<List<Fase>> lisIdtreino(@RequestParam Integer id) {
         try {
             List<Fase> listFases = faseRepository.findFasesByTreinoId(id);
@@ -50,7 +50,7 @@ public class FaseController {
         }
     }
 
-    @GetMapping("/recupera")
+    @GetMapping("/id")
     public ResponseEntity <List<Fase>> recuperaFase(int id){
         try {
             List<Fase> fase = faseRepository.findById(id);

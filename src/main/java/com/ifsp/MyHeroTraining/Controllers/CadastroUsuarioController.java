@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cadastro-usuario")
+@RequestMapping("api/usuario/id")
 public class CadastroUsuarioController {
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired

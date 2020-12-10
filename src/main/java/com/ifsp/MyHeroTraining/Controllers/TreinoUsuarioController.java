@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/treinousuario")
+@RequestMapping("api/treino/usuario/id")
 public class TreinoUsuarioController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class TreinoUsuarioController {
 
     }
 
-    @GetMapping("/recupera")
+    @GetMapping
     public ResponseEntity<List<Treino_Usuario>> recuperaFase(int id) {
         List<Treino_Usuario> fase = treinoUsuarioRepository.findByusuario(id);
         try {

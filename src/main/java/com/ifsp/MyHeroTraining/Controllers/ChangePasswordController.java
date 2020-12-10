@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/confirm-reset")
+@RequestMapping("api/usuario/confirm-reset")
 public class ChangePasswordController {
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired

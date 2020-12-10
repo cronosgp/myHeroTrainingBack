@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @RestController
-@RequestMapping("/exercicio")
+@RequestMapping("api/treino/exercicio/id")
 public class ExercicioController {
     @Autowired
     private ExercicioRepository exercicioRepository;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
+@RequestMapping(value="api/usuario/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
 public class ConfirmEmailController {
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired
