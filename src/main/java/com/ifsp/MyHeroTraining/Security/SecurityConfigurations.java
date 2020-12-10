@@ -59,7 +59,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
               .antMatchers(HttpMethod.GET,  "/swagger-ui/index.html").permitAll()
               .antMatchers(HttpMethod.POST,  "/swagger-ui").permitAll()
               .antMatchers(HttpMethod.PUT,  "/swagger-ui").permitAll()
-              .anyRequest().authenticated()
+              .anyRequest().fullyAuthenticated()
               .and().csrf().disable()
               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
               .and().addFilterBefore(new AutenticationTokenFilter(tokenService,usuarioRepository), UsernamePasswordAuthenticationFilter.class);
