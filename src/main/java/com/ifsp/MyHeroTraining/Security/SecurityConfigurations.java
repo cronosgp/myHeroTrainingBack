@@ -16,6 +16,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsUtils;
 
 import java.security.SecureRandom;
 
@@ -59,7 +60,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
               .antMatchers(HttpMethod.GET,  "/swagger-ui/index.html").permitAll()
               .antMatchers(HttpMethod.POST,  "/swagger-ui").permitAll()
               .antMatchers(HttpMethod.PUT,  "/swagger-ui").permitAll()
-              .anyRequest().fullyAuthenticated()
+              .anyRequest().authenticated()
+              .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
               .and().csrf().disable()
               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
               .and().addFilterBefore(new AutenticationTokenFilter(tokenService,usuarioRepository), UsernamePasswordAuthenticationFilter.class);
