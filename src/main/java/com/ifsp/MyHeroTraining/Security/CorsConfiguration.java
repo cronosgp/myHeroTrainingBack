@@ -10,6 +10,8 @@ public class CorsConfiguration implements WebMvcConfigurer {
         registry.addMapping("/**")
         //"https://myherotraining.herokuapp.com:49996"
                 .allowedOrigins("*")
+                .allowedHeaders("*")
+                .allowCredentials(true)
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 }
