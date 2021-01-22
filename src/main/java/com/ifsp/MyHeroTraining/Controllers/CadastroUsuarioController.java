@@ -30,9 +30,9 @@ public class CadastroUsuarioController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping
-    public List<CadastroUsuario> listaUsuario(@RequestParam int id) {
+    public Optional<CadastroUsuario> listaUsuario(@RequestParam int id) {
 
-        List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findById(id);
+        Optional<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findById(id);
         return cadastroUsuarios;
     }
 

@@ -12,8 +12,6 @@ public class UsuarioFaseTempoForms {
 	int id_usuario;
 	String tempo;
 	
-
-	
 	
 	public int getId_fase() {
 		return id_fase;
