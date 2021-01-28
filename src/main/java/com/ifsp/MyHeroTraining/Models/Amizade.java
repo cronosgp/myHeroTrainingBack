@@ -13,6 +13,7 @@ public class Amizade {
     private Date dataAmizade;
 
     public Amizade(int usuarioId, int amizadeId) {
+        this.id = id;
         this.usuarioId = usuarioId;
         this.amizadeId = amizadeId;
         this.status = status;

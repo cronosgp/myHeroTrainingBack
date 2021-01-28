@@ -29,8 +29,12 @@ public class AmizadeController {
 
         List<Amizade> amizades = amizadeRepository.findAmizadeByUsuarioId(id);
         List<Usuario> listaAmizades = new ArrayList<>();
+
         for(Amizade e : amizades) {
-            if (usuarioRepository.findById(e.getUsuarioId()).isPresent()) {
+            if (e.getUsuarioId() == id && usuarioRepository.findById(e.getAmizadeId()).isPresent()){
+                listaAmizades.add(usuarioRepository.findById(e.getAmizadeId()).get());
+
+            }else if (e.getAmizadeId() == id && usuarioRepository.findById(e.getUsuarioId()).isPresent()) {
                 listaAmizades.add(usuarioRepository.findById(e.getUsuarioId()).get());
             }
         }
@@ -98,9 +102,20 @@ public class AmizadeController {
     }
 
     @PostMapping("/reject")
-    public ResponseEntity rejeitarSolicitacao(@RequestParam int usuarioid, @RequestParam int amizadeid) {
-        Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
-        amizadeRepository.delete(amizade.get());
+    public ResponseEntity rejeitarSolicitacao(@RequestBody Map<String, String> params ) {
+
+        logger.info(String.valueOf(params.values()));
+        int usuarioid = Integer.parseInt(params.get("usuarioid"));
+        int amizadeid = Integer.parseInt(params.get("amizadeid"));
+
+        if (amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid).isPresent()){
+            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
+            amizadeRepository.delete(amizade.get());
+
+        } else if(amizadeRepository.findByAmizadeIdAndUsuarioId(usuarioid, amizadeid).isPresent()){
+            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(usuarioid, amizadeid);
+            amizadeRepository.delete(amizade.get());
+        }
         return ResponseEntity.ok().build();
     }
 }
