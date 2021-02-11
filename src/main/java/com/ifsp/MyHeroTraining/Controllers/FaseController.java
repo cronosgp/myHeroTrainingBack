@@ -1,7 +1,9 @@
 package com.ifsp.MyHeroTraining.Controllers;
+import com.ifsp.MyHeroTraining.Models.DadosTreino;
 import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Forms.FaseAtualiza;
 import com.ifsp.MyHeroTraining.Models.Treino;
+import com.ifsp.MyHeroTraining.Models.teste;
 import com.ifsp.MyHeroTraining.repository.FaseRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +19,22 @@ public class FaseController {
     @Autowired
     private TreinoRepository treinoRepository;
     @GetMapping
+
     //("/fase")
-    public ResponseEntity<List<Treino>> listaTreinoFases(@RequestParam Integer id) {
-        try {
+    public ResponseEntity<List<DadosTreino>> listaTreinoFases(@RequestParam Integer id) {
+      /* try {
             List<Treino> treinoFase = treinoRepository.findByFasesIdOrderById(id);
             return ResponseEntity.ok(treinoFase);
+        }*/
+        try {
+            List<DadosTreino> treinoFase = faseRepository.carregaDados(id);
+            return ResponseEntity.ok(treinoFase);
         }
+
         catch(Exception e) {
-            return  ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().build();
         }
+
     }
     @GetMapping("/treino")
     public ResponseEntity<List<Fase>> lisIdtreino(@RequestParam Integer id) {

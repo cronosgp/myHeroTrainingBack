@@ -19,7 +19,4 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
 
     List<Treino> findByUsuariosId(int id);
 
-
-
-
 }

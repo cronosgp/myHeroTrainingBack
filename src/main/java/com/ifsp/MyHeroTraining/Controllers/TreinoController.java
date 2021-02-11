@@ -4,6 +4,7 @@ import com.ifsp.MyHeroTraining.Forms.AtualizaUsuarioTreinoForms;
 import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.Models.Usuario;
+import com.ifsp.MyHeroTraining.Models.teste;
 import com.ifsp.MyHeroTraining.repository.FaseRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
@@ -40,14 +41,13 @@ public class TreinoController {
         }
     }*/
     @GetMapping
-    public ResponseEntity <List<Fase>> listaTreinos(@RequestParam(required = false) Integer id) {
-       try {
-           List<Fase> fase = faseRepository.findAll();
-          return ResponseEntity.ok(fase);
-       }
-       catch (AuthenticationException e) {
-           return ResponseEntity.badRequest().build();
-       }
+    public ResponseEntity <List<Treino>> listaTreinos(@RequestParam(required = false) Integer id) {
+        try {
+            List<Treino> treinoFase = treinoRepository.findByFasesIdOrderById(id);
+            return ResponseEntity.ok(treinoFase);
+        } catch (AuthenticationException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PostMapping
