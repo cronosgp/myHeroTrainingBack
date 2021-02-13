@@ -1,5 +1,4 @@
 package com.ifsp.MyHeroTraining.Controllers;
-
 import com.ifsp.MyHeroTraining.Forms.AtualizaUsuarioTreinoForms;
 import com.ifsp.MyHeroTraining.Models.*;
 import com.ifsp.MyHeroTraining.repository.ExercicioRepository;
@@ -16,7 +15,6 @@ import org.springframework.data.domain.Pageable;
 
 import javax.transaction.Transactional;
 import java.util.List;
-
 @RestController
 @RequestMapping("/treinos")
 public class TreinoController {
@@ -47,13 +45,11 @@ public class TreinoController {
             return ResponseEntity.badRequest().build();
         }
     }
-
     @PostMapping
     public Treino cadasTreinos(@RequestBody Treino treino) {
         // treinoRepository.save(treino);
         return treino;
     }
-
     /*  @PostMapping("/{id}")
        public Usuario UpdateUsuario(@PathVariable int id, @RequestBody AtualizaUsuarioTreinoForms atualizaUsuarioTreinoForms) {
            Usuario usuario = atualizaUsuarioTreinoForms.AtualizaId(id, treinoRepository, usuarioRepository);
