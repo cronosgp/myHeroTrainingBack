@@ -1,5 +1,6 @@
 package com.ifsp.MyHeroTraining.repository;
 
+import com.ifsp.MyHeroTraining.Models.Exercicio;
 import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.Models.Usuario;
@@ -13,7 +14,7 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
 
   //  List<Treino> findByUsuariosId(Integer idUsuario);
 
-    List<Treino> findByFasesIdOrderById(int idfase);
+
 
     List<Treino> findById(int id);
 

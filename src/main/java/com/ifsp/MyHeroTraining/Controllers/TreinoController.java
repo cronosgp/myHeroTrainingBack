@@ -1,10 +1,8 @@
 package com.ifsp.MyHeroTraining.Controllers;
 
 import com.ifsp.MyHeroTraining.Forms.AtualizaUsuarioTreinoForms;
-import com.ifsp.MyHeroTraining.Models.Fase;
-import com.ifsp.MyHeroTraining.Models.Treino;
-import com.ifsp.MyHeroTraining.Models.Usuario;
-import com.ifsp.MyHeroTraining.Models.teste;
+import com.ifsp.MyHeroTraining.Models.*;
+import com.ifsp.MyHeroTraining.repository.ExercicioRepository;
 import com.ifsp.MyHeroTraining.repository.FaseRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
@@ -27,7 +25,7 @@ public class TreinoController {
     @Autowired
     private UsuarioRepository usuarioRepository;
     @Autowired
-    private FaseRepository faseRepository;
+    private ExercicioRepository exercicioRepository;
 
     /*@GetMapping
     public Page<Treino> listaTreinos(@RequestParam(required = false) Integer id, @RequestParam(required = false) int pagina, @RequestParam(required = false) int qnt) {
@@ -41,9 +39,9 @@ public class TreinoController {
         }
     }*/
     @GetMapping
-    public ResponseEntity <List<Treino>> listaTreinos(@RequestParam(required = false) Integer id) {
+    public ResponseEntity <List<Exercicio>> listaTreinos(@RequestParam(required = false) Integer id) {
         try {
-            List<Treino> treinoFase = treinoRepository.findByFasesIdOrderById(id);
+            List<Exercicio> treinoFase = exercicioRepository.findByTreinoIdOrderById(id);
             return ResponseEntity.ok(treinoFase);
         } catch (AuthenticationException e) {
             return ResponseEntity.badRequest().build();
