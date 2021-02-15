@@ -61,7 +61,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
               .antMatchers(HttpMethod.POST,  "/swagger-ui").permitAll()
               .antMatchers(HttpMethod.PUT,  "/swagger-ui").permitAll()
               .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-              .anyRequest().authenticated()
+             // .anyRequest().authenticated()
               
               .and().csrf().disable()
               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
