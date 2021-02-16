@@ -23,30 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="adicionar amigos, solicitacoes e amigos">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/Teste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/treinoPersonalizado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/treinoPersonalizado_usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoUsuarioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ExercicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ExercicioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicios.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Treino_Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Treino_Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/ExercicioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/ExercicioRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/FaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/FaseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +116,7 @@
       <workItem from="1607442639462" duration="2487000" />
       <workItem from="1607461623243" duration="8273000" />
       <workItem from="1607518905483" duration="692000" />
-      <workItem from="1613312454430" duration="14086000" />
+      <workItem from="1613312454430" duration="15575000" />
     </task>
     <servers />
   </component>
