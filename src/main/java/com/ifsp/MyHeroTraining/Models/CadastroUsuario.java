@@ -18,6 +18,8 @@ public class CadastroUsuario {
     private String contato;
     private String contato2;
 
+
+
     public CadastroUsuario() {
         this.id = id;
         this.nome = nome;
