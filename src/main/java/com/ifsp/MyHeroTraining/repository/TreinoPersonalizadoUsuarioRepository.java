@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import javax.transaction.Transactional;
 
 public interface TreinoPersonalizadoUsuarioRepository extends JpaRepository<treinoPersonalizado_usuario,Integer> {
-
-
+    @Transactional
+    void deleteByidusuario(int id);
 
 
 }

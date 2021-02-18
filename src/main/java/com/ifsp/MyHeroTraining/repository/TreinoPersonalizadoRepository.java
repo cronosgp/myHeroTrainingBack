@@ -12,10 +12,9 @@ public interface TreinoPersonalizadoRepository extends JpaRepository<treinoPerso
 
 
    @Transactional
-    @Query(value ="SELECT * FROM treino_personalizado AS ex JOIN treino_personalizado_usuario as ps ON PS.id_exercicio = ex.id " +
-            "where ps.idusuario = :id;",nativeQuery = true)
-   List<treinoPersonalizado> carregaTreino(@Param("id") int id);
-
-
+    @Query(value ="SELECT * FROM treino_personalizado AS ex JOIN treino_personalizado_usuario as ps " +
+            "ON PS.id_exercicio = ex.id " +
+            "where ps.idusuario = :id",nativeQuery = true)
+   List<treinoPersonalizado> findByIdusuario(@Param("id") int id);
 
 }
