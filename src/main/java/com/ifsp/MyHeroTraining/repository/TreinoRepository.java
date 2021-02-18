@@ -1,10 +1,21 @@
 package com.ifsp.MyHeroTraining.repository;
 
+<<<<<<< HEAD
 import com.ifsp.MyHeroTraining.Models.*;
+=======
+import com.ifsp.MyHeroTraining.Models.Fase;
+import com.ifsp.MyHeroTraining.Models.Treino;
+import com.ifsp.MyHeroTraining.Models.Usuario;
+import com.ifsp.MyHeroTraining.Models.dadosClassificacao;
+>>>>>>> integracao_classificacao_back
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+<<<<<<< HEAD
+=======
+import org.springframework.transaction.annotation.Transactional;
+>>>>>>> integracao_classificacao_back
 
 import javax.transaction.Transactional;
 import java.util.Date;
@@ -21,12 +32,18 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
     List<Treino> findByUsuariosId(int id);
 
     @Transactional()
+<<<<<<< HEAD
     @Query(value = "SELECT * from carrega_desempenho(:id,:data_ini,:data_fim);",nativeQuery = true)
     List<desempenho> carregaDesempenho(int id, Date data_ini, Date data_fim);
 
  @Transactional()
  @Query(value = "SELECT * from  DADOS_USUARIO(:id);",nativeQuery = true)
  List<desempenho_dados> carregaDadosUsu(int id);
+=======
+    @Query(value = "SELECT * from ranking_usuario();",nativeQuery = true)
+    List<dadosClassificacao> carregaDadosClassificao();
+
+>>>>>>> integracao_classificacao_back
 
 
 

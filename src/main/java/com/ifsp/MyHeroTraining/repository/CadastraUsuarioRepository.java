@@ -11,7 +11,7 @@ public interface CadastraUsuarioRepository extends JpaRepository<CadastroUsuario
     Optional<CadastroUsuario> findByEmail(String email);
     List<CadastroUsuario> findByemail(String email);
 
-  List<CadastroUsuario> findById(int id);
+  Optional<CadastroUsuario> findById(int id);
 
 
 
