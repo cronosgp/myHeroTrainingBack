@@ -40,7 +40,7 @@ public class UsuarioFaseTempoController {
 				}
 			}
 		} catch (Exception e) {
-System.out.println(e);
+
 		}
 		return usuario_fase;
 	}

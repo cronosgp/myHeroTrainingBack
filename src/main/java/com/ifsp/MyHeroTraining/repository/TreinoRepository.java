@@ -1,5 +1,10 @@
 package com.ifsp.MyHeroTraining.repository;
+<<<<<<< HEAD
 import com.ifsp.MyHeroTraining.Models.*;
+=======
+
+import com.ifsp.MyHeroTraining.Models.Exercicio;
+>>>>>>> treinos_Ano
 import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.Models.Usuario;
@@ -16,12 +21,13 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
 
   //  List<Treino> findByUsuariosId(Integer idUsuario);
 
-    List<Treino> findByFasesIdOrderById(int idfase);
+
 
     List<Treino> findById(int id);
 
     List<Treino> findByUsuariosId(int id);
 
+<<<<<<< HEAD
     @Transactional()
 
     @Query(value = "SELECT * from carrega_desempenho(:id,:data_ini,:data_fim);",nativeQuery = true)
@@ -39,4 +45,6 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
 
 
 
+=======
+>>>>>>> treinos_Ano
 }

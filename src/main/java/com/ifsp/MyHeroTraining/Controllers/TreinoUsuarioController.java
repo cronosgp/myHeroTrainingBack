@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,9 +34,11 @@ public class TreinoUsuarioController {
 
     }
 
+    //criar método aqui para fazer insert de 3 meses na function
+
     @GetMapping("/recupera")
-    public ResponseEntity<List<Treino_Usuario>> recuperaFase(int id) {
-        List<Treino_Usuario> fase = treinoUsuarioRepository.findByusuario(id);
+    public ResponseEntity<List<Treino_Usuario>> recuperaFase(@RequestParam int id, Date data) {
+        List<Treino_Usuario> fase = treinoUsuarioRepository.findByDataRealizadaAndUsuario(data,id);
         try {
             return ResponseEntity.ok(fase);
 
