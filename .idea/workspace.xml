@@ -22,17 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="" />
-=======
-    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="">
+    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="adicionar amigos, solicitacoes e amigos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoUsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoUsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/CadastroUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/CadastroUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" afterDir="false" />
     </list>
->>>>>>> backend_treinoPersonalizado
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +35,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
         <option value="Interface" />
       </list>
@@ -49,6 +42,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1jAPJZHxkCSg3GWwILld05PuwNx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -63,9 +64,10 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../IFSP" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IFSP" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -76,18 +78,12 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ifsp.MyHeroTraining.repository" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MyHeroTrainingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="myHeroTrainingBack" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ifsp.MyHeroTraining.MyHeroTrainingApplication" />
@@ -123,12 +119,35 @@
       <workItem from="1607442639462" duration="2487000" />
       <workItem from="1607461623243" duration="8273000" />
       <workItem from="1607518905483" duration="692000" />
-<<<<<<< HEAD
-      <workItem from="1613493602758" duration="10312000" />
-=======
-      <workItem from="1613312454430" duration="14086000" />
-      <workItem from="1613579529314" duration="12522000" />
->>>>>>> backend_treinoPersonalizado
+      <workItem from="1610589783543" duration="6234000" />
+      <workItem from="1610670185746" duration="5215000" />
+      <workItem from="1610757524345" duration="1056000" />
+      <workItem from="1610848336902" duration="1318000" />
+      <workItem from="1610894040452" duration="32462000" />
+      <workItem from="1611011740652" duration="10518000" />
+      <workItem from="1611101000083" duration="4905000" />
+      <workItem from="1611160817158" duration="1227000" />
+      <workItem from="1611268554399" duration="2025000" />
+      <workItem from="1611446630133" duration="1196000" />
+      <workItem from="1611504033076" duration="1632000" />
+      <workItem from="1611578972823" duration="653000" />
+      <workItem from="1611885169393" duration="1937000" />
+      <workItem from="1612046472089" duration="1191000" />
+      <workItem from="1612129273415" duration="6512000" />
+      <workItem from="1612218636425" duration="7074000" />
+      <workItem from="1612705331235" duration="3695000" />
+      <workItem from="1612801907990" duration="6502000" />
+      <workItem from="1612888262390" duration="1194000" />
+      <workItem from="1612916764902" duration="2267000" />
+      <workItem from="1612996100356" duration="3499000" />
+      <workItem from="1613061517152" duration="2589000" />
+      <workItem from="1613179919785" duration="6147000" />
+      <workItem from="1613193277772" duration="83000" />
+      <workItem from="1613223884301" duration="16450000" />
+      <workItem from="1613688228684" duration="9343000" />
+      <workItem from="1613774197239" duration="1310000" />
+      <workItem from="1613784237483" duration="1931000" />
+      <workItem from="1613856565131" duration="2016000" />
     </task>
     <servers />
   </component>
@@ -181,14 +200,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/AutenticationTokenFilter.java</url>
@@ -201,37 +215,55 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/FaseController.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/FaseController.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ExercicioController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-<<<<<<< HEAD
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/DesempenhoController.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/DesempenhoController.java</url>
           <line>38</line>
-          <option name="timeStamp" value="96" />
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
-=======
-          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="94" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="96" />
+          <line>27</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java</url>
           <line>63</line>
-          <option name="timeStamp" value="97" />
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
->>>>>>> backend_treinoPersonalizado
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
