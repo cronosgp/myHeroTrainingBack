@@ -3,7 +3,7 @@ import com.ifsp.MyHeroTraining.Models.DadosTreino;
 import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Forms.FaseAtualiza;
 import com.ifsp.MyHeroTraining.Models.Treino;
-import com.ifsp.MyHeroTraining.Models.teste;
+
 import com.ifsp.MyHeroTraining.repository.FaseRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,7 +3,7 @@ package com.ifsp.MyHeroTraining.repository;
 import com.ifsp.MyHeroTraining.Models.DadosTreino;
 import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Models.Treino;
-import com.ifsp.MyHeroTraining.Models.teste;
+
 import org.hibernate.Session;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
