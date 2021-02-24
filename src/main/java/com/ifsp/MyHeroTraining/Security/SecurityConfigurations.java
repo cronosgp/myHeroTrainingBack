@@ -71,7 +71,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
               .antMatchers(HttpMethod.POST,  "/swagger-ui").permitAll()
               .antMatchers(HttpMethod.PUT,  "/swagger-ui").permitAll()
               .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-<<<<<<< HEAD
+
 
 
             //  .anyRequest().authenticated()
@@ -81,9 +81,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
              // .anyRequest().authenticated()
 
-=======
+
               //.anyRequest().authenticated()
->>>>>>> treinos_Ano
+
               
               .and().csrf().disable()
               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
