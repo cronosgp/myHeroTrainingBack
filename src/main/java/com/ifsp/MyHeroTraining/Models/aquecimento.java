@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class treinoPersonalizado {
+public class aquecimento {
     public int getId() {
         return id;
     }
