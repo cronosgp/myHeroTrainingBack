@@ -7,6 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class aquecimento {
+
+    @Id
+   @GeneratedValue (strategy = GenerationType.IDENTITY)
+    public int id;
+
     public int getId() {
         return id;
     }
@@ -15,40 +20,78 @@ public class aquecimento {
         this.id = id;
     }
 
-
-
-    public String getNomeExercicio() {
-        return nomeExercicio;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeExercicio(String nomeExercicio) {
-        this.nomeExercicio = nomeExercicio;
+    public void setNomeExercicio(String nome) {
+        this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getCaminho_gif() {
+        return caminho_gif;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setCaminho_gif(String caminho_gif) {
+        this.caminho_gif = caminho_gif;
     }
 
-    @Id
-   @GeneratedValue (strategy = GenerationType.IDENTITY)
-    public int id;
 
-    public String nomeExercicio;
-    public String descricao;
 
-    public String getTipo() {
-        return tipo;
+    public int getQntd_pontos() {
+        return qntd_pontos;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setQntd_pontos(int qntd_pontos) {
+        this.qntd_pontos = qntd_pontos;
     }
 
-    public String tipo;
+    public int getQntd() {
+        return qntd;
+    }
+
+    public void setQntd(int qntd) {
+        this.qntd = qntd;
+    }
+
+    public int getIdFase() {
+        return idFase;
+    }
+
+    public void setIdFase(int idFase) {
+        this.idFase = idFase;
+    }
+
+    public String nome;
+    public String caminho_gif;
+
+    public String getParte_trablhada() {
+        return parte_trablhada;
+    }
+
+    public void setParte_trablhada(String parte_trablhada) {
+        this.parte_trablhada = parte_trablhada;
+    }
+
+    public String parte_trablhada;
+    public int qntd_pontos;
+    public int qntd;
+    public int idFase;
+
+    public int getId_tabela() {
+        return id_tabela;
+    }
+
+    public void setId_tabela(int id_tabela) {
+        this.id_tabela = id_tabela;
+    }
+
+    public int id_tabela;
+
+
+
+
+
 
 
 }

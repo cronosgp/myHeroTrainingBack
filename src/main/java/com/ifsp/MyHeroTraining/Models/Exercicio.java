@@ -73,6 +73,16 @@ public class Exercicio {
     private int qntd_pontos;
     private String dificuldade;
 
+    public int getId_tabela() {
+        return id_tabela;
+    }
+
+    public void setId_tabela(int id_tabela) {
+        this.id_tabela = id_tabela;
+    }
+
+    private int id_tabela;
+
     public String getQntd() {
         return qntd;
     }

@@ -37,8 +37,9 @@ public class TreinoController {
         }
     }*/
     @GetMapping
-    public ResponseEntity <List<Exercicio>> listaTreinos(@RequestParam(required = false) Integer id) {
+    public ResponseEntity <List<Exercicio>> listaTreinos(@RequestParam(required = false) Integer id, Boolean personalizado) {
         try {
+
             List<Exercicio> treinoFase = exercicioRepository.findByTreinoIdOrderById(id);
             return ResponseEntity.ok(treinoFase);
         } catch (AuthenticationException e) {
@@ -47,6 +48,7 @@ public class TreinoController {
     }
     @PostMapping
     public Treino cadasTreinos(@RequestBody Treino treino) {
+
         // treinoRepository.save(treino);
         return treino;
     }

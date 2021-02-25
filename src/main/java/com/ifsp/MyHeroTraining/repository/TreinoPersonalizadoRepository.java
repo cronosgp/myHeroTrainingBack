@@ -8,13 +8,15 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public interface aquecimentoRepository extends JpaRepository<aquecimento, Integer> {
+public interface TreinoPersonalizadoRepository extends JpaRepository<aquecimento, Integer> {
 
 
    @Transactional
-    @Query(value ="SELECT * FROM treino_personalizado AS ex JOIN treino_personalizado_usuario as ps " +
+    @Query(value ="SELECT * FROM aquecimento AS ex JOIN treino_personalizado_usuario as ps " +
             "ON PS.id_exercicio = ex.id " +
             "where ps.idusuario = :id",nativeQuery = true)
    List<aquecimento> findByIdusuario(@Param("id") int id);
+
+
 
 }
