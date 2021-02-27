@@ -6,6 +6,8 @@ import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.Models.Usuario;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
+    Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired
     private UsuarioRepository usuarioRepository;
     @Autowired
@@ -36,7 +39,7 @@ public class UsuarioController {
         }
     }
     @GetMapping
-    public ResponseEntity <Optional<Usuario>> listaUsuario(@RequestParam Long id) {
+    public ResponseEntity <Optional<Usuario>> listaUsuario(@RequestParam int id) {
         try {
             Optional<Usuario> usuario = usuarioRepository.findById(id);
             return ResponseEntity.ok(usuario);
@@ -51,6 +54,7 @@ public class UsuarioController {
           Usuario usuario = new Usuario();
           usuario.setSenha(passwordEncoder.encode(usuarioForms.getSenha()));
           usuario.setEmailUsuario(usuarioForms.getEmail());
+          usuario.setNome(usuarioForms.getNome());
           usuario.setEnable(false);
           usuarioRepository.save(usuario);
           return ResponseEntity.ok().build();

@@ -13,6 +13,10 @@ public class UsuarioForms {
         this.email = email;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public void setSenha(String senha) {
         this.senha = senha;
     }
@@ -29,8 +33,14 @@ public class UsuarioForms {
         return senha;
     }
 
+    public String getNome(){
+        return nome;
+    }
+
     private String email;
     private  String senha;
+
+    private String nome;
 
     public String getToken() {
         return token;
