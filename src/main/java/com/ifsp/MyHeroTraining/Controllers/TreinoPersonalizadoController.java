@@ -1,6 +1,6 @@
 package com.ifsp.MyHeroTraining.Controllers;
 import com.ifsp.MyHeroTraining.Models.Teste;
-import com.ifsp.MyHeroTraining.Models.treinoPersonalizado;
+import com.ifsp.MyHeroTraining.Models.aquecimento;
 import com.ifsp.MyHeroTraining.Models.treinoPersonalizado_usuario;
 import com.ifsp.MyHeroTraining.repository.TreinoPersonalizadoRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoPersonalizadoUsuarioRepository;
@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -37,9 +36,9 @@ public class TreinoPersonalizadoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<treinoPersonalizado>> buscaDados() {
+    public ResponseEntity<List<aquecimento>> buscaDados() {
         try {
-            List<treinoPersonalizado> dados = treinoPersonalizadoRepository.findAll();
+            List<aquecimento> dados = treinoPersonalizadoRepository.findAll();
             return ResponseEntity.ok(dados);
 
         } catch (AuthenticationException e) {
@@ -48,9 +47,9 @@ public class TreinoPersonalizadoController {
 
     }
    @GetMapping("/dadosUsuario")
-    public  ResponseEntity<List<treinoPersonalizado>> dadosPersonalizadoUsuario(@RequestParam int id){
+    public  ResponseEntity<List<aquecimento>> dadosPersonalizadoUsuario(@RequestParam int id){
      try {
-         List<treinoPersonalizado> retornoDados = treinoPersonalizadoRepository.findByIdusuario(id);
+         List<aquecimento> retornoDados = treinoPersonalizadoRepository.findByIdusuario(id);
          return ResponseEntity.ok(retornoDados);
      }
      catch (AuthenticationException e){

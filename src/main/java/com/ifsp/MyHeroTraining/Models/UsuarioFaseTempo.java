@@ -20,8 +20,6 @@ public class UsuarioFaseTempo {
     private int id_usuario;
     private int id_fase;
     private String tempo;
-    
-
 
 	public UsuarioFaseTempo() {
 
