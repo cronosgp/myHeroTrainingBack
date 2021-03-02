@@ -24,20 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="adicionar amigos, solicitacoes e amigos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/FaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/FaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoPersonalizadoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/Exercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/Exercicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/treinoPersonalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/aquecimento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/treinoPersonalizado_usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Models/treinoPersonalizado_usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/ExercicioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/ExercicioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoPersonalizadoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/usuarioDataFaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/usuarioDataFaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +151,9 @@
       <workItem from="1614031116141" duration="7785000" />
       <workItem from="1614118552481" duration="17167000" />
       <workItem from="1614185612382" duration="8205000" />
-      <workItem from="1614237979523" duration="16881000" />
+      <workItem from="1614237979523" duration="21852000" />
+      <workItem from="1614437064641" duration="5021000" />
+      <workItem from="1614520945075" duration="4556000" />
     </task>
     <servers />
   </component>
@@ -268,7 +257,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java</url>
-          <line>61</line>
+          <line>62</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
