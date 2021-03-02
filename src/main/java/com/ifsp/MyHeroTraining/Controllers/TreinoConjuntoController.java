@@ -65,9 +65,9 @@ public class TreinoConjuntoController {
 
         logger.info(email + " " + id);
 
-        List<TreinoConjunto> listaUsuario = treinoConjuntoRepository.findByUsuarioId(id);
+        List<TreinoConjunto> listaUsuario = treinoConjuntoRepository.findByIdUsuario(id);
         Optional<Usuario> user = usuarioRepository.findByEmail(email);
-        List<TreinoConjunto> listatreinoConjunto = treinoConjuntoRepository.findByContatoId(user.get().getId());
+        List<TreinoConjunto> listatreinoConjunto = treinoConjuntoRepository.findByIdConvidado(user.get().getId());
 
         if (listaUsuario.stream().anyMatch(e -> e.getIdConvidado() == user.get().getId()) ||
                 listatreinoConjunto.stream().anyMatch(e -> e.getIdUsuario() == id)) {

@@ -32,6 +32,15 @@ public class TreinoConjunto {
         this.status = status;
     }
 
+    public TreinoConjunto() {
+        this.id = id;
+        this.idConvidado = idConvidado;
+        this.idUsuario = idUsuario;
+        this.treino = treino;
+        this.data = data;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }

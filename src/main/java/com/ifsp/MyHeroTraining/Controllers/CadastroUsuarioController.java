@@ -45,6 +45,16 @@ public class CadastroUsuarioController {
        }
     }
 
+    @GetMapping("/email")
+    public ResponseEntity<CadastroUsuario> listaUsuarioEmail (@RequestParam String email) {
+        try {
+            Optional<CadastroUsuario> cadastroUsuario = cadastraUsuarioRepository.findByEmail(email);
+            return ResponseEntity.ok(cadastroUsuario.get());
+        }catch (Exception e){
+            return  ResponseEntity.badRequest().build();
+        }
+    }
+
     @PostMapping
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
 
