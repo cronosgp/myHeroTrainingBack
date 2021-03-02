@@ -50,6 +50,7 @@ public class TreinoController {
     public Treino cadasTreinos(@RequestBody Treino treino) {
 
         // treinoRepository.save(treino);
+
         return treino;
     }
     /*  @PostMapping("/{id}")
