@@ -34,7 +34,21 @@ public class AvatarController{
     @Autowired
     private CadastraUsuarioRepository cadastraUsuarioRepository;
 
-    @GetMapping(value = "/id", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/id")
+    public ResponseEntity<Optional<CadastroUsuario>> getPerfil(@RequestParam int id){
+
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        Optional<CadastroUsuario> cadastroUsuario = cadastraUsuarioRepository.findByEmail(usuario.get().getEmail());
+
+        if(cadastroUsuario.isPresent()){
+            return ResponseEntity.ok(cadastroUsuario);
+        }else{
+            return  ResponseEntity.badRequest().build();
+        }
+
+    }
+
+    @GetMapping(value = "/avatar/id", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<String> getAvatarPorId(@RequestParam int id) {
         HttpHeaders headers = new HttpHeaders();
 
