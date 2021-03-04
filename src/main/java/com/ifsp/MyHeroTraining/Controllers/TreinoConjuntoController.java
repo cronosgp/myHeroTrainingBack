@@ -60,22 +60,19 @@ public class TreinoConjuntoController {
     @PostMapping("/request")
     public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params )  {
 
-        int id = Integer.parseInt(params.get("usuarioid"));
-        String email = params.get("email");
+        int iduser = Integer.parseInt(params.get("usuarioid"));
+        int idconvite = Integer.parseInt(params.get("conviteid"));
 
-        logger.info(email + " " + id);
+        List<TreinoConjunto> listaUsuario = treinoConjuntoRepository.findByIdUsuario(iduser);
+        List<TreinoConjunto> listaConvidado = treinoConjuntoRepository.findByIdConvidado(iduser);
 
-        List<TreinoConjunto> listaUsuario = treinoConjuntoRepository.findByIdUsuario(id);
-        Optional<Usuario> user = usuarioRepository.findByEmail(email);
-        List<TreinoConjunto> listatreinoConjunto = treinoConjuntoRepository.findByIdConvidado(user.get().getId());
-
-        if (listaUsuario.stream().anyMatch(e -> e.getIdConvidado() == user.get().getId()) ||
-                listatreinoConjunto.stream().anyMatch(e -> e.getIdUsuario() == id)) {
+        if (listaUsuario.stream().anyMatch(e -> e.getIdConvidado() == idconvite) ||
+                listaConvidado.stream().anyMatch(e -> e.getIdUsuario() == idconvite)) {
             return ResponseEntity.badRequest().build();
         }
 
         try {
-            TreinoConjunto treinoConjunto = new TreinoConjunto(id, user.get().getId());
+            TreinoConjunto treinoConjunto = new TreinoConjunto(iduser, idconvite);
             treinoConjunto.setStatus(false);
             treinoConjuntoRepository.save(treinoConjunto);
             return ResponseEntity.ok().build();
