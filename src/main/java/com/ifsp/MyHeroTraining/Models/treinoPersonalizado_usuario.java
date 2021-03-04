@@ -29,4 +29,5 @@ public class treinoPersonalizado_usuario {
     public int idusuario;
     public int idExercicio;
 
+
 }

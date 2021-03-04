@@ -47,10 +47,7 @@ public class FaseController {
     public ResponseEntity<Integer> lisIdtreino(@RequestParam Integer id) {
         try {
            Integer idTreino =  usuarioDataFaseRepository.fase(id);
-
            return ResponseEntity.ok(idTreino);
-
-
         }
 
         catch(Exception e) {
