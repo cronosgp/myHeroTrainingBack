@@ -24,8 +24,6 @@ public class ConfirmEmailController {
 
     @PostMapping
     public ResponseEntity confirmUserAccount(@RequestBody String confirmationToken) {
-        Random random = new Random();
-
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
         logger.info("chamou confirmacao");
         logger.info(confirmationToken);
@@ -33,10 +31,6 @@ public class ConfirmEmailController {
             try {
                 Optional<Usuario> user = UsuarioRepository.findByEmail(token.getUser().getEmail());
                 user.get().setEnable(true);
-
-                int randomInt = random.nextInt(10 - 1) + 1;
-                user.get().setAvatar(randomInt);
-
                 UsuarioRepository.save(user.get());
                 confirmationTokenRepository.delete(token);
                 return ResponseEntity.ok().build();
