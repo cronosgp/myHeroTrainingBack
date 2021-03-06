@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Arrays;
 
-@Entity
+/*@Entity
 public class Avatar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,5 +56,5 @@ public class Avatar {
     public void setFile(byte[] file) {
         this.file = file;
     }
-}
+}*/
 

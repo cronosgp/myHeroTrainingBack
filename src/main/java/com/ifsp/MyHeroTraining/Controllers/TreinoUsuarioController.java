@@ -17,7 +17,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/treinousuario")
 public class TreinoUsuarioController {
-
     @Autowired
 
     private TreinoUsuarioRepository treinoUsuarioRepository;

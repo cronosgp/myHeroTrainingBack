@@ -23,17 +23,19 @@ public class Pagamento {
 	 private String docNumber;
 	private String email;
 	private String status_pagamento;
-	private int IdUsuario;
 
-	
-	
-	public int getIdUsuario() {
-		return IdUsuario;
+	public int getUsuario() {
+		return usuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		IdUsuario = idUsuario;
+	public void setUsuario(int usuario) {
+		this.usuario = usuario;
 	}
+
+	private int usuario;
+
+	
+
 
 	public String getDataPagamento() {
 		return DataPagamento;
@@ -83,7 +85,7 @@ public class Pagamento {
 		this.id = id;
 		this.Nome = Nome;
 		this.Sobrenome = Sobrenome;
-		this.IdUsuario = IdUsuario;
+		this.usuario = IdUsuario;
 		this.DataPagamento = DataPagamento;
 		this.transactionAmount = transactionAmount;
 		this.token = token;
