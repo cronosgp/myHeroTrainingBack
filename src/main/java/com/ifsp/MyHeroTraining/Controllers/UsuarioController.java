@@ -2,10 +2,8 @@ package com.ifsp.MyHeroTraining.Controllers;
 
 import com.ifsp.MyHeroTraining.Forms.AtualizaUsuarioTreinoForms;
 import com.ifsp.MyHeroTraining.Forms.UsuarioForms;
-import com.ifsp.MyHeroTraining.Models.Pagamento;
 import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.Models.Usuario;
-import com.ifsp.MyHeroTraining.repository.PagamentoRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.slf4j.Logger;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @RestController
 @RequestMapping("/usuario")
@@ -29,8 +26,6 @@ public class UsuarioController {
     private TreinoRepository treinoRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private PagamentoRepository pagamentoRepository;
 
 
     @GetMapping("/id")
@@ -55,13 +50,9 @@ public class UsuarioController {
     }
     @PostMapping
     public ResponseEntity CadastroUsuarioLogin(@RequestBody  UsuarioForms usuarioForms, UriComponentsBuilder uriComponentsBuilder) {
-        Random random = new Random();
-
-        try {
+      try {
           Usuario usuario = new Usuario();
           usuario.setSenha(passwordEncoder.encode(usuarioForms.getSenha()));
-          int randomInt = random.nextInt(8 - 1) + 1;
-     //     usuario.setAvatar(randomInt);
           usuario.setEmailUsuario(usuarioForms.getEmail());
           usuario.setNome(usuarioForms.getNome());
           usuario.setEnable(false);
@@ -77,16 +68,5 @@ public class UsuarioController {
         Treino treino = atualizaUsuarioTreinoForms.AtualizaId(id, usuarioRepository,treinoRepository);
         return treino;
     }
-    @GetMapping("/pagamento")
-    public ResponseEntity<Pagamento> isPagante(@RequestParam int id){
-        try {
-            Pagamento pagamento = pagamentoRepository.findByusuario(id);
-            return ResponseEntity.ok(pagamento);
-        }
-        catch (Exception e){
-            return  ResponseEntity.badRequest().build();
-        }
-    }
-
 
 }

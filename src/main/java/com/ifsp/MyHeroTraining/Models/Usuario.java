@@ -17,7 +17,7 @@ public class Usuario implements UserDetails {
     private String senha;
     private Boolean isEnable;
     private String token;
-   // private int avatar;
+    private int avatar;
     @ManyToOne
     private Treino treino;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -67,13 +67,13 @@ public class Usuario implements UserDetails {
         this.token = token;
     }
 
-    /*public int getAvatar() {
+    public int getAvatar() {
         return avatar;
-    }*/
+    }
 
-  /*  public void setAvatar(int avatar) {
+    public void setAvatar(int avatar) {
         this.avatar = avatar;
-    }*/
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
