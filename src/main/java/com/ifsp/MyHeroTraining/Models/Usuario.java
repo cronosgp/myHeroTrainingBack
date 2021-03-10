@@ -3,6 +3,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -17,7 +18,10 @@ public class Usuario implements UserDetails {
     private String senha;
     private Boolean isEnable;
     private String token;
+
+    @Column(nullable = true)
     private int avatar;
+
     @ManyToOne
     private Treino treino;
     @ManyToMany(fetch = FetchType.EAGER)
