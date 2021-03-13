@@ -23,7 +23,7 @@ public class TreinoConjunto {
 
     private Boolean status;
 
-    public TreinoConjunto(int idConvidado, int idUsuario) {
+    public TreinoConjunto(int idUsuario, int idConvidado) {
         this.id = id;
         this.idConvidado = idConvidado;
         this.idUsuario = idUsuario;

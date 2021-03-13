@@ -89,9 +89,9 @@ public class TreinoConjuntoController {
 
         logger.info(String.valueOf(params.values()));
         int usuarioid = Integer.parseInt(params.get("usuarioid"));
-        int treinoConjuntoid = Integer.parseInt(params.get("treinoConjuntoid"));
+        int conviteid = Integer.parseInt(params.get("conviteid"));
 
-        Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(treinoConjuntoid, usuarioid);
+        Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(conviteid, usuarioid);
         logger.info(String.valueOf(treinoConjunto.isPresent()));
 
         treinoConjunto.get().setStatus(true);
@@ -104,14 +104,14 @@ public class TreinoConjuntoController {
 
         logger.info(String.valueOf(params.values()));
         int usuarioid = Integer.parseInt(params.get("usuarioid"));
-        int treinoConjuntoid = Integer.parseInt(params.get("treinoConjuntoid"));
+        int conviteid = Integer.parseInt(params.get("conviteid"));
 
-        if (treinoConjuntoRepository.findByContatoIdAndUsuarioId(treinoConjuntoid, usuarioid).isPresent()){
-            Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(treinoConjuntoid, usuarioid);
+        if (treinoConjuntoRepository.findByContatoIdAndUsuarioId(conviteid, usuarioid).isPresent()){
+            Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(conviteid, usuarioid);
             treinoConjuntoRepository.delete(treinoConjunto.get());
 
-        } else if(treinoConjuntoRepository.findByContatoIdAndUsuarioId(usuarioid, treinoConjuntoid).isPresent()){
-            Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(usuarioid, treinoConjuntoid);
+        } else if(treinoConjuntoRepository.findByContatoIdAndUsuarioId(usuarioid, conviteid).isPresent()){
+            Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(usuarioid, conviteid);
             treinoConjuntoRepository.delete(treinoConjunto.get());
         }
         return ResponseEntity.ok().build();

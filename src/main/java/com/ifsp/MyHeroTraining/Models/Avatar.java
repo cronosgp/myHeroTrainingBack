@@ -16,18 +16,15 @@ public class Avatar {
 
     private byte[] file;
 
-    public Avatar(String name, byte[] file){
+    public Avatar(){
+
+    }
+
+    public Avatar(String name, byte[] file) {
         this.id = id;
         this.name = name;
         this.file = file;
     }
-
-    public Avatar() {
-        this.id = id;
-        this.name = name;
-        this.file = file;
-    }
-
 
     public int getId() {
         return id;
@@ -45,11 +42,7 @@ public class Avatar {
         this.name = name;
     }
 
-    public byte[] getFile() {
-        return file;
-    }
-
-    public String getFileString(){
+    public String getFile(){
         return Arrays.toString(file);
     }
 

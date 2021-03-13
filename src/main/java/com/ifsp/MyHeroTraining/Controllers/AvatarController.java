@@ -1,5 +1,6 @@
 package com.ifsp.MyHeroTraining.Controllers;
 
+import com.google.gson.Gson;
 import com.ifsp.MyHeroTraining.DTO.CadastroUsuarioDto;
 import com.ifsp.MyHeroTraining.Forms.CadastroUsuarioForms;
 import com.ifsp.MyHeroTraining.Models.Avatar;
@@ -52,16 +53,34 @@ public class AvatarController{
     public ResponseEntity<String> getAvatarPorId(@RequestParam int id) {
         HttpHeaders headers = new HttpHeaders();
 
-        Optional<Usuario> us = usuarioRepository.findById(id);
+        Optional<CadastroUsuario> us = cadastraUsuarioRepository.findById(id);
 
         try {
             Avatar av = avatarRepository.findById(us.get().getAvatar());
             headers.setCacheControl(CacheControl.noCache().getHeaderValue());
-            return new ResponseEntity<>(av.getFileString(), headers, HttpStatus.OK);
+            return new ResponseEntity<>(av.getFile(), headers, HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping(value = "/avatar")
+    public ResponseEntity<String> getTodosAvatar() {
+        HttpHeaders headers = new HttpHeaders();
+
+        try {
+            List<Avatar> av = avatarRepository.findAllByOrderByNameAsc();
+            logger.info(av.get(0).getName());
+            headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+
+            String response = new Gson().toJson(av);
+            return new ResponseEntity<>(response, headers, HttpStatus.OK);
+        }catch (Exception e){
+            logger.info(String.valueOf(e));
+            return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
     @PostMapping(value = "/alterar")
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody Map<String, String> params ) {
@@ -75,22 +94,34 @@ public class AvatarController{
         //String altura = params.get("altura");
         //String peso = params.get("peso");
         int id = Integer.parseInt(params.get("id"));
+        int avatar = Integer.parseInt(params.get("avatar"));
 
-        Optional<CadastroUsuario> usuario = cadastraUsuarioRepository.findById(id);
+        try {
+            Optional<CadastroUsuario> usuario = cadastraUsuarioRepository.findById(id);
+            Optional<Usuario> user = usuarioRepository.findByEmail(email);
 
-        CadastroUsuario us = usuario.get();
+            CadastroUsuario us = usuario.get();
 
-        us.setEmail(email);
-        us.setNome(nome);
-        us.setContato(contato);
-        us.setContato2(contato2);
-        //usuario.get().setAltura(altura);
-        //usuario.get().setPeso(peso);
+            us.setEmail(email);
+            us.setNome(nome);
+            us.setContato(contato);
+            us.setContato2(contato2);
+            us.setAvatar(avatar);
+            //usuario.get().setAltura(altura);
+            //usuario.get().setPeso(peso);
+            cadastraUsuarioRepository.save(us);
 
-        cadastraUsuarioRepository.save(us);
-        logger.info("sucess");
+            user.get().setNome(nome);
+            usuarioRepository.save(user.get());
 
-        return new ResponseEntity<>(headers, HttpStatus.OK);
+            return new ResponseEntity<>(headers, HttpStatus.OK);
+
+        }catch (Exception e){
+            logger.info(String.valueOf(e));
+
+            return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
+        }
+
     }
 
 }

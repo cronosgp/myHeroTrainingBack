@@ -18,6 +18,9 @@ public class CadastroUsuario {
     private String contato;
     private String contato2;
 
+    @Column(nullable = true)
+    private int avatar;
+
 
 
     public CadastroUsuario() {
@@ -31,6 +34,7 @@ public class CadastroUsuario {
         this.altura = altura;
         this.contato = contato;
         this.contato2 = contato2;
+        this.avatar = avatar;
     }
 
     public CadastroUsuario(String nome, String email, String senha, String senhac, String nascimento, String peso, String altura, String contato, String contato2) {
@@ -98,6 +102,14 @@ public class CadastroUsuario {
     public void setId
             (int id) {
         this.id = id;
+    }
+
+    public int getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(int avatar) {
+        this.avatar = avatar;
     }
 
     public String getNome() {

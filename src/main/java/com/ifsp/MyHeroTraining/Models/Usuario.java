@@ -19,9 +19,6 @@ public class Usuario implements UserDetails {
     private Boolean isEnable;
     private String token;
 
-    @Column(nullable = true)
-    private int avatar;
-
     @ManyToOne
     private Treino treino;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -69,14 +66,6 @@ public class Usuario implements UserDetails {
 
     public void setToken(String token) {
         this.token = token;
-    }
-
-    public int getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(int avatar) {
-        this.avatar = avatar;
     }
 
     @Override

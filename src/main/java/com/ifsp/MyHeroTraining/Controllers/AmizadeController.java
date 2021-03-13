@@ -1,5 +1,7 @@
 package com.ifsp.MyHeroTraining.Controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.ifsp.MyHeroTraining.Models.Amizade;
 import com.ifsp.MyHeroTraining.Models.Usuario;
 import com.ifsp.MyHeroTraining.repository.AmizadeRepository;
@@ -7,13 +9,15 @@ import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 @RequestMapping("/friend")
 @RestController
 public class AmizadeController {
@@ -42,11 +46,43 @@ public class AmizadeController {
 
     }
 
+    @GetMapping("/data")
+    public ResponseEntity<String> getAmizadeData(@RequestParam int id) {
+        HttpHeaders headers = new HttpHeaders();
+
+        try {
+            List<Amizade> amizades = amizadeRepository.findAmizadeByUsuarioId(id);
+
+            DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
+
+            Map<String, String> Datas  = new HashMap<>();
+                for (Amizade e : amizades) {
+                    String dataString = df.format(e.getDataAmizade());
+                    if(e.getUsuarioId() == id) {
+                        Datas.put(String.valueOf(e.getAmizadeId()),dataString);
+                    } else if(e.getAmizadeId() == id) {
+                        Datas.put(String.valueOf(e.getUsuarioId()),dataString);
+                    }
+                }
+                Gson gson = new GsonBuilder().create();
+                String resposta = gson.toJson(Datas);
+
+                logger.info(resposta);
+
+            return new ResponseEntity<>(resposta, headers, HttpStatus.OK);
+        }catch (Exception e){
+            logger.info(String.valueOf(e));
+            return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
     @GetMapping("/request")
     public List<Usuario> listaSolicitacaoAmigos(@RequestParam int id) {
 
             List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
             List<Usuario> listaAmizades = new ArrayList<>();
+
         for(Amizade e : amizades) {
             if (usuarioRepository.findById(e.getUsuarioId()).isPresent()) {
                     listaAmizades.add(usuarioRepository.findById(e.getUsuarioId()).get());
@@ -57,7 +93,7 @@ public class AmizadeController {
     }
 
     @PostMapping("/request")
-    public ResponseEntity enviarSolicitaca(@RequestBody Map<String, String> params )  {
+    public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params )  {
 
         int id = Integer.parseInt(params.get("usuarioid"));
         String email = params.get("email");
@@ -74,7 +110,8 @@ public class AmizadeController {
 
         if(!lu || !la){
             if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
-                    listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id)) {
+                    listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
+            user.get().getId() == id) {
                 return ResponseEntity.badRequest().build();
             }
         }
