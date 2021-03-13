@@ -11,7 +11,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
         //"https://myherotraining.herokuapp.com:49996"
                 .allowedOrigins("*")
                 .allowedHeaders("*")
-                .allowCredentials(true)
+                .allowCredentials(false)
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 }
