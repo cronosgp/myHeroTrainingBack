@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -24,8 +25,9 @@ public class DesempenhoController {
     @GetMapping
     public ResponseEntity<List<desempenho>>buscaDados(@RequestParam int id, Date d_ini, Date dt_fim){
         try {
+      
             List<desempenho> dadosDesempenho = treinoRepository.carregaDesempenho(id, d_ini, dt_fim);
-
+         
             return ResponseEntity.ok(dadosDesempenho);
         }
         catch(Exception e){
