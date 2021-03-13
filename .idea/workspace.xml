@@ -23,9 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="ajuste">
-      <change beforePath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615619783906</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ajuste">
+      <created>1615625619284</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615625619284</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +210,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="ajuste" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="458" y="204" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1615628176109">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="204" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1440.900@0.0.1440.900" timestamp="1615628176108" />
     <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1615624997732">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
@@ -245,14 +254,18 @@
     </state>
     <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1615624730545" />
     <state width="1398" height="244" key="GridCell.Tab.1.right/0.23.1440.831@0.23.1440.831" timestamp="1615624997735" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1615619830146">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1615625865284">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615619830146" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615625865284" />
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615619857461">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1615619857461" />
+    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1615628074841">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1615628074841" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1615619707360">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
