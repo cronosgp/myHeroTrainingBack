@@ -23,7 +23,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="ajuste">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application_debug.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/ConfigEmail/EmailConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/CadastroUsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ChangePasswordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ConfirmEmailController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioRecoverController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ExercicioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/LoggingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/DTO/CadastroUsuarioDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/DTO/EmailDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/DTO/TokenDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/AtualizaUsuarioTreinoForms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/CadastroUsuarioForms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/EmailForms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/FaseAtualiza.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioAtualiza.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioFaseTempoForms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioForms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/CadastroUsuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/ConfirmationToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/EmailUsuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Fase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Perfil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Treino.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Treino_Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/AutenticacaoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/AutenticationTokenFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/TokenService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/config/SwaggerConfigurations/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroFormularioDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroValidacaoHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/RestExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/CadastraUsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/ConfirmationTokenRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/EmailRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/ExercicioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/FaseRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioFaseTempoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/CadastroTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/TreinoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/loginTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +98,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="back_rapha" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -258,10 +322,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615625865284" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615619857461">
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615665059233">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1615619857461" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1615665059233" />
     <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1615628074841">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
