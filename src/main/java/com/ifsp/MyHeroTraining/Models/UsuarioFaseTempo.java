@@ -1,14 +1,18 @@
 package com.ifsp.MyHeroTraining.Models;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
 @Entity
 public class UsuarioFaseTempo {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +20,10 @@ public class UsuarioFaseTempo {
     private int id_usuario;
     private int id_fase;
     private String tempo;
-    
-   	public UsuarioFaseTempo() {
+
+	public UsuarioFaseTempo() {
+
+
 		
 	}
 	public UsuarioFaseTempo(int id_usuario, int id_fase, String tempo) {

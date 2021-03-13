@@ -30,6 +30,17 @@ import java.sql.Date;
     private int usuario;
 
 
+    public Boolean getTreinoPersonalizado() {
+        return treinoPersonalizado;
+    }
+
+    public void setTreinoPersonalizado(Boolean treinoPersonalizado) {
+        this.treinoPersonalizado = treinoPersonalizado;
+    }
+
+    private Boolean treinoPersonalizado;
+
+
     public Date getDataRealizada() {
         return dataRealizada;
     }

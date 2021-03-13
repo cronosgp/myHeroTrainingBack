@@ -6,15 +6,20 @@ import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.Models.Usuario;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
+    Logger logger = LoggerFactory.getLogger(LoggingController.class);
     @Autowired
     private UsuarioRepository usuarioRepository;
     @Autowired
@@ -22,10 +27,21 @@ public class UsuarioController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping
-    public ResponseEntity <List<Usuario>> listaUsuario(@RequestParam Long id) {
+
+    @GetMapping("/id")
+    public ResponseEntity <Optional<Usuario>> infoUsuario(@RequestParam String email) {
         try {
-            List<Usuario> usuario = usuarioRepository.findById(id);
+            Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
+            return ResponseEntity.ok(usuario);
+        }
+        catch(Exception e) {
+            return  ResponseEntity.badRequest().build();
+        }
+    }
+    @GetMapping
+    public ResponseEntity <Optional<Usuario>> listaUsuario(@RequestParam int id) {
+        try {
+            Optional<Usuario> usuario = usuarioRepository.findById(id);
             return ResponseEntity.ok(usuario);
         }
         catch(Exception e) {
@@ -38,6 +54,7 @@ public class UsuarioController {
           Usuario usuario = new Usuario();
           usuario.setSenha(passwordEncoder.encode(usuarioForms.getSenha()));
           usuario.setEmailUsuario(usuarioForms.getEmail());
+          usuario.setNome(usuarioForms.getNome());
           usuario.setEnable(false);
           usuarioRepository.save(usuario);
           return ResponseEntity.ok().build();

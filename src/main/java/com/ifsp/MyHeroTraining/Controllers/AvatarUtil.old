@@ -1,0 +1,29 @@
+package com.ifsp.MyHeroTraining.Controllers;
+
+import com.ifsp.MyHeroTraining.Models.Avatar;
+import com.ifsp.MyHeroTraining.repository.AmizadeRepository;
+import com.ifsp.MyHeroTraining.repository.AvatarRepository;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+
+@Component
+public class AvatarUtil implements InitializingBean {
+    @Autowired
+    private AvatarRepository avatarRepository;
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        BufferedImage bImage = ImageIO.read(new File("/users/gabrielgomes/documents/images/Avatar7.png"));
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(bImage, "png", bos );
+        byte [] data = bos.toByteArray();
+        Avatar avatar = new Avatar("Avatar 7", data);
+        avatarRepository.save(avatar);
+    }
+}

@@ -51,17 +51,49 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
       http.authorizeRequests()
               .antMatchers(HttpMethod.POST, "/auth").permitAll()
               .antMatchers(HttpMethod.GET, "/auth").permitAll()
-              .antMatchers(HttpMethod.POST, "/cadastro-usuario(").permitAll()
+              .antMatchers(HttpMethod.POST, "/cadastro-usuario").permitAll()
+              .antMatchers(HttpMethod.GET, "/cadastro-usuario").permitAll()
+              .antMatchers(HttpMethod.GET, "/cadastro-usuario/id").permitAll()
+              .antMatchers(HttpMethod.GET, "/cadastro-usuario/email").permitAll()
+              .antMatchers(HttpMethod.GET, "/usuario/id").permitAll()
+              .antMatchers(HttpMethod.POST, "/usuario").permitAll()
+              .antMatchers(HttpMethod.POST, "/treinos").permitAll()
+              .antMatchers(HttpMethod.GET, "/treinos").permitAll()
               .antMatchers(HttpMethod.POST, "/confirm-reset").permitAll()
               .antMatchers(HttpMethod.GET, "/confirm-account").permitAll()
               .antMatchers(HttpMethod.POST, "/confirm-account").permitAll()
+              .antMatchers(HttpMethod.GET, "/friend").permitAll()
+              .antMatchers(HttpMethod.POST, "/friend").permitAll()
               .antMatchers(HttpMethod.POST, "/email").permitAll()
+              .antMatchers(HttpMethod.POST, "/friend/request").permitAll()
+              .antMatchers(HttpMethod.GET, "/friend/request").permitAll()
+              .antMatchers(HttpMethod.POST, "/friend/accept").permitAll()
+              .antMatchers(HttpMethod.POST, "/friend/reject").permitAll()
+              .antMatchers(HttpMethod.POST, "/treino-conjunto/request").permitAll()
+              .antMatchers(HttpMethod.GET, "/treino-conjunto/request").permitAll()
+              .antMatchers(HttpMethod.POST, "/treino-conjunto/accept").permitAll()
+              .antMatchers(HttpMethod.POST, "/treino-conjunto/reject").permitAll()
               .antMatchers(HttpMethod.POST, "/forgot-password").permitAll()
               .antMatchers(HttpMethod.GET,  "/swagger-ui/index.html").permitAll()
+              .antMatchers(HttpMethod.GET,  "/perfil").permitAll()
+              .antMatchers(HttpMethod.GET,  "/perfil/id").permitAll()
+              .antMatchers(HttpMethod.POST,  "/perfil/alterar").permitAll()
               .antMatchers(HttpMethod.POST,  "/swagger-ui").permitAll()
               .antMatchers(HttpMethod.PUT,  "/swagger-ui").permitAll()
               .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+
+
+
+            //  .anyRequest().authenticated()
+
+           //   .anyRequest().authenticated()
+
+
+             // .anyRequest().authenticated()
+
+
               //.anyRequest().authenticated()
+
               
               .and().csrf().disable()
               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

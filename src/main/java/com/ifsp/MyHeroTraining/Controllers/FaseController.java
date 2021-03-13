@@ -4,13 +4,18 @@ import com.ifsp.MyHeroTraining.Models.Fase;
 import com.ifsp.MyHeroTraining.Forms.FaseAtualiza;
 import com.ifsp.MyHeroTraining.Models.Treino;
 
+import com.ifsp.MyHeroTraining.Models.usuario_data_fase;
 import com.ifsp.MyHeroTraining.repository.FaseRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
+import com.ifsp.MyHeroTraining.repository.usuarioDataFaseRepository;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/fase")
 public class FaseController {
@@ -18,6 +23,8 @@ public class FaseController {
     private FaseRepository faseRepository;
     @Autowired
     private TreinoRepository treinoRepository;
+    @Autowired
+    private usuarioDataFaseRepository usuarioDataFaseRepository;
     @GetMapping
 
     //("/fase")
@@ -37,14 +44,16 @@ public class FaseController {
 
     }
     @GetMapping("/treino")
-    public ResponseEntity<List<Fase>> lisIdtreino(@RequestParam Integer id) {
+    public ResponseEntity<Integer> lisIdtreino(@RequestParam Integer id) {
         try {
-            List<Fase> listFases = faseRepository.findFasesByTreinoId(id);
-            return ResponseEntity.ok(listFases);
+           Integer idTreino =  usuarioDataFaseRepository.fase(id);
+           return ResponseEntity.ok(idTreino);
         }
+
         catch(Exception e) {
             return  ResponseEntity.badRequest().build();
         }
+
     }
     @PutMapping("/{id}")
     @Transactional

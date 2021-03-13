@@ -15,7 +15,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,17 +29,32 @@ public class CadastroUsuarioController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping
-    public List<CadastroUsuario> listaUsuario(@RequestParam int id) {
+    public Optional<CadastroUsuario> listaUsuario(@RequestParam int id) {
 
-        List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findById(id);
+        Optional<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findById(id);
         return cadastroUsuarios;
     }
 
     @GetMapping("/id")
-    public List<CadastroUsuario> listaUsuarioId (@RequestParam String email) {
-        List<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findByemail(email);
-        return cadastroUsuarios;
+    public ResponseEntity<Optional<CadastroUsuario>> listaUsuarioId (@RequestParam int id) {
+       try {
+           Optional<CadastroUsuario> cadastroUsuario = cadastraUsuarioRepository.findById(id);
+           return ResponseEntity.ok(cadastroUsuario);
+       }catch (Exception e){
+           return  ResponseEntity.badRequest().build();
+       }
     }
+
+    @GetMapping("/email")
+    public ResponseEntity<CadastroUsuario> listaUsuarioEmail (@RequestParam String email) {
+        try {
+            Optional<CadastroUsuario> cadastroUsuario = cadastraUsuarioRepository.findByEmail(email);
+            return ResponseEntity.ok(cadastroUsuario.get());
+        }catch (Exception e){
+            return  ResponseEntity.badRequest().build();
+        }
+    }
+
     @PostMapping
     public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
 

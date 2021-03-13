@@ -2,11 +2,9 @@ package com.ifsp.MyHeroTraining.Controllers;
 
 import com.ifsp.MyHeroTraining.DTO.CadastroUsuarioDto;
 import com.ifsp.MyHeroTraining.Forms.AtualizaUsuarioTreinoForms;
-import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
-import com.ifsp.MyHeroTraining.Models.Fase;
-import com.ifsp.MyHeroTraining.Models.Treino;
-import com.ifsp.MyHeroTraining.Models.Treino_Usuario;
+import com.ifsp.MyHeroTraining.Models.*;
 import com.ifsp.MyHeroTraining.repository.TreinoUsuarioRepository;
+import com.ifsp.MyHeroTraining.repository.treinoPersonalizado_usu_feito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +19,10 @@ import java.util.Optional;
 public class TreinoUsuarioController {
 
     @Autowired
+
     private TreinoUsuarioRepository treinoUsuarioRepository;
+    @Autowired
+    private treinoPersonalizado_usu_feito  treinoPersonalizado_usu_feito;
 
     @PostMapping
     public ResponseEntity<Treino_Usuario> UpdateUsuario(@RequestBody Treino_Usuario treino_usuario) {
@@ -46,6 +47,16 @@ public class TreinoUsuarioController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @GetMapping("/personalizado")
+    public ResponseEntity<List<personalizado_usuario>> recuperaPesonalizado(@RequestParam Date data, int id) {
 
+        try {
+            List<personalizado_usuario> fase = treinoPersonalizado_usu_feito.findByusuarioAndData(id,data);
+            return ResponseEntity.ok(fase);
+
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
 }
