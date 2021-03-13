@@ -49,7 +49,7 @@ public class PagamentoController {
 
 		Payer payer = new Payer();
 		payer.setEmail(pagamentoForms.getEmail()).setIdentification(identification);
-		payer.setFirstName("Raphael");
+		payer.setFirstName("Raphael Pitta");
 		payer.setLastName("Ptta");
 		payer.setAddress(new Address()
 	               .setZipCode("06233200")
@@ -76,7 +76,8 @@ public class PagamentoController {
 			}
 			// return payment.getCallbackUrl();
 		}
-		if (payment.getPaymentMethodId().contains("card")) {
+		System.out.println(payment.getPaymentTypeId());
+	
 			try {
 				payment.save();
 				if (payment.getStatus().toString().toLowerCase() == "approved") {
@@ -94,7 +95,7 @@ public class PagamentoController {
 				e.printStackTrace();
 			}
 			// return payment.getCallbackUrl();
-		}
+		
 		return "Método de Pagamento não identificado";
 	}
 

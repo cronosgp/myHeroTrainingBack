@@ -12,13 +12,88 @@ public class PagamentoForms {
 	private String docNumber;
 	private String email;
 	private String status_pagamento;
-	private int usuarioId;
+	private String DataPagamento;
+	private String Nome;
+	private String Sobrenome;
+	private int IdUsuario;
 	
 	
 	
 	
 	
 	
+	public int getIdUsuario() {
+		return IdUsuario;
+	}
+
+
+
+
+
+
+	public void setIdUsuario(int idUsuario) {
+		IdUsuario = idUsuario;
+	}
+
+
+
+
+
+
+	public String getDataPagamento() {
+		return DataPagamento;
+	}
+
+
+
+
+
+
+	public void setDataPagamento(String dataPagamento) {
+		DataPagamento = dataPagamento;
+	}
+
+
+
+
+
+
+	public String getNome() {
+		return Nome;
+	}
+
+
+
+
+
+
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+
+
+
+
+
+
+	public String getSobrenome() {
+		return Sobrenome;
+	}
+
+
+
+
+
+
+	public void setSobrenome(String sobrenome) {
+		Sobrenome = sobrenome;
+	}
+
+
+
+
+
+
 	public String getStatus_pagamento() {
 		return status_pagamento;
 	}
@@ -35,20 +110,6 @@ public class PagamentoForms {
 
 
 
-
-
-	public int getusuarioId() {
-		return usuarioId;
-	}
-
-
-
-
-
-
-	public void setusuarioId(int idUsuario) {
-		usuarioId = usuarioId;
-	}
 
 
 
@@ -213,7 +274,7 @@ public class PagamentoForms {
 
 	public  Pagamento converter() {
 		// TODO Auto-generated method stub
-		return new Pagamento(transactionAmount, token, description ,installments ,paymentMethodId ,docType ,docNumber ,email, status_pagamento,usuarioId);
+		return new Pagamento(transactionAmount, token, description ,installments ,paymentMethodId ,docType ,docNumber ,email, status_pagamento,DataPagamento, Nome,Sobrenome,IdUsuario);
 	}
 
 }

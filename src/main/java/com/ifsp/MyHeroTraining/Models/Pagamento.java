@@ -10,8 +10,10 @@ import javax.persistence.Id;
 public class Pagamento {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private int id;
-	 private int usuarioId;
-	 private Date dataPagamento;
+
+	private String DataPagamento;
+	private String Nome;
+	private String Sobrenome;
 	 private float transactionAmount;
 	 private String token;
 	 private String description;
@@ -21,6 +23,54 @@ public class Pagamento {
 	 private String docNumber;
 	private String email;
 	private String status_pagamento;
+
+	public int getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(int usuario) {
+		this.usuario = usuario;
+	}
+
+	private int usuario;
+
+	
+
+
+	public String getDataPagamento() {
+		return DataPagamento;
+	}
+
+	public void setDataPagamento(String dataPagamento) {
+		DataPagamento = dataPagamento;
+	}
+
+	public String getNome() {
+		return Nome;
+	}
+
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+
+	public String getSobrenome() {
+		return Sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		Sobrenome = sobrenome;
+	}
+
+	
+	public int getNumeroComprado() {
+		return numeroComprado;
+	}
+
+	public void setNumeroComprado(int numeroComprado) {
+		this.numeroComprado = numeroComprado;
+	}
+
+	private int numeroComprado;
 	
 	
 	
@@ -30,11 +80,13 @@ public class Pagamento {
 
 	public Pagamento(float transactionAmount, String token,
 			String description, int installments, String paymentMethodId, String docType, String docNumber,
-			String email, String status_pagamento, int usuarioId) {
+			String email, String status_pagamento, String DataPagamento, String Nome, String Sobrenome,int IdUsuario) {
 		
 		this.id = id;
-		this.usuarioId = usuarioId;
-		this.dataPagamento = dataPagamento;
+		this.Nome = Nome;
+		this.Sobrenome = Sobrenome;
+		this.usuario = IdUsuario;
+		this.DataPagamento = DataPagamento;
 		this.transactionAmount = transactionAmount;
 		this.token = token;
 		this.description = description;
@@ -54,21 +106,11 @@ public class Pagamento {
 		this.id = id;
 	}
 
-	public int getUsuarioId() {
-		return usuarioId;
-	}
+	
 
-	public void setUsuarioId(int usuarioId) {
-		this.usuarioId = usuarioId;
-	}
+	
 
-	public Date getDataPagamento() {
-		return dataPagamento;
-	}
-
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
-	}
+	
 
 	public float getTransactionAmount() {
 		return transactionAmount;

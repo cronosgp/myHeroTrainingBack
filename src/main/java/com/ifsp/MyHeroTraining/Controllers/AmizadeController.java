@@ -64,13 +64,19 @@ public class AmizadeController {
 
         logger.info(email + " " + id);
 
-        List<Amizade> listaUsuario = amizadeRepository.findByUsuarioId(id);
-        Optional<Usuario> user = usuarioRepository.findByEmail(email);
-        List<Amizade> listaAmizade = amizadeRepository.findByAmizadeId(user.get().getId());
 
-        if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
-            listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id)) {
-          return ResponseEntity.badRequest().build();
+            List<Amizade> listaUsuario = amizadeRepository.findByUsuarioId(id);
+        boolean lu = listaUsuario.isEmpty();
+            Optional<Usuario> user = usuarioRepository.findByEmail(email);
+            List<Amizade> listaAmizade = amizadeRepository.findByAmizadeId(user.get().getId());
+        boolean la = listaAmizade.isEmpty();
+
+
+        if(!lu || !la){
+            if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
+                    listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id)) {
+                return ResponseEntity.badRequest().build();
+            }
         }
 
         try {
