@@ -16,6 +16,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.web.cors.CorsUtils;
 
 import java.security.SecureRandom;
@@ -47,7 +48,20 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     //Método que libera controle de liberação de url para usuario logado e não logado
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	http.headers().httpStrictTransportSecurity().includeSubDomains(true).maxAgeInSeconds(31536000);;
+    	http.headers().addHeaderWriter(new StaticHeadersWriter("X-Content-Security-Policy","script-src 'self'"));
+    	
+    	http.headers().contentSecurityPolicy("X-Content-Security-Policy,script-src 'self'");
+
+    	http.headers().contentSecurityPolicy("script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/")
+        .and()
+        .addHeaderWriter(new StaticHeadersWriter("Feature-Policy", "vibrate 'none'; usermedia 'none'"));
+    	http.headers().frameOptions();
+    	http.headers().contentTypeOptions();
+    	http.headers().referrerPolicy();
+    
         //definição de requisições que precisam de autenticação
+    	
       http.authorizeRequests()
               .antMatchers(HttpMethod.POST, "/auth").permitAll()
               .antMatchers(HttpMethod.GET, "/auth").permitAll()
