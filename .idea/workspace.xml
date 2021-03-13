@@ -22,76 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="adicionar amigos, solicitacoes e amigos">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="ajuste">
+      <change beforePath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/.idea/myHeroTrainingBack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/.idea/myHeroTrainingBack.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Controllers/AvatarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Controllers/AvatarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Models/Avatar.java" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Models/Avatar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Models/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/Models/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/repository/AvatarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/java/com/ifsp/MyHeroTraining/repository/AvatarRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/ConfigEmail/EmailConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/ConfigEmail/EmailConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/CadastroUsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/CadastroUsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/ChangePasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/ChangePasswordController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/ConfirmEmailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/ConfirmEmailController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioRecoverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioRecoverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/ExercicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/ExercicioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/LoggingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/LoggingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/DTO/CadastroUsuarioDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/DTO/CadastroUsuarioDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/DTO/EmailDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/DTO/EmailDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/DTO/TokenDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/DTO/TokenDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/AtualizaUsuarioTreinoForms.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/AtualizaUsuarioTreinoForms.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/CadastroUsuarioForms.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/CadastroUsuarioForms.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/EmailForms.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/EmailForms.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/FaseAtualiza.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/FaseAtualiza.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioAtualiza.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioAtualiza.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioFaseTempoForms.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioFaseTempoForms.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioForms.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioForms.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/CadastroUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/CadastroUsuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/ConfirmationToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/ConfirmationToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/EmailUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/EmailUsuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Fase.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Fase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Perfil.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Perfil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Treino.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Treino.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Treino_Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Treino_Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/AutenticacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/AutenticacaoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/AutenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/AutenticationTokenFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/TokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/Security/TokenService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/config/SwaggerConfigurations/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/config/SwaggerConfigurations/SwaggerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroFormularioDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroFormularioDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroValidacaoHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroValidacaoHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/RestExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/RestExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/CadastraUsuarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/CadastraUsuarioRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/ConfirmationTokenRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/ConfirmationTokenRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/EmailRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/EmailRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/ExercicioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/ExercicioRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/FaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/FaseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/TreinoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/TreinoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioFaseTempoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioFaseTempoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/CadastroTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/CadastroTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/TreinoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/TreinoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/loginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/ggg/myHeroTrainingBack/target/test-classes/com/ifsp/MyHeroTraining/loginTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/CorsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/CorsConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,6 +150,14 @@
       <workItem from="1614907256321" duration="1324000" />
       <workItem from="1614908655269" duration="678000" />
     </task>
+    <task id="LOCAL-00001" summary="ajuste">
+      <created>1615619783906</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615619783906</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +199,64 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ajuste" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajuste" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1615624997732">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615624730543" />
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615624997732" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1615624997731">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1615624730542" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1615624997731" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1615624997729">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1615624730540" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1615624997729" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1615624997731">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1615624730542" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1615624997731" />
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom" timestamp="1615624997736">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615624730546" />
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615624997736" />
+    <state width="1398" height="244" key="GridCell.Tab.1.center" timestamp="1615624997734">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1615624730544" />
+    <state width="1398" height="244" key="GridCell.Tab.1.center/0.23.1440.831@0.23.1440.831" timestamp="1615624997734" />
+    <state width="1398" height="244" key="GridCell.Tab.1.left" timestamp="1615624997733">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1615624730544" />
+    <state width="1398" height="244" key="GridCell.Tab.1.left/0.23.1440.831@0.23.1440.831" timestamp="1615624997733" />
+    <state width="1398" height="244" key="GridCell.Tab.1.right" timestamp="1615624997735">
+      <screen x="0" y="23" width="1440" height="831" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1615624730545" />
+    <state width="1398" height="244" key="GridCell.Tab.1.right/0.23.1440.831@0.23.1440.831" timestamp="1615624997735" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1615619830146">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615619830146" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615619857461">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1615619857461" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1615619707360">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1615619707360" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
