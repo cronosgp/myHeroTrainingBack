@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/cadastro-usuario")
@@ -68,8 +69,12 @@ public class CadastroUsuarioController {
             //caso já exista o email cadastrado é retornado a bad request para o cliente
             return ResponseEntity.badRequest().build();
         }
+        Random random = new Random();
+
         cadastroUsuario.setSenha(passwordEncoder.encode(cadastroUsuario.getSenha()));
         cadastroUsuario.setSenhac(passwordEncoder.encode(cadastroUsuario.getSenhac()));
+        int randomInt = random.nextInt(8 - 1) + 1;
+        cadastroUsuario.setAvatar(randomInt);
         cadastraUsuarioRepository.save(cadastroUsuario);
         URI uri = uriComponentsBuilder.path("/cadastro-usuario/{id}").buildAndExpand(cadastroUsuario.getId()).toUri();
         return ResponseEntity.created(uri).body(new CadastroUsuarioDto(cadastroUsuario));

@@ -1,19 +1,26 @@
 package com.ifsp.MyHeroTraining.Controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.ifsp.MyHeroTraining.Models.Amizade;
+import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
 import com.ifsp.MyHeroTraining.Models.Usuario;
 import com.ifsp.MyHeroTraining.repository.AmizadeRepository;
+import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
+import org.checkerframework.checker.nullness.Opt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 @RequestMapping("/friend")
 @RestController
 public class AmizadeController {
@@ -24,40 +31,78 @@ public class AmizadeController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private CadastraUsuarioRepository cadastraUsuarioRepository;
+
     @GetMapping
-    public List<Usuario> listaAmigos(@RequestParam int id) {
+    public List<CadastroUsuario> listaAmigos(@RequestParam int id) {
 
         List<Amizade> amizades = amizadeRepository.findAmizadeByUsuarioId(id);
-        List<Usuario> listaAmizades = new ArrayList<>();
+        List<CadastroUsuario> listaAmizades = new ArrayList<>();
 
         for(Amizade e : amizades) {
-            if (e.getUsuarioId() == id && usuarioRepository.findById(e.getAmizadeId()).isPresent()){
-                listaAmizades.add(usuarioRepository.findById(e.getAmizadeId()).get());
+            if (e.getUsuarioId() == id){
+                listaAmizades.add(cadastraUsuarioRepository.findByEmail(
+                        usuarioRepository.findById(e.getAmizadeId()).get().getEmail()).get());
 
-            }else if (e.getAmizadeId() == id && usuarioRepository.findById(e.getUsuarioId()).isPresent()) {
-                listaAmizades.add(usuarioRepository.findById(e.getUsuarioId()).get());
+            }else if (e.getAmizadeId() == id) {
+                listaAmizades.add(cadastraUsuarioRepository.findByEmail(
+                        usuarioRepository.findById(e.getUsuarioId()).get().getEmail()).get());
             }
         }
         return listaAmizades;
 
     }
 
-    @GetMapping("/request")
-    public List<Usuario> listaSolicitacaoAmigos(@RequestParam int id) {
+    @GetMapping("/data")
+    public ResponseEntity<String> getAmizadeData(@RequestParam int id) {
+        HttpHeaders headers = new HttpHeaders();
 
-            List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
-            List<Usuario> listaAmizades = new ArrayList<>();
-        for(Amizade e : amizades) {
-            if (usuarioRepository.findById(e.getUsuarioId()).isPresent()) {
-                    listaAmizades.add(usuarioRepository.findById(e.getUsuarioId()).get());
-            }
+        try {
+            List<Amizade> amizades = amizadeRepository.findAmizadeByUsuarioId(id);
+
+            DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
+
+            Map<String, String> Datas  = new HashMap<>();
+                for (Amizade e : amizades) {
+                    String dataString = df.format(e.getDataAmizade());
+                    if(e.getUsuarioId() == id) {
+                        Datas.put(String.valueOf(e.getAmizadeId()),dataString);
+                    } else if(e.getAmizadeId() == id) {
+                        Datas.put(String.valueOf(e.getUsuarioId()),dataString);
+                    }
+                }
+                Gson gson = new GsonBuilder().create();
+                String resposta = gson.toJson(Datas);
+
+                logger.info(resposta);
+
+            return new ResponseEntity<>(resposta, headers, HttpStatus.OK);
+        }catch (Exception e){
+            logger.info(String.valueOf(e));
+            return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
         }
-            return listaAmizades;
 
     }
 
+    @GetMapping("/request")
+    public List<CadastroUsuario> listaSolicitacaoAmigos(@RequestParam int id) {
+
+            List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
+            List<CadastroUsuario> listaAmizades = new ArrayList<>();
+
+        for(Amizade e : amizades) {
+            Optional<Usuario> us = usuarioRepository.findById(e.getUsuarioId());
+
+            if (cadastraUsuarioRepository.findByEmail(us.get().getEmail()).isPresent()){
+                    listaAmizades.add(cadastraUsuarioRepository.findByEmail(us.get().getEmail()).get());
+            }
+        }
+            return listaAmizades;
+    }
+
     @PostMapping("/request")
-    public ResponseEntity enviarSolicitaca(@RequestBody Map<String, String> params )  {
+    public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params )  {
 
         int id = Integer.parseInt(params.get("usuarioid"));
         String email = params.get("email");
@@ -74,7 +119,8 @@ public class AmizadeController {
 
         if(!lu || !la){
             if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
-                    listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id)) {
+                    listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
+            user.get().getId() == id) {
                 return ResponseEntity.badRequest().build();
             }
         }
@@ -99,7 +145,11 @@ public class AmizadeController {
         int usuarioid = Integer.parseInt(params.get("usuarioid"));
         int amizadeid = Integer.parseInt(params.get("amizadeid"));
 
-    Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
+        Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
+        Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
+
+
+        Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
     logger.info(String.valueOf(amizade.isPresent()));
 
     amizade.get().setStatus(true);
@@ -114,12 +164,15 @@ public class AmizadeController {
         int usuarioid = Integer.parseInt(params.get("usuarioid"));
         int amizadeid = Integer.parseInt(params.get("amizadeid"));
 
-        if (amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid).isPresent()){
-            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
+        Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
+        Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
+
+        if (amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId()).isPresent()){
+            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
             amizadeRepository.delete(amizade.get());
 
-        } else if(amizadeRepository.findByAmizadeIdAndUsuarioId(usuarioid, amizadeid).isPresent()){
-            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(usuarioid, amizadeid);
+        } else if(amizadeRepository.findByAmizadeIdAndUsuarioId(us.get().getId(), amizadeid).isPresent()){
+            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(us.get().getId(), amizadeid);
             amizadeRepository.delete(amizade.get());
         }
         return ResponseEntity.ok().build();

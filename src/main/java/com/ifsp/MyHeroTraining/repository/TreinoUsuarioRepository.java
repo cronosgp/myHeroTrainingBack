@@ -12,4 +12,6 @@ public interface TreinoUsuarioRepository extends JpaRepository<Treino_Usuario, I
  List<Treino_Usuario> findByDataRealizadaAndUsuario(Date data, int id);
 
 
+
+
 }

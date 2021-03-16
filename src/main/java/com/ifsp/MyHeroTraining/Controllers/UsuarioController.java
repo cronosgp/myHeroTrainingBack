@@ -51,13 +51,10 @@ public class UsuarioController {
     }
     @PostMapping
     public ResponseEntity CadastroUsuarioLogin(@RequestBody  UsuarioForms usuarioForms, UriComponentsBuilder uriComponentsBuilder) {
-        Random random = new Random();
 
         try {
           Usuario usuario = new Usuario();
           usuario.setSenha(passwordEncoder.encode(usuarioForms.getSenha()));
-          int randomInt = random.nextInt(8 - 1) + 1;
-          usuario.setAvatar(randomInt);
           usuario.setEmailUsuario(usuarioForms.getEmail());
           usuario.setNome(usuarioForms.getNome());
           usuario.setEnable(false);
