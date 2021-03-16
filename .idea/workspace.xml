@@ -19,70 +19,25 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="ajuste">
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application_debug.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/ConfigEmail/EmailConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/CadastroUsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ChangePasswordController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ConfirmEmailController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/EmailEnvioRecoverController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/ExercicioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/FaseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/LoggingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/TreinoUsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Controllers/UsuarioFaseTempoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/DTO/CadastroUsuarioDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/DTO/EmailDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/DTO/TokenDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/AtualizaUsuarioTreinoForms.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/CadastroUsuarioForms.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/EmailForms.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/FaseAtualiza.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioAtualiza.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioFaseTempoForms.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Forms/UsuarioForms.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/CadastroUsuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/ConfirmationToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/EmailUsuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Exercicio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Fase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Perfil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Treino.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Treino_Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Models/UsuarioFaseTempo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/AutenticacaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/AutenticationTokenFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/CorsConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/SecurityConfigurations.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/Security/TokenService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/config/SwaggerConfigurations/SwaggerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroFormularioDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/ErroValidacaoHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/configValidacaoErros/RestExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/CadastraUsuarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/ConfirmationTokenRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/EmailRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/ExercicioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/FaseRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioFaseTempoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ifsp/MyHeroTraining/repository/UsuarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/CadastroTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/MyHeroTrainingApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/TreinoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ifsp/MyHeroTraining/loginTest.class" beforeDir="false" />
+    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="remove target">
+      <change beforePath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AvatarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AvatarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoConjuntoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoConjuntoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/CadastraUsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/CadastraUsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoConjuntoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoConjuntoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoUsuarioRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +55,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="back_rapha" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -262,7 +217,19 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -278,62 +245,70 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1440.900@0.0.1440.900" timestamp="1615628176108" />
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1615624997732">
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1615877019477">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615624730543" />
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615624997732" />
-    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1615624997731">
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615873992097" />
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615877019477" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1615877019465">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1615624730542" />
-    <state width="1398" height="244" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1615624997731" />
-    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1615624997729">
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1615873992095" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1615877019465" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1615877019454">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1615624730540" />
-    <state width="1398" height="244" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1615624997729" />
-    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1615624997731">
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1615873992094" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1615877019454" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1615877019470">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1615624730542" />
-    <state width="1398" height="244" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1615624997731" />
-    <state width="1398" height="244" key="GridCell.Tab.1.bottom" timestamp="1615624997736">
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1615873992096" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1615877019470" />
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom" timestamp="1615877019495">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615624730546" />
-    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615624997736" />
-    <state width="1398" height="244" key="GridCell.Tab.1.center" timestamp="1615624997734">
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615873992101" />
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615877019495" />
+    <state width="1398" height="244" key="GridCell.Tab.1.center" timestamp="1615877019489">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1615624730544" />
-    <state width="1398" height="244" key="GridCell.Tab.1.center/0.23.1440.831@0.23.1440.831" timestamp="1615624997734" />
-    <state width="1398" height="244" key="GridCell.Tab.1.left" timestamp="1615624997733">
+    <state width="1398" height="244" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1615873992100" />
+    <state width="1398" height="244" key="GridCell.Tab.1.center/0.23.1440.831@0.23.1440.831" timestamp="1615877019489" />
+    <state width="1398" height="244" key="GridCell.Tab.1.left" timestamp="1615877019481">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1615624730544" />
-    <state width="1398" height="244" key="GridCell.Tab.1.left/0.23.1440.831@0.23.1440.831" timestamp="1615624997733" />
-    <state width="1398" height="244" key="GridCell.Tab.1.right" timestamp="1615624997735">
+    <state width="1398" height="244" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1615873992099" />
+    <state width="1398" height="244" key="GridCell.Tab.1.left/0.23.1440.831@0.23.1440.831" timestamp="1615877019481" />
+    <state width="1398" height="244" key="GridCell.Tab.1.right" timestamp="1615877019492">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1615624730545" />
-    <state width="1398" height="244" key="GridCell.Tab.1.right/0.23.1440.831@0.23.1440.831" timestamp="1615624997735" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1615625865284">
+    <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1615873992101" />
+    <state width="1398" height="244" key="GridCell.Tab.1.right/0.23.1440.831@0.23.1440.831" timestamp="1615877019492" />
+    <state x="144" y="79" key="MergeDialog" timestamp="1615665285189">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615625865284" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615665059233">
+    <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1615665285189" />
+    <state x="358" y="218" key="MultipleFileMergeDialog" timestamp="1615665285251">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1615665059233" />
+    <state x="358" y="218" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1615665285251" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1615665320050">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615665320049" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615908039929">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1615908039929" />
     <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1615628074841">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1615628074841" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1615619707360">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1615873357786">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1615619707360" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1615873357786" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

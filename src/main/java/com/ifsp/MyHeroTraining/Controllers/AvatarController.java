@@ -53,10 +53,26 @@ public class AvatarController{
     public ResponseEntity<String> getAvatarPorId(@RequestParam int id) {
         HttpHeaders headers = new HttpHeaders();
 
-        Optional<CadastroUsuario> us = cadastraUsuarioRepository.findById(id);
+        Optional<CadastroUsuario> cus = cadastraUsuarioRepository.findById(id);
 
         try {
-            Avatar av = avatarRepository.findById(us.get().getAvatar());
+            Avatar av = avatarRepository.findById(cus.get().getAvatar());
+            headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+            return new ResponseEntity<>(av.getFile(), headers, HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(value = "/avatar/userid", produces = MediaType.IMAGE_JPEG_VALUE)
+    public ResponseEntity<String> getAvatarPorUserId(@RequestParam int id) {
+        HttpHeaders headers = new HttpHeaders();
+
+        Optional<Usuario> us = usuarioRepository.findById(id);
+        Optional<CadastroUsuario> cus = cadastraUsuarioRepository.findByEmail(us.get().getEmail());
+
+        try {
+            Avatar av = avatarRepository.findById(cus.get().getAvatar());
             headers.setCacheControl(CacheControl.noCache().getHeaderValue());
             return new ResponseEntity<>(av.getFile(), headers, HttpStatus.OK);
         }catch (Exception e){

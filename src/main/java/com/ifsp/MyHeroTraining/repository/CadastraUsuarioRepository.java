@@ -9,7 +9,6 @@ import java.util.Optional;
 
 public interface CadastraUsuarioRepository extends JpaRepository<CadastroUsuario, Integer> {
     Optional<CadastroUsuario> findByEmail(String email);
-    List<CadastroUsuario> findByemail(String email);
 
   Optional<CadastroUsuario> findById(int id);
 
