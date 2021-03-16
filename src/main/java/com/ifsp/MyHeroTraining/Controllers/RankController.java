@@ -5,10 +5,7 @@ import com.ifsp.MyHeroTraining.Models.Amizade;
 import com.ifsp.MyHeroTraining.repository.AmizadeRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class RankController {
     private AmizadeRepository amizadeRepository;
 
     @GetMapping
-    public void listaUsuario(@RequestParam int id) {
+    public void listaUsuario(@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language) {
         List<Amizade> amizades = amizadeRepository.findByUsuarioId(id);
 
         return;

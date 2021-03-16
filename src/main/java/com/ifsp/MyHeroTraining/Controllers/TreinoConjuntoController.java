@@ -26,7 +26,7 @@ public class TreinoConjuntoController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping
-    public List<Usuario> listaTreinosConjunto(@RequestParam int id) {
+    public List<Usuario> listaTreinosConjunto(@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language) {
 
         List<TreinoConjunto> treinos = treinoConjuntoRepository.findContatoAndUsuarioIdTrue(id);
         List<Usuario> listaTreinos = new ArrayList<>();
@@ -44,7 +44,7 @@ public class TreinoConjuntoController {
     }
 
     @GetMapping("/request")
-    public List<Usuario> listaSolicitacoesTreino(@RequestParam int id) {
+    public List<Usuario> listaSolicitacoesTreino(@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language) {
 
         List<TreinoConjunto> treinoConjuntos = treinoConjuntoRepository.findByConvidadoIdSolicitacoes(id);
         List<Usuario> listatreinoConjuntos = new ArrayList<>();
@@ -56,9 +56,32 @@ public class TreinoConjuntoController {
         return listatreinoConjuntos;
 
     }
+    @GetMapping("/accept")
+    public ResponseEntity<Boolean> buscaSolicitacaoAceita(@RequestParam int id) {
+        Boolean isAceito = false;
+        try {
+            List<TreinoConjunto> existeSolicitacaoAceita = treinoConjuntoRepository.findByIdConvidado(id);
+            if (!existeSolicitacaoAceita.isEmpty()) {
+                for (TreinoConjunto temSolicitacao : existeSolicitacaoAceita) {
+                    if (temSolicitacao.getStatus() == true) {
+                        isAceito = true;
+
+                    }
+
+                }
+
+            }
+            return ResponseEntity.ok(isAceito);
+        } catch (Exception e) {
+
+            return ResponseEntity.badRequest().build();
+        }
+
+    }
+
 
     @PostMapping("/request")
-    public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params )  {
+    public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params,@RequestHeader(value = "accept-language",required = true) String language )  {
 
         int iduser = Integer.parseInt(params.get("usuarioid"));
         int idconvite = Integer.parseInt(params.get("conviteid"));
@@ -85,7 +108,7 @@ public class TreinoConjuntoController {
     }
 
     @PostMapping("/accept")
-    public ResponseEntity aceitarSolicitacao(@RequestBody Map<String, String> params ) {
+    public ResponseEntity aceitarSolicitacao(@RequestBody Map<String, String> params,@RequestHeader(value = "accept-language",required = true) String language ) {
 
         logger.info(String.valueOf(params.values()));
         int usuarioid = Integer.parseInt(params.get("usuarioid"));
@@ -100,7 +123,7 @@ public class TreinoConjuntoController {
     }
 
     @PostMapping("/reject")
-    public ResponseEntity rejeitarSolicitacao(@RequestBody Map<String, String> params ) {
+    public ResponseEntity rejeitarSolicitacao(@RequestBody Map<String, String> params,@RequestHeader(value = "accept-language",required = true) String language ) {
 
         logger.info(String.valueOf(params.values()));
         int usuarioid = Integer.parseInt(params.get("usuarioid"));

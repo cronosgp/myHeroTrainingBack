@@ -15,7 +15,7 @@ public class ExercicioController {
     @Autowired
     private ExercicioRepository exercicioRepository;
     @GetMapping
-    public ResponseEntity<List<Exercicio>> listaExercicios(@RequestParam(required = false) int id) {
+    public ResponseEntity<List<Exercicio>> listaExercicios(@RequestParam(required = false) int id,@RequestHeader(value = "accept-language",required = true) String language) {
         try {
           List<Exercicio> exercicios = exercicioRepository.findById(id);
             return ResponseEntity.ok(exercicios);
@@ -25,7 +25,7 @@ public class ExercicioController {
         }
     }
     @GetMapping("/atualiza")
-    public ResponseEntity atualizaPontuação(@RequestParam  int id){
+    public ResponseEntity atualizaPontuação(@RequestParam  int id,@RequestHeader(value = "accept-language",required = true) String language){
        try {
       Boolean atualiza = exercicioRepository.atualizaPontos(id);
 

@@ -44,7 +44,7 @@ public class FaseController {
 
     }
     @GetMapping("/treino")
-    public ResponseEntity<Integer> lisIdtreino(@RequestParam Integer id) {
+    public ResponseEntity<Integer> lisIdtreino( String language,@RequestParam Integer id) {
         try {
            Integer idTreino =  usuarioDataFaseRepository.fase(id);
            return ResponseEntity.ok(idTreino);
@@ -57,7 +57,7 @@ public class FaseController {
     }
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<Treino> UpdateFase(@PathVariable Integer id) {
+    public ResponseEntity<Treino> UpdateFase(@RequestHeader(value = "accept-language",required = true) String language,@PathVariable Integer id) {
         FaseAtualiza faseAtualiza = new FaseAtualiza();
         try {
             Treino treino = faseAtualiza.atualizar(id, treinoRepository);
@@ -69,7 +69,7 @@ public class FaseController {
     }
 
     @GetMapping("/recupera")
-    public ResponseEntity <List<Fase>> recuperaFase(int id){
+    public ResponseEntity <List<Fase>> recuperaFase(@RequestHeader(value = "accept-language",required = true) String language,int id){
         try {
             List<Fase> fase = faseRepository.findById(id);
             return ResponseEntity.ok(fase);

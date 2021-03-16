@@ -43,7 +43,7 @@ public class AmizadeController {
     }
 
     @GetMapping("/request")
-    public List<Usuario> listaSolicitacaoAmigos(@RequestParam int id) {
+    public List<Usuario> listaSolicitacaoAmigos(@RequestHeader(value = "accept-language",required = true) String language,@RequestParam int id) {
 
             List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
             List<Usuario> listaAmizades = new ArrayList<>();
@@ -57,7 +57,7 @@ public class AmizadeController {
     }
 
     @PostMapping("/request")
-    public ResponseEntity enviarSolicitaca(@RequestBody Map<String, String> params )  {
+    public ResponseEntity enviarSolicitaca(@RequestHeader(value = "accept-language",required = true) String language, @RequestBody Map<String, String> params )  {
 
         int id = Integer.parseInt(params.get("usuarioid"));
         String email = params.get("email");
@@ -108,7 +108,7 @@ public class AmizadeController {
     }
 
     @PostMapping("/reject")
-    public ResponseEntity rejeitarSolicitacao(@RequestBody Map<String, String> params ) {
+    public ResponseEntity rejeitarSolicitacao(@RequestHeader(value = "accept-language",required = true) String language,@RequestBody Map<String, String> params ) {
 
         logger.info(String.valueOf(params.values()));
         int usuarioid = Integer.parseInt(params.get("usuarioid"));

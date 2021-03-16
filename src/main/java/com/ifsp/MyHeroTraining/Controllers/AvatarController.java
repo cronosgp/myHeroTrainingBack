@@ -35,7 +35,7 @@ public class AvatarController{
     private CadastraUsuarioRepository cadastraUsuarioRepository;
 
     @GetMapping(value = "/id")
-    public ResponseEntity<Optional<CadastroUsuario>> getPerfil(@RequestParam int id){
+    public ResponseEntity<Optional<CadastroUsuario>> getPerfil(@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language){
 
         Optional<Usuario> usuario = usuarioRepository.findById(id);
         Optional<CadastroUsuario> cadastroUsuario = cadastraUsuarioRepository.findByEmail(usuario.get().getEmail());
@@ -49,7 +49,7 @@ public class AvatarController{
     }
 
     @GetMapping(value = "/avatar/id", produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<String> getAvatarPorId(@RequestParam int id) {
+    public ResponseEntity<String> getAvatarPorId(@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language) {
         HttpHeaders headers = new HttpHeaders();
 
         Optional<Usuario> us = usuarioRepository.findById(id);
@@ -64,7 +64,7 @@ public class AvatarController{
     }
 
     @PostMapping(value = "/alterar")
-    public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody Map<String, String> params ) {
+    public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody Map<String, String> params, @RequestHeader(value = "accept-language",required = true) String language) {
 
         HttpHeaders headers = new HttpHeaders();
 

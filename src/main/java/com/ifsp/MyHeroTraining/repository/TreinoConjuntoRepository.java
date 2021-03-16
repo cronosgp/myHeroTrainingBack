@@ -13,6 +13,8 @@ public interface TreinoConjuntoRepository extends JpaRepository<TreinoConjunto, 
     Optional<TreinoConjunto> findByid(int id);
 
     List<TreinoConjunto> findByIdUsuario(int id);
+
+
     List<TreinoConjunto> findByIdConvidado(int id);
 
     @Query("SELECT u FROM TreinoConjunto u where u.idConvidado = ?1 AND u.idUsuario = ?2")

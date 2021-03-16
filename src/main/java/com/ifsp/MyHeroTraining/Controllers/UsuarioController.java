@@ -29,7 +29,7 @@ public class UsuarioController {
 
 
     @GetMapping("/id")
-    public ResponseEntity <Optional<Usuario>> infoUsuario(@RequestParam String email) {
+    public ResponseEntity <Optional<Usuario>> infoUsuario(@RequestParam String email,@RequestHeader(value = "accept-language",required = true) String language) {
         try {
             Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
             return ResponseEntity.ok(usuario);
@@ -39,7 +39,7 @@ public class UsuarioController {
         }
     }
     @GetMapping
-    public ResponseEntity <Optional<Usuario>> listaUsuario(@RequestParam int id) {
+    public ResponseEntity <Optional<Usuario>> listaUsuario(@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language) {
         try {
             Optional<Usuario> usuario = usuarioRepository.findById(id);
             return ResponseEntity.ok(usuario);
@@ -49,7 +49,7 @@ public class UsuarioController {
         }
     }
     @PostMapping
-    public ResponseEntity CadastroUsuarioLogin(@RequestBody  UsuarioForms usuarioForms, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity CadastroUsuarioLogin(@RequestBody  UsuarioForms usuarioForms, UriComponentsBuilder uriComponentsBuilder,@RequestHeader(value = "accept-language",required = true) String language) {
       try {
           Usuario usuario = new Usuario();
           usuario.setSenha(passwordEncoder.encode(usuarioForms.getSenha()));
@@ -64,7 +64,7 @@ public class UsuarioController {
       }
     }
     @PostMapping("/{id}")
-    public Treino UpdateUsuario(@PathVariable int id, @RequestBody AtualizaUsuarioTreinoForms atualizaUsuarioTreinoForms) {
+    public Treino UpdateUsuario(@PathVariable int id, @RequestBody AtualizaUsuarioTreinoForms atualizaUsuarioTreinoForms,@RequestHeader(value = "accept-language",required = true) String language) {
         Treino treino = atualizaUsuarioTreinoForms.AtualizaId(id, usuarioRepository,treinoRepository);
         return treino;
     }

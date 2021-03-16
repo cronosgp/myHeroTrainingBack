@@ -22,6 +22,7 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
   //  List<Treino> findByUsuariosId(Integer idUsuario);
 
 
+    List<Treino>findByExerciciosId(int id);
 
     List<Treino> findById(int id);
 

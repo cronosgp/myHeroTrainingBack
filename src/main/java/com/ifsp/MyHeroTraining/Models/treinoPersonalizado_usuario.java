@@ -1,8 +1,12 @@
 package com.ifsp.MyHeroTraining.Models;
+import org.hibernate.exception.DataException;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
+
 @Entity
 public class treinoPersonalizado_usuario {
     public int getId() {
@@ -28,6 +32,16 @@ public class treinoPersonalizado_usuario {
     public int id;
     public int idusuario;
     public int idExercicio;
+
+    public Date getData_treino() {
+        return data_treino;
+    }
+
+    public void setData_treino(Date data_treino) {
+        this.data_treino = data_treino;
+    }
+
+    public Date data_treino;
 
 
 }

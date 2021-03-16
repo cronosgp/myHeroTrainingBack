@@ -34,7 +34,7 @@ public class AutenticacaoController {
 
     }
     @PostMapping
-    public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid UsuarioForms form) {
+    public ResponseEntity<TokenDto> autenticar(@RequestHeader(value = "accept-language",required = true) String language,@RequestBody @Valid UsuarioForms form) {
         UsernamePasswordAuthenticationToken dadosLogin = form.converter();
         try {
             Authentication authentication = authManager.authenticate(dadosLogin);
@@ -47,7 +47,7 @@ public class AutenticacaoController {
     }
     @PutMapping("/{id}")
     @Transactional
-    public Usuario UpdateFase(@PathVariable int id, @RequestBody UsuarioAtualiza usuarioAtualiza){
+    public Usuario UpdateFase(@RequestHeader(value = "accept-language",required = true) String language,@PathVariable int id, @RequestBody UsuarioAtualiza usuarioAtualiza){
         Usuario usuario = usuarioAtualiza.atualizar(id,usuarioRepository);
         return usuario;
     }

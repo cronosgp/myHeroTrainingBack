@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -31,6 +32,7 @@ public class TreinoPersonalizadoController {
             treinoPersonalizado_usuario treinoPersonalizado = new treinoPersonalizado_usuario();
             treinoPersonalizado.setIdExercicio(teste.getExercicio());
             treinoPersonalizado.setIdusuario(teste.id);
+            treinoPersonalizado.setData_treino(teste.getData());
 
             treinoPersonalizadoUsuarioRepository.save(treinoPersonalizado);
             return ResponseEntity.ok().build();
@@ -62,11 +64,12 @@ public class TreinoPersonalizadoController {
 
     }
    @GetMapping("/dadosUsuario")
-    public  ResponseEntity<List<aquecimento>> dadosPersonalizadoUsuario(@RequestParam int id){
+    public  ResponseEntity<List<aquecimento>> dadosPersonalizadoUsuario(@RequestParam int id, Date data){
      try {
-         List<aquecimento> retornoDados = treinoPersonalizadoRepository.findByIdusuario(id);
+         List<aquecimento> retornoDados = treinoPersonalizadoRepository.findByIdusuario(id,data);
          return ResponseEntity.ok(retornoDados);
      }
+
      catch (AuthenticationException e){
          return ResponseEntity.badRequest().build();
               }

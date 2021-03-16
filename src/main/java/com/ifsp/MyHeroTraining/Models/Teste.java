@@ -1,5 +1,7 @@
 package com.ifsp.MyHeroTraining.Models;
 
+import java.util.Date;
+
 public class Teste {
     public int getId() {
         return id;
@@ -19,4 +21,14 @@ public class Teste {
 
     public int id;
     public int exercicio;
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Date data;
 }

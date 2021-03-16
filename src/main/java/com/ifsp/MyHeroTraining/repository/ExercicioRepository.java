@@ -20,4 +20,6 @@ public interface ExercicioRepository extends JpaRepository<Exercicio,Integer> {
    Boolean atualizaPontos(int id);
 
 
+
+
 }

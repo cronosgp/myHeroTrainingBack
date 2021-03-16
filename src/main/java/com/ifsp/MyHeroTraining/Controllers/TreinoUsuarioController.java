@@ -24,7 +24,7 @@ public class TreinoUsuarioController {
     private treinoPersonalizado_usu_feito  treinoPersonalizado_usu_feito;
 
     @PostMapping
-    public ResponseEntity<Treino_Usuario> UpdateUsuario(@RequestBody Treino_Usuario treino_usuario) {
+    public ResponseEntity<Treino_Usuario> UpdateUsuario(@RequestBody Treino_Usuario treino_usuario,@RequestHeader(value = "accept-language",required = true) String language) {
         try {
             treinoUsuarioRepository.save(treino_usuario);
             return ResponseEntity.ok(treino_usuario);
@@ -37,7 +37,7 @@ public class TreinoUsuarioController {
     //criar método aqui para fazer insert de 3 meses na function
 
     @GetMapping("/recupera")
-    public ResponseEntity<List<Treino_Usuario>> recuperaFase(@RequestParam int id, Date data) {
+    public ResponseEntity<List<Treino_Usuario>> recuperaFase(@RequestParam int id, Date data,@RequestHeader(value = "accept-language",required = true) String language) {
         List<Treino_Usuario> fase = treinoUsuarioRepository.findByDataRealizadaAndUsuario(data,id);
         try {
             return ResponseEntity.ok(fase);
@@ -46,8 +46,18 @@ public class TreinoUsuarioController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @GetMapping("/treinoConjunto")
+    public ResponseEntity<List<Treino_Usuario>> buscaTreinoConjunto(@RequestParam int id, Date data) {
+        List<Treino_Usuario> treino = treinoUsuarioRepository.findByUsuario(id,data);
+        try {
+            return ResponseEntity.ok(treino);
+
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
     @GetMapping("/personalizado")
-    public ResponseEntity<List<personalizado_usuario>> recuperaPesonalizado(@RequestParam Date data, int id) {
+    public ResponseEntity<List<personalizado_usuario>> recuperaPesonalizado(@RequestParam int id,Date data) {
 
         try {
             List<personalizado_usuario> fase = treinoPersonalizado_usu_feito.findByusuarioAndData(id,data);

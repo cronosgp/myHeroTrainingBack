@@ -23,7 +23,7 @@ public class ConfirmEmailController {
     private UsuarioRepository UsuarioRepository;
 
     @PostMapping
-    public ResponseEntity confirmUserAccount(@RequestBody String confirmationToken) {
+    public ResponseEntity confirmUserAccount(@RequestBody String confirmationToken,@RequestHeader(value = "accept-language",required = true) String language) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
         logger.info("chamou confirmacao");
         logger.info(confirmationToken);

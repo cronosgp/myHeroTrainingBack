@@ -5,6 +5,7 @@ import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ public class ClassificacaoController {
     @Autowired
     private TreinoRepository treinoRepository;
     @GetMapping
-    public ResponseEntity<List<dadosClassificacao>> dadosClassificacaos (){
+    public ResponseEntity<List<dadosClassificacao>> dadosClassificacaos (@RequestHeader(value = "accept-language",required = true) String language){
         try {
             List<dadosClassificacao> dadosClassific = treinoRepository.carregaDadosClassificao();
             return ResponseEntity.ok(dadosClassific);

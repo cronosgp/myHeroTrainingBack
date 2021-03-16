@@ -29,14 +29,14 @@ public class CadastroUsuarioController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping
-    public Optional<CadastroUsuario> listaUsuario(@RequestParam int id) {
+    public Optional<CadastroUsuario> listaUsuario(@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language) {
 
         Optional<CadastroUsuario> cadastroUsuarios = cadastraUsuarioRepository.findById(id);
         return cadastroUsuarios;
     }
 
     @GetMapping("/id")
-    public ResponseEntity<Optional<CadastroUsuario>> listaUsuarioId (@RequestParam int id) {
+    public ResponseEntity<Optional<CadastroUsuario>> listaUsuarioId (@RequestParam int id,@RequestHeader(value = "accept-language",required = true) String language) {
        try {
            Optional<CadastroUsuario> cadastroUsuario = cadastraUsuarioRepository.findById(id);
            return ResponseEntity.ok(cadastroUsuario);
@@ -46,7 +46,7 @@ public class CadastroUsuarioController {
     }
 
     @GetMapping("/email")
-    public ResponseEntity<CadastroUsuario> listaUsuarioEmail (@RequestParam String email) {
+    public ResponseEntity<CadastroUsuario> listaUsuarioEmail (@RequestParam String email,@RequestHeader(value = "accept-language",required = true) String language) {
         try {
             Optional<CadastroUsuario> cadastroUsuario = cadastraUsuarioRepository.findByEmail(email);
             return ResponseEntity.ok(cadastroUsuario.get());
@@ -56,7 +56,7 @@ public class CadastroUsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<CadastroUsuarioDto> CadastroUsuario(@RequestHeader(value = "accept-language",required = true) String language,@RequestBody @Valid CadastroUsuarioForms cadastroUsuarioForms, UriComponentsBuilder uriComponentsBuilder) {
 
         CadastroUsuario cadastroUsuario = cadastroUsuarioForms.converter();
         //valida se o email já foi cadastrado

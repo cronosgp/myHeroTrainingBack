@@ -36,12 +36,12 @@ public class EmailEnvioController {
 	@Autowired
 	private CadastraUsuarioRepository cadastraUsuarioRepository;
         @GetMapping
-        public List<EmailUsuario> listaUsuario(){
+        public List<EmailUsuario> listaUsuario(@RequestHeader(value = "accept-language",required = true) String language){
         List<EmailUsuario> emailUsuarios = emailRepository.findAll();
         return emailUsuarios;
     }
     @PostMapping
-    public ResponseEntity enviaEmail(@RequestBody String emailusuario) {
+    public ResponseEntity enviaEmail(@RequestBody String emailusuario,@RequestHeader(value = "accept-language",required = true) String language) {
         JavaMailSender mailSender;
         EmailConfig em = new EmailConfig();
         mailSender = em.mailSender();

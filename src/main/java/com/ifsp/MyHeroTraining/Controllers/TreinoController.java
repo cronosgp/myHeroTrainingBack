@@ -37,17 +37,17 @@ public class TreinoController {
         }
     }*/
     @GetMapping
-    public ResponseEntity <List<Exercicio>> listaTreinos(@RequestParam(required = false) Integer id, Boolean personalizado) {
+    public ResponseEntity <List<Exercicio>> listaTreinos(@RequestParam(required = false) Integer id) {
         try {
-
             List<Exercicio> treinoFase = exercicioRepository.findByTreinoIdOrderById(id);
             return ResponseEntity.ok(treinoFase);
         } catch (AuthenticationException e) {
             return ResponseEntity.badRequest().build();
         }
     }
+
     @PostMapping
-    public Treino cadasTreinos(@RequestBody Treino treino) {
+    public Treino cadasTreinos(@RequestHeader(value = "accept-language",required = true) String language,@RequestBody Treino treino) {
 
         // treinoRepository.save(treino);
 
@@ -61,6 +61,11 @@ public class TreinoController {
     @GetMapping("/recupera")
     public List<Treino> buscaTreinosFeitos(@RequestParam int IdUsuario) {
         List<Treino> treino = treinoRepository.findByUsuariosId(IdUsuario);
+        return treino;
+    }
+  @GetMapping("/idTreino")
+    public List<Treino> idTreino(@RequestParam int id) {
+        List<Treino> treino = treinoRepository.findByExerciciosId(id);
         return treino;
     }
 

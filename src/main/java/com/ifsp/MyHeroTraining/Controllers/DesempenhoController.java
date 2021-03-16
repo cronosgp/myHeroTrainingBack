@@ -5,10 +5,7 @@ import com.ifsp.MyHeroTraining.Models.desempenho_dados;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +19,7 @@ public class DesempenhoController {
     @Autowired
     TreinoRepository treinoRepository;
     @GetMapping
-    public ResponseEntity<List<desempenho>>buscaDados(@RequestParam int id, Date d_ini, Date dt_fim){
+    public ResponseEntity<List<desempenho>>buscaDados(@RequestParam int id, Date d_ini, Date dt_fim,@RequestHeader(value = "accept-language",required = true) String language){
         try {
             List<desempenho> dadosDesempenho = treinoRepository.carregaDesempenho(id, d_ini, dt_fim);
 
@@ -33,7 +30,7 @@ public class DesempenhoController {
         }
     }
     @GetMapping("/dado")
-    public ResponseEntity<List<desempenho_dados>> buscaDadosUsuario(int id){
+    public ResponseEntity<List<desempenho_dados>> buscaDadosUsuario(int id,@RequestHeader(value = "accept-language",required = true) String language){
         try{
 
             List<desempenho_dados> dadosUsu = treinoRepository.carregaDadosUsu(id);
