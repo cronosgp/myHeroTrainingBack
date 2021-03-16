@@ -11,6 +11,8 @@ import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,24 +36,37 @@ public class TreinoConjuntoController {
     private TreinoUsuarioRepository treinoUsuarioRepository;
 
     @GetMapping("/request/free")
-    public ResponseEntity liberaTreino(@RequestParam int id) {
+    public ResponseEntity<Boolean> liberaTreino(@RequestParam int id) {
+        Boolean response = null;
+        HttpHeaders headers = new HttpHeaders();
 
         List<TreinoConjunto> treinos = treinoConjuntoRepository.findContatoAndUsuarioIdTrue(id);
+
         if(treinos.isEmpty()){
-            return ResponseEntity.ok().build();
+            response = true;
+            return new ResponseEntity<>(response, headers, HttpStatus.OK);
+        }else{
+            response = false;
+            return new ResponseEntity<>(response, headers, HttpStatus.OK);
         }
-        return ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/request/day")
     public ResponseEntity checkTreino(@RequestParam int id){
+        Boolean response = null;
+        HttpHeaders headers = new HttpHeaders();
+
         Date today = Calendar.getInstance().getTime();
         List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuario(today,id);
 
+
         if(treinos.isEmpty()){
-            return ResponseEntity.ok().build();
+            response = true;
+            return new ResponseEntity<>(response, headers, HttpStatus.OK);
+        }else{
+            response = false;
+            return new ResponseEntity<>(response, headers, HttpStatus.OK);
         }
-        return ResponseEntity.badRequest().build();
     }
 
 
