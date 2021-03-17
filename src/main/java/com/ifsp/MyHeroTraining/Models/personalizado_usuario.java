@@ -41,6 +41,7 @@ public class personalizado_usuario {
 
     public int usuario;
 
+
     public Date getData() {
         return data;
     }
