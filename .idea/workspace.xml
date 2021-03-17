@@ -30,8 +30,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="treino-conjunto">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoConjuntoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoConjuntoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myHeroTrainingBack.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +162,7 @@
       <workItem from="1614894359165" duration="3526000" />
       <workItem from="1614907256321" duration="1324000" />
       <workItem from="1614908655269" duration="678000" />
+      <workItem from="1615939628756" duration="330000" />
     </task>
     <task id="LOCAL-00001" summary="ajuste">
       <created>1615619783906</created>
@@ -242,76 +245,6 @@
     <MESSAGE value="treino-conjunto" />
     <option name="LAST_COMMIT_MESSAGE" value="treino-conjunto" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="458" y="204" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1615628176109">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="458" y="204" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1440.900@0.0.1440.900" timestamp="1615628176108" />
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1615914507275">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615914507275" />
-    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615877019477" />
-    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1615914507274">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1615914507274" />
-    <state width="1398" height="244" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1615877019465" />
-    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1615914507273">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1615914507273" />
-    <state width="1398" height="244" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1615877019454" />
-    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1615914507274">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1615914507274" />
-    <state width="1398" height="244" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1615877019470" />
-    <state width="1398" height="244" key="GridCell.Tab.1.bottom" timestamp="1615914507277">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1615914507277" />
-    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.23.1440.831@0.23.1440.831" timestamp="1615877019495" />
-    <state width="1398" height="244" key="GridCell.Tab.1.center" timestamp="1615914507276">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1615914507276" />
-    <state width="1398" height="244" key="GridCell.Tab.1.center/0.23.1440.831@0.23.1440.831" timestamp="1615877019489" />
-    <state width="1398" height="244" key="GridCell.Tab.1.left" timestamp="1615914507276">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1615914507276" />
-    <state width="1398" height="244" key="GridCell.Tab.1.left/0.23.1440.831@0.23.1440.831" timestamp="1615877019481" />
-    <state width="1398" height="244" key="GridCell.Tab.1.right" timestamp="1615914507277">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1615914507277" />
-    <state width="1398" height="244" key="GridCell.Tab.1.right/0.23.1440.831@0.23.1440.831" timestamp="1615877019492" />
-    <state x="144" y="79" key="MergeDialog" timestamp="1615665285189">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1615665285189" />
-    <state x="358" y="218" key="MultipleFileMergeDialog" timestamp="1615665285251">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="358" y="218" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1615665285251" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1615908067059">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1615908067059" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615908039929">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1615908039929" />
-    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1615628074841">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1615628074841" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1615873357786">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1615873357786" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -324,11 +257,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Security/TokenService.java</url>
           <line>38</line>
           <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoController.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/ExercicioController.java</url>

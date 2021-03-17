@@ -17,11 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 public interface TreinoRepository extends JpaRepository<Treino, Integer> {
-   Page<Treino> findById(Integer id, Pageable paginacao);
+    Page<Treino> findById(Integer id, Pageable paginacao);
 
-  //  List<Treino> findByUsuariosId(Integer idUsuario);
+    //  List<Treino> findByUsuariosId(Integer idUsuario);
 
 
+    List<Treino>findByExerciciosId(int id);
 
     List<Treino> findById(int id);
 
@@ -33,9 +34,9 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
     @Query(value = "SELECT * from carrega_desempenho(:id,:data_ini,:data_fim);",nativeQuery = true)
     List<desempenho> carregaDesempenho(int id, Date data_ini, Date data_fim);
 
- @Transactional()
- @Query(value = "SELECT * from  DADOS_USUARIO(:id);",nativeQuery = true)
- List<desempenho_dados> carregaDadosUsu(int id);
+    @Transactional()
+    @Query(value = "SELECT * from  DADOS_USUARIO(:id);",nativeQuery = true)
+    List<desempenho_dados> carregaDadosUsu(int id);
 
     @Query(value = "SELECT * from ranking_usuario();",nativeQuery = true)
     List<dadosClassificacao> carregaDadosClassificao();
