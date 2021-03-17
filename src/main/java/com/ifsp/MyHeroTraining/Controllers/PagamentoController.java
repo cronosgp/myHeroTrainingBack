@@ -49,8 +49,8 @@ public class PagamentoController {
 
 		Payer payer = new Payer();
 		payer.setEmail(pagamentoForms.getEmail()).setIdentification(identification);
-		payer.setFirstName("Raphael Pitta");
-		payer.setLastName("Ptta");
+		payer.setFirstName(pagamentoForms.getNome());
+		payer.setLastName(pagamentoForms.getSobrenome());
 		payer.setAddress(new Address()
 	               .setZipCode("06233200")
 	               .setStreetName("Av. das Nações Unidas")
