@@ -43,23 +43,23 @@ public class PagamentoController {
 		payment.setTransactionAmount(pagamentoForms.getTransactionAmount()).setToken(pagamentoForms.getToken())
 				.setDescription(pagamentoForms.getToken()).setInstallments(pagamentoForms.getInstallments())
 				.setPaymentMethodId(pagamentoForms.getPaymentMethodId());
-				
+
 		Identification identification = new Identification();
 		identification.setType(pagamentoForms.getDocType()).setNumber(pagamentoForms.getDocNumber());
 
 		Payer payer = new Payer();
 		payer.setEmail(pagamentoForms.getEmail()).setIdentification(identification);
-		payer.setFirstName("Raphael Pitta");
-		payer.setLastName("Ptta");
+		payer.setFirstName(pagamentoForms.getNome());
+		payer.setLastName(pagamentoForms.getSobrenome());
 		payer.setAddress(new Address()
-	               .setZipCode("06233200")
-	               .setStreetName("Av. das Nações Unidas")
-	               .setStreetNumber(3003)
-	               .setNeighborhood("Bonfim")
-	               .setCity("Osasco")
-	               .setFederalUnit("SP"));
+				.setZipCode("06233200")
+				.setStreetName("Av. das Nações Unidas")
+				.setStreetNumber(3003)
+				.setNeighborhood("Bonfim")
+				.setCity("Osasco")
+				.setFederalUnit("SP"));
 		payment.setPayer(payer);
-		
+
 		if (payment.getPaymentMethodId().contains("bolbradesco")) {
 			try {
 				payment.save();
@@ -77,25 +77,25 @@ public class PagamentoController {
 			// return payment.getCallbackUrl();
 		}
 		System.out.println(payment.getPaymentTypeId());
-	
-			try {
-				payment.save();
-				if (payment.getStatus().toString().toLowerCase() == "approved") {
-					Pagamento savePagamento = pagamentoForms.converter();
-					savePagamento.setStatus_pagamento(payment.getStatus().toString().toLowerCase());
-					// savePagamento.setDataPagamento(Date.now());
-					pagamentoRepository.save(savePagamento);
-					return payment.getStatus().toString();
-				} else {
-					return payment.getStatus().toString();
-				}
 
-			} catch (MPException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			payment.save();
+			if (payment.getStatus().toString().toLowerCase() == "approved") {
+				Pagamento savePagamento = pagamentoForms.converter();
+				savePagamento.setStatus_pagamento(payment.getStatus().toString().toLowerCase());
+				// savePagamento.setDataPagamento(Date.now());
+				pagamentoRepository.save(savePagamento);
+				return payment.getStatus().toString();
+			} else {
+				return payment.getStatus().toString();
 			}
-			// return payment.getCallbackUrl();
-		
+
+		} catch (MPException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// return payment.getCallbackUrl();
+
 		return "Método de Pagamento não identificado";
 	}
 

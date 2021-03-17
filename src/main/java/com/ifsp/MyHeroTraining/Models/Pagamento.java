@@ -9,18 +9,18 @@ import javax.persistence.Id;
 @Entity
 public class Pagamento {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private int id;
+	private int id;
 
 	private String DataPagamento;
 	private String Nome;
 	private String Sobrenome;
-	 private float transactionAmount;
-	 private String token;
-	 private String description;
-	 private int installments;
-	 private String paymentMethodId;
-	 private String docType;
-	 private String docNumber;
+	private float transactionAmount;
+	private String token;
+	private String description;
+	private int installments;
+	private String paymentMethodId;
+	private String docType;
+	private String docNumber;
 	private String email;
 	private String status_pagamento;
 
@@ -34,7 +34,7 @@ public class Pagamento {
 
 	private int usuario;
 
-	
+
 
 
 	public String getDataPagamento() {
@@ -61,7 +61,7 @@ public class Pagamento {
 		Sobrenome = sobrenome;
 	}
 
-	
+
 	public int getNumeroComprado() {
 		return numeroComprado;
 	}
@@ -71,17 +71,17 @@ public class Pagamento {
 	}
 
 	private int numeroComprado;
-	
-	
-	
+
+
+
 	public Pagamento() {
-		
+
 	}
 
 	public Pagamento(float transactionAmount, String token,
-			String description, int installments, String paymentMethodId, String docType, String docNumber,
-			String email, String status_pagamento, String DataPagamento, String Nome, String Sobrenome,int IdUsuario) {
-		
+					 String description, int installments, String paymentMethodId, String docType, String docNumber,
+					 String email, String status_pagamento, String DataPagamento, String Nome, String Sobrenome,int IdUsuario) {
+
 		this.id = id;
 		this.Nome = Nome;
 		this.Sobrenome = Sobrenome;
@@ -106,11 +106,11 @@ public class Pagamento {
 		this.id = id;
 	}
 
-	
 
-	
 
-	
+
+
+
 
 	public float getTransactionAmount() {
 		return transactionAmount;
@@ -186,5 +186,5 @@ public class Pagamento {
 
 
 
-	 
+
 }
