@@ -111,7 +111,7 @@ public class TreinoConjuntoController {
                 response = true;
             }
         } else {
-            response = true;
+            response = false;
         }
         return new ResponseEntity<>(response, headers, HttpStatus.OK);
     }
