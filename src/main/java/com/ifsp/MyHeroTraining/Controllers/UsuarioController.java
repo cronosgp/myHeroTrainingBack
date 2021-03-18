@@ -2,8 +2,10 @@ package com.ifsp.MyHeroTraining.Controllers;
 
 import com.ifsp.MyHeroTraining.Forms.AtualizaUsuarioTreinoForms;
 import com.ifsp.MyHeroTraining.Forms.UsuarioForms;
+import com.ifsp.MyHeroTraining.Models.Pagamento;
 import com.ifsp.MyHeroTraining.Models.Treino;
 import com.ifsp.MyHeroTraining.Models.Usuario;
+import com.ifsp.MyHeroTraining.repository.PagamentoRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.slf4j.Logger;
@@ -27,6 +29,8 @@ public class UsuarioController {
     private TreinoRepository treinoRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PagamentoRepository pagamentoRepository;
 
 
     @GetMapping("/id")
@@ -47,6 +51,16 @@ public class UsuarioController {
         }
         catch(Exception e) {
             return  ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/pagamento")
+    public ResponseEntity <List<Pagamento>> isPagante(@RequestParam int id) {
+        try {
+           List<Pagamento> pagante = pagamentoRepository.findByUsuario(id);
+            return ResponseEntity.ok(pagante);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
         }
     }
     @PostMapping

@@ -29,7 +29,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="treino-conjunto" />
+    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="treino-conjunto">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/PagamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/PagamentoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +174,7 @@
       <workItem from="1614907256321" duration="1324000" />
       <workItem from="1614908655269" duration="678000" />
       <workItem from="1615939628756" duration="6600000" />
-      <workItem from="1615989447053" duration="24727000" />
+      <workItem from="1615989447053" duration="41249000" />
     </task>
     <task id="LOCAL-00001" summary="ajuste">
       <created>1615619783906</created>
@@ -272,12 +277,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java</url>
-          <line>27</line>
+          <line>29</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java</url>
-          <line>37</line>
+          <line>41</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -329,6 +334,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AutenticacaoController.java</url>
           <line>39</line>
           <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoConjuntoController.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
