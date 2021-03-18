@@ -78,7 +78,7 @@ public class TreinoConjuntoController {
     }
 
     @GetMapping("/request/last")
-    public ResponseEntity<Boolean> checkUltimoTreino(@RequestParam int id, int idTreino)  {
+    public ResponseEntity<Boolean> checkUltimoTreino(@RequestParam int id, int idTreino) {
 
         Boolean response = null;
         HttpHeaders headers = new HttpHeaders();
@@ -86,28 +86,37 @@ public class TreinoConjuntoController {
         LocalDate date = LocalDate.now();
         Date today = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-
-        logger.info(String.valueOf(today));
-        List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndAndId_exercicio(today,id,idTreino);
+        List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndAndId_exercicio(today, id, idTreino);
         List<TreinoConjunto> treinoConjuntos = treinoConjuntoRepository.findContatoAndUsuarioIdTrue(id);
 
-        List<TreinoConjuntoHistorico> treinoConjuntoHistoricos = treinoConjuntoHistoricoRepository.findContatoAndUsuarioAndData(treinoConjuntos.get(0).getIdUsuario(),
-                treinoConjuntos.get(0).getIdConvidado(), today);
 
-        if(treinoConjuntoHistoricos.isEmpty()) {
-            TreinoConjuntoHistorico treinoConjuntoHistorico = new TreinoConjuntoHistorico(treinoConjuntos.get(0).getIdUsuario(),
-                    treinoConjuntos.get(0).getIdConvidado(), today);
-            treinoConjuntos.get(0).setAguardando(true);
-            treinoConjuntoRepository.save(treinoConjuntos.get(0));
-            treinoConjuntoHistoricoRepository.save(treinoConjuntoHistorico);
-        }else{
-            treinoConjuntoRepository.delete(treinoConjuntos.get(0));
+        if (!treinos.isEmpty()) {
+            if (!treinoConjuntos.isEmpty()) {
+                List<TreinoConjuntoHistorico> treinoConjuntoHistoricos = treinoConjuntoHistoricoRepository.findContatoAndUsuarioAndData(treinoConjuntos.get(0).getIdUsuario(),
+                        treinoConjuntos.get(0).getIdConvidado(), today);
+
+                if (treinoConjuntoHistoricos.isEmpty()) {
+                    TreinoConjuntoHistorico treinoConjuntoHistorico = new TreinoConjuntoHistorico(treinoConjuntos.get(0).getIdUsuario(),
+                            treinoConjuntos.get(0).getIdConvidado(), today);
+                    treinoConjuntos.get(0).setAguardando(true);
+                    treinoConjuntoRepository.save(treinoConjuntos.get(0));
+                    treinoConjuntoHistoricoRepository.save(treinoConjuntoHistorico);
+                } else {
+                    treinoConjuntoRepository.delete(treinoConjuntos.get(0));
+                }
+
+                response = !treinos.isEmpty();
+
+            } else {
+                response = true;
+            }
+        } else {
+            response = true;
         }
-
-        response = !treinos.isEmpty() && !treinoConjuntos.isEmpty();
-
         return new ResponseEntity<>(response, headers, HttpStatus.OK);
     }
+
+
 
 
     @GetMapping

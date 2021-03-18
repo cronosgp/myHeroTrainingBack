@@ -33,7 +33,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/UsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/PagamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/PagamentoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoConjuntoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/TreinoConjuntoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615908063902</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="treino-conjunto">
+      <created>1616061832752</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616061832753</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +264,52 @@
     <MESSAGE value="ajuste" />
     <MESSAGE value="treino-conjunto" />
     <option name="LAST_COMMIT_MESSAGE" value="treino-conjunto" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1616101723325">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616101723325" />
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.23.1440.820@0.23.1440.820" timestamp="1616100537483" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1616101723324">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1616101723324" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.23.1440.820@0.23.1440.820" timestamp="1616100537480" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1616101723322">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1616101723322" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.23.1440.820@0.23.1440.820" timestamp="1616100537477" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1616101723324">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1616101723324" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.23.1440.820@0.23.1440.820" timestamp="1616100537481" />
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom" timestamp="1616101723351">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616101723351" />
+    <state width="1398" height="244" key="GridCell.Tab.1.bottom/0.23.1440.820@0.23.1440.820" timestamp="1616100537487" />
+    <state width="1398" height="244" key="GridCell.Tab.1.center" timestamp="1616101723328">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1616101723328" />
+    <state width="1398" height="244" key="GridCell.Tab.1.center/0.23.1440.820@0.23.1440.820" timestamp="1616100537485" />
+    <state width="1398" height="244" key="GridCell.Tab.1.left" timestamp="1616101723326">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1616101723326" />
+    <state width="1398" height="244" key="GridCell.Tab.1.left/0.23.1440.820@0.23.1440.820" timestamp="1616100537484" />
+    <state width="1398" height="244" key="GridCell.Tab.1.right" timestamp="1616101723347">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616101723347" />
+    <state width="1398" height="244" key="GridCell.Tab.1.right/0.23.1440.820@0.23.1440.820" timestamp="1616100537486" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1616062457757">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616062457757" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
