@@ -26,7 +26,7 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
 
     List<Treino> findById(int id);
 
-    List<Treino> findByUsuariosId(int id);
+ 
 
 
     @Transactional()

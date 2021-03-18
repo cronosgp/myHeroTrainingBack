@@ -58,11 +58,7 @@ public class TreinoController {
            Usuario usuario = atualizaUsuarioTreinoForms.AtualizaId(id, treinoRepository, usuarioRepository);
            return usuario;
        }*/
-    @GetMapping("/recupera")
-    public List<Treino> buscaTreinosFeitos(@RequestParam int IdUsuario) {
-        List<Treino> treino = treinoRepository.findByUsuariosId(IdUsuario);
-        return treino;
-    }
+   
     @GetMapping("/idTreino")
     public List<Treino> idTreino(@RequestParam int id) {
         List<Treino> treino = treinoRepository.findByExerciciosId(id);

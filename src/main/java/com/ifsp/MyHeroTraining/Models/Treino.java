@@ -75,13 +75,6 @@ public class Treino {
 
     public Boolean treinoFinalizado;
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
 
     public String getUrl() {
         return url;
@@ -92,14 +85,11 @@ public class Treino {
     }
 
 
-    @ManyToOne
-    private Usuario usuario;
 
 
     private String url;
 
-    @ManyToMany
-    private List<Usuario> usuarios;
+
 
 
     @OneToMany
