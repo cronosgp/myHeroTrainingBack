@@ -16,12 +16,12 @@ public class PagamentoForms {
 	private String Nome;
 	private String Sobrenome;
 	private int IdUsuario;
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	public int getIdUsuario() {
 		return IdUsuario;
 	}
@@ -269,7 +269,7 @@ public class PagamentoForms {
 	}
 
 
-	
+
 
 
 	public  Pagamento converter() {

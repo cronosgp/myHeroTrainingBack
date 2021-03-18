@@ -7,7 +7,7 @@ import java.util.Date;
 
 public interface desempenho {
     @JsonSetter("qtd_pontos")
-    BigInteger getqtd_pontos();
+    BigInteger getQtd_pontos();
     @JsonSetter("data_realizada")
     Date getdata_realizada();
    

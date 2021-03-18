@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 public interface ExercicioRepository extends JpaRepository<Exercicio,Integer> {
     Page<Exercicio> findByTreinoId(Integer id, Pageable paginacao);
@@ -15,7 +16,11 @@ public interface ExercicioRepository extends JpaRepository<Exercicio,Integer> {
 
     List<Exercicio> findById(int ind);
 
-   @Transactional
+    @Query("SELECT u FROM Exercicio u where u.id = ?1")
+    Optional<Exercicio> findOneById(int ind);
+
+
+    @Transactional
     @Query(value = "SELECT  desempenho_usuario(:id);",nativeQuery = true)
    Boolean atualizaPontos(int id);
 

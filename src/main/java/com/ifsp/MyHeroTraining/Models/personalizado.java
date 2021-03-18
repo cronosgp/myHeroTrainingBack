@@ -1,6 +1,8 @@
 package com.ifsp.MyHeroTraining.Models;
 
-public class Teste {
+import java.util.Date;
+
+public class personalizado {
     public int getId() {
         return id;
     }
@@ -19,4 +21,14 @@ public class Teste {
 
     public int id;
     public int exercicio;
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Date data;
 }

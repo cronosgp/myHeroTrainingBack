@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 @Entity
-public class TreinoConjunto {
+public class TreinoConjuntoHistorico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -17,28 +17,25 @@ public class TreinoConjunto {
 
     private int idUsuario;
 
+    private int treino;
+
     private Date data;
 
-    private Boolean status;
 
-    private Boolean aguardando;
-
-    public TreinoConjunto(int idUsuario, int idConvidado) {
+    public TreinoConjuntoHistorico(int idUsuario, int idConvidado, Date data) {
         this.id = id;
         this.idConvidado = idConvidado;
         this.idUsuario = idUsuario;
-        this.aguardando = false;
+        this.treino = treino;
         this.data = data;
-        this.status = status;
     }
 
-    public TreinoConjunto() {
+    public TreinoConjuntoHistorico() {
         this.id = id;
         this.idConvidado = idConvidado;
         this.idUsuario = idUsuario;
-        this.aguardando = aguardando;
+        this.treino = treino;
         this.data = data;
-        this.status = status;
     }
 
     public int getId() {
@@ -65,12 +62,12 @@ public class TreinoConjunto {
         this.idUsuario = idUsuario;
     }
 
-    public Boolean getAguardando() {
-        return aguardando;
+    public int getTreino() {
+        return treino;
     }
 
-    public void setAguardando(Boolean aguardando) {
-        this.aguardando = aguardando;
+    public void setTreino(int treino) {
+        this.treino = treino;
     }
 
     public Date getData() {
@@ -81,12 +78,5 @@ public class TreinoConjunto {
         this.data = data;
     }
 
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
 }
 
