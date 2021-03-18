@@ -1,13 +1,7 @@
 package com.ifsp.MyHeroTraining.Controllers;
 
-import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
-import com.ifsp.MyHeroTraining.Models.TreinoConjunto;
-import com.ifsp.MyHeroTraining.Models.Treino_Usuario;
-import com.ifsp.MyHeroTraining.Models.Usuario;
-import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
-import com.ifsp.MyHeroTraining.repository.TreinoConjuntoRepository;
-import com.ifsp.MyHeroTraining.repository.TreinoUsuarioRepository;
-import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
+import com.ifsp.MyHeroTraining.Models.*;
+import com.ifsp.MyHeroTraining.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 @RequestMapping("/treino-conjunto")
@@ -35,6 +30,12 @@ public class TreinoConjuntoController {
     @Autowired
     private TreinoUsuarioRepository treinoUsuarioRepository;
 
+    @Autowired
+    private ExercicioRepository exercicioRepository;
+
+    @Autowired
+    private TreinoConjuntoHistoricoRepository treinoConjuntoHistoricoRepository;
+
     @GetMapping("/request/free")
     public ResponseEntity<Boolean> liberaTreino(@RequestParam int id) {
         Boolean response = null;
@@ -51,22 +52,61 @@ public class TreinoConjuntoController {
         }
     }
 
+    @GetMapping("/request/friend")
+    public ResponseEntity<Boolean> amigoJaFez(@RequestParam int id) {
+        Boolean response = null;
+        HttpHeaders headers = new HttpHeaders();
+
+        List<TreinoConjunto> treinos = treinoConjuntoRepository.findContatoAndUsuarioIdTrueAguardando(id);
+
+        response = treinos.isEmpty();
+        return new ResponseEntity<>(response, headers, HttpStatus.OK);
+    }
+
     @GetMapping("/request/day")
-    public ResponseEntity checkTreino(@RequestParam int id){
+    public ResponseEntity<Boolean> checkTreino(@RequestParam int id){
         Boolean response = null;
         HttpHeaders headers = new HttpHeaders();
 
         Date today = Calendar.getInstance().getTime();
+        logger.info(String.valueOf(today));
         List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuario(today,id);
 
 
-        if(treinos.isEmpty()){
-            response = true;
-            return new ResponseEntity<>(response, headers, HttpStatus.OK);
+        response = treinos.isEmpty();
+        return new ResponseEntity<>(response, headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/request/last")
+    public ResponseEntity<Boolean> checkUltimoTreino(@RequestParam int id, int idTreino)  {
+
+        Boolean response = null;
+        HttpHeaders headers = new HttpHeaders();
+
+        LocalDate date = LocalDate.now();
+        Date today = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+
+        logger.info(String.valueOf(today));
+        List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndAndId_exercicio(today,id,idTreino);
+        List<TreinoConjunto> treinoConjuntos = treinoConjuntoRepository.findContatoAndUsuarioIdTrue(id);
+
+        List<TreinoConjuntoHistorico> treinoConjuntoHistoricos = treinoConjuntoHistoricoRepository.findContatoAndUsuarioAndData(treinoConjuntos.get(0).getIdUsuario(),
+                treinoConjuntos.get(0).getIdConvidado(), today);
+
+        if(treinoConjuntoHistoricos.isEmpty()) {
+            TreinoConjuntoHistorico treinoConjuntoHistorico = new TreinoConjuntoHistorico(treinoConjuntos.get(0).getIdUsuario(),
+                    treinoConjuntos.get(0).getIdConvidado(), today);
+            treinoConjuntos.get(0).setAguardando(true);
+            treinoConjuntoRepository.save(treinoConjuntos.get(0));
+            treinoConjuntoHistoricoRepository.save(treinoConjuntoHistorico);
         }else{
-            response = false;
-            return new ResponseEntity<>(response, headers, HttpStatus.OK);
+            treinoConjuntoRepository.delete(treinoConjuntos.get(0));
         }
+
+        response = !treinos.isEmpty() && !treinoConjuntos.isEmpty();
+
+        return new ResponseEntity<>(response, headers, HttpStatus.OK);
     }
 
 
@@ -85,6 +125,24 @@ public class TreinoConjuntoController {
             }
         }
         return listaTreinos;
+
+    }
+
+    @GetMapping("/resultado")
+    public int resultado(@RequestParam int id) {
+
+        Date today = Calendar.getInstance().getTime();
+        int usuarioTotalPontos = 0;
+
+        List<Treino_Usuario> treino_usuario1 = treinoUsuarioRepository.findByDataRealizadaAndUsuario(today, id);
+
+        for (Treino_Usuario treino : treino_usuario1
+             ) {
+            Optional<Exercicio> ex = exercicioRepository.findOneById(treino.getId_exercicio());
+            usuarioTotalPontos += ex.get().getQntd_pontos();
+        }
+        usuarioTotalPontos *= 2;
+        return usuarioTotalPontos;
 
     }
 

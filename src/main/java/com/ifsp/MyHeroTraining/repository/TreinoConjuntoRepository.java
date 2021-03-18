@@ -23,4 +23,7 @@ public interface TreinoConjuntoRepository extends JpaRepository<TreinoConjunto, 
 
     @Query("SELECT u FROM TreinoConjunto u where (u.idConvidado = ?1 OR u.idUsuario = ?1) AND u.status = true")
     List<TreinoConjunto> findContatoAndUsuarioIdTrue(int id);
+
+    @Query("SELECT u FROM TreinoConjunto u where (u.idConvidado = ?1 OR u.idUsuario = ?1) AND u.status = true AND u.aguardando = true")
+    List<TreinoConjunto> findContatoAndUsuarioIdTrueAguardando(int id);
 }

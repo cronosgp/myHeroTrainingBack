@@ -41,11 +41,15 @@ public class AmizadeController {
         List<CadastroUsuario> listaAmizades = new ArrayList<>();
 
         for(Amizade e : amizades) {
-            if (e.getUsuarioId() == id){
+            if (e.getUsuarioId() == id && usuarioRepository.findById(e.getAmizadeId()).isPresent() && cadastraUsuarioRepository.findByEmail(
+                    usuarioRepository.findById(e.getAmizadeId()).get().getEmail()).isPresent()){
+
                 listaAmizades.add(cadastraUsuarioRepository.findByEmail(
                         usuarioRepository.findById(e.getAmizadeId()).get().getEmail()).get());
 
-            }else if (e.getAmizadeId() == id) {
+            }else if (e.getAmizadeId() == id && usuarioRepository.findById(e.getUsuarioId()).isPresent() && cadastraUsuarioRepository.findByEmail(
+                    usuarioRepository.findById(e.getUsuarioId()).get().getEmail()).isPresent()) {
+
                 listaAmizades.add(cadastraUsuarioRepository.findByEmail(
                         usuarioRepository.findById(e.getUsuarioId()).get().getEmail()).get());
             }
