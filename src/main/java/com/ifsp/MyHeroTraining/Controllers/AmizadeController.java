@@ -4,9 +4,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ifsp.MyHeroTraining.Models.Amizade;
 import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
+import com.ifsp.MyHeroTraining.Models.TreinoConjunto;
 import com.ifsp.MyHeroTraining.Models.Usuario;
 import com.ifsp.MyHeroTraining.repository.AmizadeRepository;
 import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
+import com.ifsp.MyHeroTraining.repository.TreinoConjuntoRepository;
 import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
 import org.checkerframework.checker.nullness.Opt;
 import org.slf4j.Logger;
@@ -30,6 +32,9 @@ public class AmizadeController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private TreinoConjuntoRepository treinoConjuntoRepository;
 
     @Autowired
     private CadastraUsuarioRepository cadastraUsuarioRepository;
@@ -170,6 +175,8 @@ public class AmizadeController {
 
         Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
         Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
+        Optional<TreinoConjunto> tc = treinoConjuntoRepository.findContatoAndUsuarioByOneId(usuarioid
+        ,amizadeid);
 
         if (amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId()).isPresent()){
             Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
@@ -179,6 +186,9 @@ public class AmizadeController {
             Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(us.get().getId(), amizadeid);
             amizadeRepository.delete(amizade.get());
         }
+
+        tc.ifPresent(treinoConjunto -> treinoConjuntoRepository.delete(treinoConjunto));
+
         return ResponseEntity.ok().build();
     }
 }
