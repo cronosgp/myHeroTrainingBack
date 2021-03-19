@@ -29,10 +29,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="treino-conjunto">
+    <list default="true" id="3e5bb4ad-2554-43d6-aeaf-31a92e38489c" name="Default Changelist" comment="Treino e Amizade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/Controllers/AmizadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoConjuntoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ifsp/MyHeroTraining/repository/TreinoConjuntoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616102570560</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Treino e Amizade">
+      <created>1616184849174</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616184849174</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +274,8 @@
     <MESSAGE value="ajuste" />
     <MESSAGE value="treino-conjunto" />
     <MESSAGE value="Volta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Volta" />
+    <MESSAGE value="Treino e Amizade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Treino e Amizade" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1616122282267">
@@ -316,14 +322,14 @@
     </state>
     <state width="1398" height="244" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616122055705" />
     <state width="1398" height="244" key="GridCell.Tab.1.right/0.23.1440.820@0.23.1440.820" timestamp="1616100537486" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1616102575321">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1616185995486">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616102575321" />
-    <state x="481" y="191" key="VcsDiffUtil.ChangesDialog" timestamp="1616122083049">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616185995486" />
+    <state x="481" y="191" key="VcsDiffUtil.ChangesDialog" timestamp="1616186001011">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="481" y="191" key="VcsDiffUtil.ChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1616122083049" />
+    <state x="481" y="191" key="VcsDiffUtil.ChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1616186001011" />
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616102523342">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
