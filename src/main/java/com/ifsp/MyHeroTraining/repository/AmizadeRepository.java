@@ -12,8 +12,8 @@ public interface AmizadeRepository extends JpaRepository<Amizade, Integer> {
     List<Amizade> findByUsuarioId(int id);
     List<Amizade> findByAmizadeId(int id);
 
-    @Query("SELECT u FROM Amizade u where u.usuarioId = ?1 AND u.status = false")
-    List<Amizade> findByUsuarioIdSolicitacoes(int id);
+    @Query("SELECT u FROM Amizade u where (u.usuarioId = ?1 OR u.amizadeId = ?1) AND (u.usuarioId = ?2 OR u.amizadeId = ?2) ")
+    List<Amizade> findAnyByUsuarioIdAndAmizadeId(int id, int id2);
 
     @Query("SELECT u FROM Amizade u where (u.usuarioId = ?1 OR u.amizadeId = ?1) AND u.status = true")
     List<Amizade> findAmizadeByUsuarioId(int id);

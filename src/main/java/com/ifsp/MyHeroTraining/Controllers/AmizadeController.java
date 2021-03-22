@@ -73,10 +73,12 @@ public class AmizadeController {
             DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
 
             Map<String, String> Datas  = new HashMap<>();
+
                 for (Amizade e : amizades) {
                     String dataString = df.format(e.getDataAmizade());
                     if(e.getUsuarioId() == id) {
                         Datas.put(String.valueOf(e.getAmizadeId()),dataString);
+
                     } else if(e.getAmizadeId() == id) {
                         Datas.put(String.valueOf(e.getUsuarioId()),dataString);
                     }
@@ -102,7 +104,6 @@ public class AmizadeController {
 
         for(Amizade e : amizades) {
             Optional<Usuario> us = usuarioRepository.findById(e.getUsuarioId());
-
             if (cadastraUsuarioRepository.findByEmail(us.get().getEmail()).isPresent()){
                     listaAmizades.add(cadastraUsuarioRepository.findByEmail(us.get().getEmail()).get());
             }
@@ -119,32 +120,23 @@ public class AmizadeController {
         logger.info(email + " " + id);
 
 
-            List<Amizade> listaUsuario = amizadeRepository.findByUsuarioId(id);
-        boolean lu = listaUsuario.isEmpty();
             Optional<Usuario> user = usuarioRepository.findByEmail(email);
-            List<Amizade> listaAmizade = amizadeRepository.findByAmizadeId(user.get().getId());
-        boolean la = listaAmizade.isEmpty();
+        List<Amizade> listaUsuario = amizadeRepository.findAnyByUsuarioIdAndAmizadeId(user.get().getId(), id);
 
-
-        if(!lu || !la){
-            if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
-                    listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
-            user.get().getId() == id) {
+        if(!listaUsuario.isEmpty() || user.get().getId() == id){
+                return ResponseEntity.badRequest().build();
+            }else {
+            try {
+                Amizade amizade = new Amizade(id, user.get().getId());
+                amizade.setStatus(false);
+                amizadeRepository.save(amizade);
+                return ResponseEntity.ok().build();
+            } catch (Exception e) {
+                logger.info(String.valueOf(e));
+                e.printStackTrace();
                 return ResponseEntity.badRequest().build();
             }
         }
-
-        try {
-            Amizade amizade = new Amizade(id, user.get().getId());
-            amizade.setStatus(false);
-            amizadeRepository.save(amizade);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            logger.info(String.valueOf(e));
-            e.printStackTrace();
-            return ResponseEntity.badRequest().build();
-        }
-
     }
 
     @PostMapping("/accept")
