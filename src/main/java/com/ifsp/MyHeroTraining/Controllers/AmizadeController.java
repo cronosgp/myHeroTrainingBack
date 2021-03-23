@@ -96,34 +96,23 @@ public class AmizadeController {
         if (!existeEmail.isPresent()) {
                 return ResponseEntity.ok().build();
 
-        } else {
-            List<Amizade> listaUsuario = amizadeRepository.findByUsuarioId(id);
-            boolean lu = listaUsuario.isEmpty();
             Optional<Usuario> user = usuarioRepository.findByEmail(email);
-            List<Amizade> listaAmizade = amizadeRepository.findByAmizadeId(user.get().getId());
-            boolean la = listaAmizade.isEmpty();
-            if (!lu || !la) {
-                if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
-                        listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
-                        user.get().getId() == id) {
-                    return ResponseEntity.badRequest().build();
-                }
-            }
+        List<Amizade> listaUsuario = amizadeRepository.findAnyByUsuarioIdAndAmizadeId(user.get().getId(), id);
 
-
+        if(!listaUsuario.isEmpty() || user.get().getId() == id){
+                return ResponseEntity.badRequest().build();
+            }else {
             try {
                 Amizade amizade = new Amizade(id, user.get().getId());
                 amizade.setStatus(false);
                 amizadeRepository.save(amizade);
-                return ResponseEntity.ok("ok");
+                return ResponseEntity.ok().build();
             } catch (Exception e) {
                 logger.info(String.valueOf(e));
                 e.printStackTrace();
                 return ResponseEntity.badRequest().build();
             }
-
         }
-
     }
 
     @PostMapping("/accept")
