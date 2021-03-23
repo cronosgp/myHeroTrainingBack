@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="myHeroTrainingBack" target="1.8" />
+      <module name="myHeroTrainingBack" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

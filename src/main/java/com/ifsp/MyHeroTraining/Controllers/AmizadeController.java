@@ -2,10 +2,7 @@ package com.ifsp.MyHeroTraining.Controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ifsp.MyHeroTraining.Models.Amizade;
-import com.ifsp.MyHeroTraining.Models.CadastroUsuario;
-import com.ifsp.MyHeroTraining.Models.TreinoConjunto;
-import com.ifsp.MyHeroTraining.Models.Usuario;
+import com.ifsp.MyHeroTraining.Models.*;
 import com.ifsp.MyHeroTraining.repository.AmizadeRepository;
 import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
 import com.ifsp.MyHeroTraining.repository.TreinoConjuntoRepository;
@@ -45,14 +42,14 @@ public class AmizadeController {
         List<Amizade> amizades = amizadeRepository.findAmizadeByUsuarioId(id);
         List<CadastroUsuario> listaAmizades = new ArrayList<>();
 
-        for(Amizade e : amizades) {
+        for (Amizade e : amizades) {
             if (e.getUsuarioId() == id && usuarioRepository.findById(e.getAmizadeId()).isPresent() && cadastraUsuarioRepository.findByEmail(
-                    usuarioRepository.findById(e.getAmizadeId()).get().getEmail()).isPresent()){
+                    usuarioRepository.findById(e.getAmizadeId()).get().getEmail()).isPresent()) {
 
                 listaAmizades.add(cadastraUsuarioRepository.findByEmail(
                         usuarioRepository.findById(e.getAmizadeId()).get().getEmail()).get());
 
-            }else if (e.getAmizadeId() == id && usuarioRepository.findById(e.getUsuarioId()).isPresent() && cadastraUsuarioRepository.findByEmail(
+            } else if (e.getAmizadeId() == id && usuarioRepository.findById(e.getUsuarioId()).isPresent() && cadastraUsuarioRepository.findByEmail(
                     usuarioRepository.findById(e.getUsuarioId()).get().getEmail()).isPresent()) {
 
                 listaAmizades.add(cadastraUsuarioRepository.findByEmail(
@@ -64,33 +61,9 @@ public class AmizadeController {
     }
 
     @GetMapping("/data")
-    public ResponseEntity<String> getAmizadeData(@RequestParam int id) {
-        HttpHeaders headers = new HttpHeaders();
-
-        try {
-            List<Amizade> amizades = amizadeRepository.findAmizadeByUsuarioId(id);
-
-            DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
-
-            Map<String, String> Datas  = new HashMap<>();
-                for (Amizade e : amizades) {
-                    String dataString = df.format(e.getDataAmizade());
-                    if(e.getUsuarioId() == id) {
-                        Datas.put(String.valueOf(e.getAmizadeId()),dataString);
-                    } else if(e.getAmizadeId() == id) {
-                        Datas.put(String.valueOf(e.getUsuarioId()),dataString);
-                    }
-                }
-                Gson gson = new GsonBuilder().create();
-                String resposta = gson.toJson(Datas);
-
-                logger.info(resposta);
-
-            return new ResponseEntity<>(resposta, headers, HttpStatus.OK);
-        }catch (Exception e){
-            logger.info(String.valueOf(e));
-            return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
-        }
+    public List<dados_amizade> getAmizadeData(@RequestParam int id) {
+            List<dados_amizade> dados = amizadeRepository.amizade(id);
+            return dados;
 
     }
 
@@ -98,51 +71,57 @@ public class AmizadeController {
     public List<CadastroUsuario> listaSolicitacaoAmigos(@RequestParam int id) {
 
             List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
-            List<CadastroUsuario> listaAmizades = new ArrayList<>();
+        List<CadastroUsuario> listaAmizades = new ArrayList<>();
 
-        for(Amizade e : amizades) {
+        for (Amizade e : amizades) {
             Optional<Usuario> us = usuarioRepository.findById(e.getUsuarioId());
 
-            if (cadastraUsuarioRepository.findByEmail(us.get().getEmail()).isPresent()){
-                    listaAmizades.add(cadastraUsuarioRepository.findByEmail(us.get().getEmail()).get());
+            if (cadastraUsuarioRepository.findByEmail(us.get().getEmail()).isPresent()) {
+                listaAmizades.add(cadastraUsuarioRepository.findByEmail(us.get().getEmail()).get());
             }
         }
-            return listaAmizades;
+        return listaAmizades;
     }
 
     @PostMapping("/request")
-    public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params )  {
+    public ResponseEntity<String> enviarSolicitacao(@RequestBody Map<String, String> params) {
 
         int id = Integer.parseInt(params.get("usuarioid"));
         String email = params.get("email");
 
         logger.info(email + " " + id);
 
+        Optional<CadastroUsuario> existeEmail = cadastraUsuarioRepository.findByEmail(email);
 
+        if (!existeEmail.isPresent()) {
+                return ResponseEntity.ok().build();
+
+        } else {
             List<Amizade> listaUsuario = amizadeRepository.findByUsuarioId(id);
-        boolean lu = listaUsuario.isEmpty();
+            boolean lu = listaUsuario.isEmpty();
             Optional<Usuario> user = usuarioRepository.findByEmail(email);
             List<Amizade> listaAmizade = amizadeRepository.findByAmizadeId(user.get().getId());
-        boolean la = listaAmizade.isEmpty();
+            boolean la = listaAmizade.isEmpty();
+            if (!lu || !la) {
+                if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
+                        listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
+                        user.get().getId() == id) {
+                    return ResponseEntity.badRequest().build();
+                }
+            }
 
 
-        if(!lu || !la){
-            if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
-                    listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
-            user.get().getId() == id) {
+            try {
+                Amizade amizade = new Amizade(id, user.get().getId());
+                amizade.setStatus(false);
+                amizadeRepository.save(amizade);
+                return ResponseEntity.ok("ok");
+            } catch (Exception e) {
+                logger.info(String.valueOf(e));
+                e.printStackTrace();
                 return ResponseEntity.badRequest().build();
             }
-        }
 
-        try {
-            Amizade amizade = new Amizade(id, user.get().getId());
-            amizade.setStatus(false);
-            amizadeRepository.save(amizade);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            logger.info(String.valueOf(e));
-            e.printStackTrace();
-            return ResponseEntity.badRequest().build();
         }
 
     }

@@ -113,8 +113,10 @@ public class AvatarController{
         int avatar = Integer.parseInt(params.get("avatar"));
 
         try {
-            Optional<CadastroUsuario> usuario = cadastraUsuarioRepository.findById(id);
+
             Optional<Usuario> user = usuarioRepository.findByEmail(email);
+
+            Optional<CadastroUsuario> usuario = cadastraUsuarioRepository.findByEmail(email);
 
             CadastroUsuario us = usuario.get();
 
