@@ -23,10 +23,10 @@ public class DesempenhoController {
     @Autowired
     TreinoRepository treinoRepository;
     @GetMapping
-    public ResponseEntity<List<desempenho>>buscaDados(@RequestParam int id, Date d_ini, Date dt_fim){
+    public ResponseEntity<List<desempenho>>buscaDados(@RequestParam int id, Date d_ini, Date dt_fim, int filtro){
         try {
       
-            List<desempenho> dadosDesempenho = treinoRepository.carregaDesempenho(id, d_ini, dt_fim);
+            List<desempenho> dadosDesempenho = treinoRepository.carregaDesempenho(id, d_ini, dt_fim, filtro);
          
             return ResponseEntity.ok(dadosDesempenho);
         }

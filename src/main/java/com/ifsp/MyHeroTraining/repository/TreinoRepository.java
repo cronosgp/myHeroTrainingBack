@@ -31,8 +31,8 @@ public interface TreinoRepository extends JpaRepository<Treino, Integer> {
 
     @Transactional()
 
-    @Query(value = "SELECT * from carrega_desempenho(:id,:data_ini,:data_fim);",nativeQuery = true)
-    List<desempenho> carregaDesempenho(int id, Date data_ini, Date data_fim);
+    @Query(value = "SELECT * from carrega_desempenho(:id,:data_ini,:data_fim, :filtro);",nativeQuery = true)
+    List<desempenho> carregaDesempenho(int id, Date data_ini, Date data_fim, int filtro);
 
     @Transactional()
     @Query(value = "SELECT * from  DADOS_USUARIO(:id);",nativeQuery = true)
