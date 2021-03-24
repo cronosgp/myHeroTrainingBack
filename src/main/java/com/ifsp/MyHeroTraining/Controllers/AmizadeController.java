@@ -3,10 +3,7 @@ package com.ifsp.MyHeroTraining.Controllers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ifsp.MyHeroTraining.Models.*;
-import com.ifsp.MyHeroTraining.repository.AmizadeRepository;
-import com.ifsp.MyHeroTraining.repository.CadastraUsuarioRepository;
-import com.ifsp.MyHeroTraining.repository.TreinoConjuntoRepository;
-import com.ifsp.MyHeroTraining.repository.UsuarioRepository;
+import com.ifsp.MyHeroTraining.repository.*;
 import org.checkerframework.checker.nullness.Opt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +32,9 @@ public class AmizadeController {
 
     @Autowired
     private CadastraUsuarioRepository cadastraUsuarioRepository;
+
+    @Autowired
+    private NotificacaoRepository notificacaoRepository;
 
     @GetMapping
     public List<CadastroUsuario> listaAmigos(@RequestParam int id) {
@@ -85,40 +85,34 @@ public class AmizadeController {
     @PostMapping("/request")
     public ResponseEntity<String> enviarSolicitacao(@RequestBody Map<String, String> params) {
 
+        HttpHeaders headers = new HttpHeaders();
+
         int id = Integer.parseInt(params.get("usuarioid"));
         String email = params.get("email");
 
         logger.info(email + " " + id);
 
-        Optional<CadastroUsuario> existeEmail = cadastraUsuarioRepository.findByEmail(email);
+        Optional<Usuario> user = usuarioRepository.findByEmail(email);
 
-        if (!existeEmail.isPresent()) {
-            return ResponseEntity.ok().build();
+        if (!user.isPresent()) {
+            return new ResponseEntity<>(headers, HttpStatus.NOT_FOUND);
 
         } else {
-            List<Amizade> listaUsuario = amizadeRepository.findByUsuarioId(id);
-            boolean lu = listaUsuario.isEmpty();
-            Optional<Usuario> user = usuarioRepository.findByEmail(email);
-            List<Amizade> listaAmizade = amizadeRepository.findByAmizadeId(user.get().getId());
-            boolean la = listaAmizade.isEmpty();
-            if (!lu || !la) {
-                if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
-                        listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
-                        user.get().getId() == id) {
-                    return ResponseEntity.badRequest().build();
-                }
-            }
+            List<Amizade> listaUsuario = amizadeRepository.findAnyByUsuarioIdAndAmizadeId(id, user.get().getId());
 
+            if (!listaUsuario.isEmpty() ||  user.get().getId() == id) {
+                return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
+            }
 
             try {
                 Amizade amizade = new Amizade(id, user.get().getId());
                 amizade.setStatus(false);
                 amizadeRepository.save(amizade);
-                return ResponseEntity.ok("ok");
+                return new ResponseEntity<>(headers, HttpStatus.OK);
             } catch (Exception e) {
                 logger.info(String.valueOf(e));
                 e.printStackTrace();
-                return ResponseEntity.badRequest().build();
+                return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
             }
 
         }
@@ -134,15 +128,20 @@ public class AmizadeController {
         Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
         Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
 
-
-        Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
+        Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
         logger.info(String.valueOf(amizade.isPresent()));
 
         amizade.get().setStatus(true);
         amizadeRepository.save(amizade.get());
+
+        Notificacao not = new Notificacao(us.get().getId());
+        not.setTipo("Alert");
+        Optional<Usuario> amizadeus = usuarioRepository.findById(amizadeid);
+        not.setConteudo("Seu amigo " + amizadeus.get().getNome() + " aceitou seu pedido de amizade!");
+        notificacaoRepository.save(not);
+
         return ResponseEntity.ok().build();
     }
-
 
     @PostMapping("/reject")
     public ResponseEntity rejeitarSolicitacao(@RequestBody Map<String, String> params ) {
@@ -153,8 +152,9 @@ public class AmizadeController {
 
         Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
         Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
-        Optional<TreinoConjunto> tc = treinoConjuntoRepository.findContatoAndUsuarioByOneId(usuarioid
-        ,amizadeid);
+
+        Optional<TreinoConjunto> tc = treinoConjuntoRepository.findContatoAndUsuarioByOneId(us.get().getId()
+                ,amizadeid);
 
         if (amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId()).isPresent()){
             Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
@@ -162,6 +162,31 @@ public class AmizadeController {
 
         } else if(amizadeRepository.findByAmizadeIdAndUsuarioId(us.get().getId(), amizadeid).isPresent()){
             Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(us.get().getId(), amizadeid);
+            amizadeRepository.delete(amizade.get());
+        }
+
+        tc.ifPresent(treinoConjunto -> treinoConjuntoRepository.delete(treinoConjunto));
+
+        return ResponseEntity.ok().build();
+    }
+
+
+    @PostMapping("/reject-friend")
+    public ResponseEntity rejeitarAmigo(@RequestBody Map<String, String> params ) {
+
+        logger.info(String.valueOf(params.values()));
+        int usuarioid = Integer.parseInt(params.get("usuarioid"));
+        int amizadeid = Integer.parseInt(params.get("amizadeid"));
+
+        Optional<TreinoConjunto> tc = treinoConjuntoRepository.findContatoAndUsuarioByOneId(usuarioid
+        ,amizadeid);
+
+        if (amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid).isPresent()){
+            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
+            amizadeRepository.delete(amizade.get());
+
+        } else if(amizadeRepository.findByAmizadeIdAndUsuarioId(usuarioid, amizadeid).isPresent()){
+            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(usuarioid, amizadeid);
             amizadeRepository.delete(amizade.get());
         }
 

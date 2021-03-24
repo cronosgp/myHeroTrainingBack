@@ -36,6 +36,10 @@ public class TreinoConjuntoController {
     @Autowired
     private TreinoConjuntoHistoricoRepository treinoConjuntoHistoricoRepository;
 
+    @Autowired
+    private NotificacaoRepository notificacaoRepository;
+
+
     @GetMapping("/request/free")
     public ResponseEntity<Boolean> liberaTreino(@RequestParam int id) {
         Boolean response = null;
@@ -216,6 +220,13 @@ public class TreinoConjuntoController {
 
             treinoConjunto.get().setStatus(true);
             treinoConjuntoRepository.save(treinoConjunto.get());
+
+            Notificacao not = new Notificacao(us.get().getId());
+            not.setTipo("Alert");
+            Optional<Usuario> conviteus = usuarioRepository.findById(conviteid);
+            not.setConteudo("Seu amigo " + conviteus.get().getNome() + " aceitou treino em conjunto!");
+            notificacaoRepository.save(not);
+
             return ResponseEntity.ok().build();
         }catch(Exception e){
             return ResponseEntity.badRequest().build();

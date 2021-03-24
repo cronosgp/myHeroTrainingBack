@@ -13,8 +13,14 @@ public class Notificacao{
     private int id;
     private String tipo;
     private String conteudo;
-    @ManyToOne
-    private Usuario usuario;
+    private int idUsuario;
+
+    public Notificacao(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public Notificacao() {
+    }
 
     public int getId() {
         return id;
@@ -40,11 +46,11 @@ public class Notificacao{
         this.conteudo = conteudo;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public int getUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }
