@@ -176,9 +176,9 @@ public class TreinoConjuntoController {
         int idusuario = Integer.parseInt(params.get("usuarioid"));
         int idconvite = Integer.parseInt(params.get("conviteid"));
 
-        Optional<CadastroUsuario> cus = cadastraUsuarioRepository.findById(idconvite);
+        Optional<Usuario> cus = usuarioRepository.findById(idconvite);
         if(cus.isPresent()) {
-            Optional<Usuario> us = usuarioRepository.findByEmail(cus.get().getEmail());
+            Optional<CadastroUsuario> us = cadastraUsuarioRepository.findByEmail(cus.get().getEmail());
 
             List<TreinoConjunto> listaUsuario = treinoConjuntoRepository.findByIdUsuario(idusuario);
             List<TreinoConjunto> listaConvidado = treinoConjuntoRepository.findByIdConvidado(idusuario);
@@ -189,7 +189,7 @@ public class TreinoConjuntoController {
             }
 
             try {
-                TreinoConjunto treinoConjunto = new TreinoConjunto(idusuario, us.get().getId());
+                TreinoConjunto treinoConjunto = new TreinoConjunto(idusuario, idconvite);
                 treinoConjunto.setStatus(false);
                 treinoConjuntoRepository.save(treinoConjunto);
                 return ResponseEntity.ok().build();

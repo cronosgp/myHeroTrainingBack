@@ -62,15 +62,15 @@ public class AmizadeController {
 
     @GetMapping("/data")
     public List<dados_amizade> getAmizadeData(@RequestParam int id) {
-            List<dados_amizade> dados = amizadeRepository.amizade(id);
-            return dados;
+        List<dados_amizade> dados = amizadeRepository.amizade(id);
+        return dados;
 
     }
 
     @GetMapping("/request")
     public List<CadastroUsuario> listaSolicitacaoAmigos(@RequestParam int id) {
 
-            List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
+        List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
         List<CadastroUsuario> listaAmizades = new ArrayList<>();
 
         for (Amizade e : amizades) {
@@ -82,7 +82,6 @@ public class AmizadeController {
         }
         return listaAmizades;
     }
-
     @PostMapping("/request")
     public ResponseEntity<String> enviarSolicitacao(@RequestBody Map<String, String> params) {
 
@@ -94,27 +93,37 @@ public class AmizadeController {
         Optional<CadastroUsuario> existeEmail = cadastraUsuarioRepository.findByEmail(email);
 
         if (!existeEmail.isPresent()) {
-                return ResponseEntity.ok().build();
+            return ResponseEntity.ok().build();
 
+        } else {
+            List<Amizade> listaUsuario = amizadeRepository.findByUsuarioId(id);
+            boolean lu = listaUsuario.isEmpty();
             Optional<Usuario> user = usuarioRepository.findByEmail(email);
-        List<Amizade> listaUsuario = amizadeRepository.findAnyByUsuarioIdAndAmizadeId(user.get().getId(), id);
+            List<Amizade> listaAmizade = amizadeRepository.findByAmizadeId(user.get().getId());
+            boolean la = listaAmizade.isEmpty();
+            if (!lu || !la) {
+                if (listaUsuario.stream().anyMatch(e -> e.getAmizadeId() == user.get().getId()) ||
+                        listaAmizade.stream().anyMatch(e -> e.getUsuarioId() == id) ||
+                        user.get().getId() == id) {
+                    return ResponseEntity.badRequest().build();
+                }
+            }
 
-        if(!listaUsuario.isEmpty() || user.get().getId() == id){
-                return ResponseEntity.badRequest().build();
-            }else {
+
             try {
                 Amizade amizade = new Amizade(id, user.get().getId());
                 amizade.setStatus(false);
                 amizadeRepository.save(amizade);
-                return ResponseEntity.ok().build();
+                return ResponseEntity.ok("ok");
             } catch (Exception e) {
                 logger.info(String.valueOf(e));
                 e.printStackTrace();
                 return ResponseEntity.badRequest().build();
             }
-        }
-    }
 
+        }
+
+    }
     @PostMapping("/accept")
     public ResponseEntity aceitarSolicitacao(@RequestBody Map<String, String> params ) {
 
@@ -127,12 +136,13 @@ public class AmizadeController {
 
 
         Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
-    logger.info(String.valueOf(amizade.isPresent()));
+        logger.info(String.valueOf(amizade.isPresent()));
 
-    amizade.get().setStatus(true);
-    amizadeRepository.save(amizade.get());
+        amizade.get().setStatus(true);
+        amizadeRepository.save(amizade.get());
         return ResponseEntity.ok().build();
     }
+
 
     @PostMapping("/reject")
     public ResponseEntity rejeitarSolicitacao(@RequestBody Map<String, String> params ) {
