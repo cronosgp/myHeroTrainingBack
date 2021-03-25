@@ -209,16 +209,13 @@ public class TreinoConjuntoController {
         int usuarioid = Integer.parseInt(params.get("usuarioid"));
         int conviteid = Integer.parseInt(params.get("conviteid"));
         try {
-            Optional<CadastroUsuario> cus = cadastraUsuarioRepository.findById(usuarioid);
-            Optional<Usuario> us = usuarioRepository.findByEmail(cus.get().getEmail());
-
-            Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(conviteid, us.get().getId());
+            Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(conviteid, usuarioid);
 
             treinoConjunto.get().setStatus(true);
             treinoConjunto.get().setData(new Date());
             treinoConjuntoRepository.save(treinoConjunto.get());
 
-            Notificacao not = new Notificacao(us.get().getId());
+            Notificacao not = new Notificacao(usuarioid);
             not.setTipo("Alert");
             Optional<Usuario> conviteus = usuarioRepository.findById(conviteid);
             not.setConteudo("Seu amigo " + conviteus.get().getNome() + " aceitou treino em conjunto!");
