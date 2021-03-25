@@ -30,15 +30,15 @@ import java.sql.Date;
     private int usuario;
 
 
-    public Boolean getTreinoPersonalizado() {
-        return treinoPersonalizado;
+    public Boolean getConjunto() {
+        return conjunto;
     }
 
-    public void setTreinoPersonalizado(Boolean treinoPersonalizado) {
-        this.treinoPersonalizado = treinoPersonalizado;
+    public void setConjunto(Boolean conjunto) {
+        this.conjunto = conjunto;
     }
 
-    private Boolean treinoPersonalizado;
+    private Boolean conjunto;
 
 
     public Date getDataRealizada() {

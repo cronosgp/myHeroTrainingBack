@@ -2,6 +2,7 @@ package com.ifsp.MyHeroTraining.repository;
 
 import com.ifsp.MyHeroTraining.Models.Amizade;
 import com.ifsp.MyHeroTraining.Models.dados_amizade;
+import com.ifsp.MyHeroTraining.Models.dados_solic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -29,5 +30,9 @@ public interface AmizadeRepository extends JpaRepository<Amizade, Integer> {
     @Transactional
     @Query(value = "SELECT * from amigo_carrega(:id);",nativeQuery = true)
    List<dados_amizade> amizade(int id);
+
+    @Transactional
+    @Query(value = "SELECT * from solic_carrega(:id);",nativeQuery = true)
+    List<dados_solic> solicitacoes(int id);
 
 }
