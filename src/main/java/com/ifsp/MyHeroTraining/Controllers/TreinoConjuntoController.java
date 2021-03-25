@@ -168,17 +168,11 @@ public class TreinoConjuntoController {
     }
 
     @GetMapping("/request")
-    public List<CadastroUsuario> listaSolicitacoesTreino(@RequestParam int id) {
+    public List<dados_solic> listaSolicitacoesTreino(@RequestParam int id) {
 
-        List<TreinoConjunto> treinoConjuntos = treinoConjuntoRepository.findByConvidadoIdSolicitacoes(id);
+        List<dados_solic> treinoConjuntos = treinoConjuntoRepository.solicitacoes(id);
 
-        List<CadastroUsuario> listatreinoConjuntos = new ArrayList<>();
-
-        for(TreinoConjunto e : treinoConjuntos) {
-                listatreinoConjuntos.add(cadastraUsuarioRepository.findByEmail(
-                        usuarioRepository.findById(e.getIdUsuario()).get().getEmail()).get());
-        }
-        return listatreinoConjuntos;
+        return treinoConjuntos;
 
     }
 
@@ -188,17 +182,11 @@ public class TreinoConjuntoController {
         int idusuario = Integer.parseInt(params.get("usuarioid"));
         int idconvite = Integer.parseInt(params.get("conviteid"));
 
-        Optional<Usuario> cus = usuarioRepository.findById(idconvite);
-        if(cus.isPresent()) {
-            Optional<CadastroUsuario> us = cadastraUsuarioRepository.findByEmail(cus.get().getEmail());
+            Optional<TreinoConjunto> listaTreino = treinoConjuntoRepository.findContatoAndUsuarioByOneId(idusuario, idconvite);
 
-            List<TreinoConjunto> listaUsuario = treinoConjuntoRepository.findByIdUsuario(idusuario);
-            List<TreinoConjunto> listaConvidado = treinoConjuntoRepository.findByIdConvidado(idusuario);
-
-            if (listaUsuario.stream().anyMatch(e -> e.getIdConvidado() == us.get().getId()) ||
-                    listaConvidado.stream().anyMatch(e -> e.getIdUsuario() == us.get().getId())) {
+            if (listaTreino.isPresent()) {
                 return ResponseEntity.badRequest().build();
-            }
+            }else{
 
             try {
                 TreinoConjunto treinoConjunto = new TreinoConjunto(idusuario, idconvite);
@@ -211,8 +199,7 @@ public class TreinoConjuntoController {
                 return ResponseEntity.badRequest().build();
             }
         }
-        return ResponseEntity.badRequest().build();
-    }
+        }
 
     @PostMapping("/accept")
     public ResponseEntity aceitarSolicitacao(@RequestBody Map<String, String> params ) {

@@ -62,26 +62,15 @@ public class AmizadeController {
 
     @GetMapping("/data")
     public List<dados_amizade> getAmizadeData(@RequestParam int id) {
-        List<dados_amizade> dados = amizadeRepository.amizade(id);
-        return dados;
+        return amizadeRepository.amizade(id);
 
     }
 
     @GetMapping("/request")
-    public List<CadastroUsuario> listaSolicitacaoAmigos(@RequestParam int id) {
-
-        List<Amizade> amizades = amizadeRepository.findByAmizadeIdSolicitacoes(id);
-        List<CadastroUsuario> listaAmizades = new ArrayList<>();
-
-        for (Amizade e : amizades) {
-            Optional<Usuario> us = usuarioRepository.findById(e.getUsuarioId());
-
-            if (cadastraUsuarioRepository.findByEmail(us.get().getEmail()).isPresent()) {
-                listaAmizades.add(cadastraUsuarioRepository.findByEmail(us.get().getEmail()).get());
-            }
-        }
-        return listaAmizades;
+    public List<dados_solic> listaSolicitacaoAmigos(@RequestParam int id) {
+        return amizadeRepository.solicitacoes(id);
     }
+
     @PostMapping("/request")
     public ResponseEntity<String> enviarSolicitacao(@RequestBody Map<String, String> params) {
 
@@ -125,16 +114,13 @@ public class AmizadeController {
         int usuarioid = Integer.parseInt(params.get("usuarioid"));
         int amizadeid = Integer.parseInt(params.get("amizadeid"));
 
-        Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
-        Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
-
         Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
         logger.info(String.valueOf(amizade.isPresent()));
 
         amizade.get().setStatus(true);
         amizadeRepository.save(amizade.get());
 
-        Notificacao not = new Notificacao(us.get().getId());
+        Notificacao not = new Notificacao(usuarioid);
         not.setTipo("Alert");
         Optional<Usuario> amizadeus = usuarioRepository.findById(amizadeid);
         not.setConteudo("Seu amigo " + amizadeus.get().getNome() + " aceitou seu pedido de amizade!");
@@ -143,35 +129,8 @@ public class AmizadeController {
         return ResponseEntity.ok().build();
     }
 
+
     @PostMapping("/reject")
-    public ResponseEntity rejeitarSolicitacao(@RequestBody Map<String, String> params ) {
-
-        logger.info(String.valueOf(params.values()));
-        int usuarioid = Integer.parseInt(params.get("usuarioid"));
-        int amizadeid = Integer.parseInt(params.get("amizadeid"));
-
-        Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
-        Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
-
-        Optional<TreinoConjunto> tc = treinoConjuntoRepository.findContatoAndUsuarioByOneId(us.get().getId()
-                ,amizadeid);
-
-        if (amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId()).isPresent()){
-            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
-            amizadeRepository.delete(amizade.get());
-
-        } else if(amizadeRepository.findByAmizadeIdAndUsuarioId(us.get().getId(), amizadeid).isPresent()){
-            Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(us.get().getId(), amizadeid);
-            amizadeRepository.delete(amizade.get());
-        }
-
-        tc.ifPresent(treinoConjunto -> treinoConjuntoRepository.delete(treinoConjunto));
-
-        return ResponseEntity.ok().build();
-    }
-
-
-    @PostMapping("/reject-friend")
     public ResponseEntity rejeitarAmigo(@RequestBody Map<String, String> params ) {
 
         logger.info(String.valueOf(params.values()));

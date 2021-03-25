@@ -2,9 +2,11 @@ package com.ifsp.MyHeroTraining.repository;
 
 import com.ifsp.MyHeroTraining.Models.Amizade;
 import com.ifsp.MyHeroTraining.Models.TreinoConjunto;
+import com.ifsp.MyHeroTraining.Models.dados_solic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -37,12 +39,9 @@ public interface TreinoConjuntoRepository extends JpaRepository<TreinoConjunto, 
     List<TreinoConjunto> findContatoAndUsuarioIdTrue(int id, Date data);
 
 
-
-
-
-
-
-
+    @Transactional
+    @Query(value = "SELECT * from solic_treino(:id);",nativeQuery = true)
+    List<dados_solic> solicitacoes(int id);
 
 
 
