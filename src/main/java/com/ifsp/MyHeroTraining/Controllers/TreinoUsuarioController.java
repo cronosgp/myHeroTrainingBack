@@ -38,7 +38,16 @@ public class TreinoUsuarioController {
 
     @GetMapping("/recupera")
     public ResponseEntity<List<Treino_Usuario>> recuperaFase(@RequestParam int id, Date data) {
-        List<Treino_Usuario> fase = treinoUsuarioRepository.findByDataRealizadaAndUsuario(data,id);
+        List<Treino_Usuario> fase = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndConjuntoIsNull(data,id);
+        try {
+            return ResponseEntity.ok(fase);
+
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }   @GetMapping("/recupera/conjunto")
+    public ResponseEntity<List<Treino_Usuario>> recuperaTreinoConjunto(@RequestParam int id, Date data) {
+        List<Treino_Usuario> fase = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndConjuntoIsTrue(data,id);
         try {
             return ResponseEntity.ok(fase);
 

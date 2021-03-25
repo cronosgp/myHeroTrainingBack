@@ -62,6 +62,14 @@ public class TreinoConjuntoController {
         response = treinos.isEmpty();
         return new ResponseEntity<>(response, headers, HttpStatus.OK);
     }
+@GetMapping("/convite")
+    public ResponseEntity<List<TreinoConjunto>> conviteAceito(@RequestParam int id, Date data) {
+
+
+        List<TreinoConjunto> treinos = treinoConjuntoRepository.findContatoAndUsuarioIdTrue(id, data);
+
+        return ResponseEntity.ok(treinos);
+    }
 
     @GetMapping("/request/day")
     public ResponseEntity<Boolean> checkTreino(@RequestParam int id){
@@ -70,7 +78,7 @@ public class TreinoConjuntoController {
 
         Date today = Calendar.getInstance().getTime();
         logger.info(String.valueOf(today));
-        List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuario(today,id);
+        List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndConjuntoIsNull(today,id);
 
 
         response = treinos.isEmpty();
@@ -143,7 +151,7 @@ public class TreinoConjuntoController {
         Date today = Calendar.getInstance().getTime();
         int usuarioTotalPontos = 0;
 
-        List<Treino_Usuario> treino_usuario1 = treinoUsuarioRepository.findByDataRealizadaAndUsuario(today, id);
+        List<Treino_Usuario> treino_usuario1 = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndConjuntoIsNull(today, id);
 
         for (Treino_Usuario treino : treino_usuario1
              ) {
