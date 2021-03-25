@@ -47,10 +47,10 @@ public class TreinoConjuntoController {
 
         List<TreinoConjunto> treinos = treinoConjuntoRepository.findContatoAndUsuarioIdTrue(id);
 
-        if(treinos.isEmpty()){
+        if (treinos.isEmpty()) {
             response = true;
             return new ResponseEntity<>(response, headers, HttpStatus.OK);
-        }else{
+        } else {
             response = false;
             return new ResponseEntity<>(response, headers, HttpStatus.OK);
         }
@@ -66,7 +66,8 @@ public class TreinoConjuntoController {
         response = treinos.isEmpty();
         return new ResponseEntity<>(response, headers, HttpStatus.OK);
     }
-@GetMapping("/convite")
+
+    @GetMapping("/convite")
     public ResponseEntity<List<TreinoConjunto>> conviteAceito(@RequestParam int id, Date data) {
 
 
@@ -76,13 +77,13 @@ public class TreinoConjuntoController {
     }
 
     @GetMapping("/request/day")
-    public ResponseEntity<Boolean> checkTreino(@RequestParam int id){
+    public ResponseEntity<Boolean> checkTreino(@RequestParam int id) {
         Boolean response = null;
         HttpHeaders headers = new HttpHeaders();
 
         Date today = Calendar.getInstance().getTime();
         logger.info(String.valueOf(today));
-        List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndConjuntoIsNull(today,id);
+        List<Treino_Usuario> treinos = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndConjuntoIsNull(today, id);
 
 
         response = treinos.isEmpty();
@@ -129,19 +130,17 @@ public class TreinoConjuntoController {
     }
 
 
-
-
     @GetMapping
     public List<Usuario> listaTreinosConjunto(@RequestParam int id) {
 
         List<TreinoConjunto> treinos = treinoConjuntoRepository.findContatoAndUsuarioIdTrue(id);
         List<Usuario> listaTreinos = new ArrayList<>();
 
-        for(TreinoConjunto e : treinos) {
-            if (e.getIdUsuario() == id && usuarioRepository.findById(e.getIdConvidado()).isPresent()){
+        for (TreinoConjunto e : treinos) {
+            if (e.getIdUsuario() == id && usuarioRepository.findById(e.getIdConvidado()).isPresent()) {
                 listaTreinos.add(usuarioRepository.findById(e.getIdConvidado()).get());
 
-            }else if (e.getIdConvidado() == id && usuarioRepository.findById(e.getIdConvidado()).isPresent()) {
+            } else if (e.getIdConvidado() == id && usuarioRepository.findById(e.getIdConvidado()).isPresent()) {
                 listaTreinos.add(usuarioRepository.findById(e.getIdUsuario()).get());
             }
         }
@@ -158,7 +157,7 @@ public class TreinoConjuntoController {
         List<Treino_Usuario> treino_usuario1 = treinoUsuarioRepository.findByDataRealizadaAndUsuarioAndConjuntoIsNull(today, id);
 
         for (Treino_Usuario treino : treino_usuario1
-             ) {
+        ) {
             Optional<Exercicio> ex = exercicioRepository.findOneById(treino.getId_exercicio());
             usuarioTotalPontos += ex.get().getQntd_pontos();
         }
@@ -174,45 +173,45 @@ public class TreinoConjuntoController {
 
         List<CadastroUsuario> listatreinoConjuntos = new ArrayList<>();
 
-        for(TreinoConjunto e : treinoConjuntos) {
-                listatreinoConjuntos.add(cadastraUsuarioRepository.findByEmail(
-                        usuarioRepository.findById(e.getIdUsuario()).get().getEmail()).get());
+        for (TreinoConjunto e : treinoConjuntos) {
+            listatreinoConjuntos.add(cadastraUsuarioRepository.findByEmail(
+                    usuarioRepository.findById(e.getIdUsuario()).get().getEmail()).get());
         }
         return listatreinoConjuntos;
 
     }
 
     @PostMapping("/request")
-    public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params )  {
+    public ResponseEntity enviarSolicitacao(@RequestBody Map<String, String> params) {
 
         int idusuario = Integer.parseInt(params.get("usuarioid"));
         int idconvite = Integer.parseInt(params.get("conviteid"));
 
         Optional<Usuario> cus = usuarioRepository.findById(idconvite);
-        if(cus.isPresent()) {
+        if (cus.isPresent()) {
             Optional<CadastroUsuario> us = cadastraUsuarioRepository.findByEmail(cus.get().getEmail());
 
-            List<TreinoConjunto> listaUsuario = treinoConjuntoRepository.findByIdUsuario(idusuario);
-            List<TreinoConjunto> listaConvidado = treinoConjuntoRepository.findByIdConvidado(idusuario);
+            Optional<TreinoConjunto> listaTreino = treinoConjuntoRepository.findContatoAndUsuarioByOneId(idusuario, us.get().getId());
 
-            if (listaUsuario.stream().anyMatch(e -> e.getIdConvidado() == us.get().getId()) ||
-                    listaConvidado.stream().anyMatch(e -> e.getIdUsuario() == us.get().getId())) {
+            if (listaTreino.isPresent()) {
                 return ResponseEntity.badRequest().build();
-            }
+            } else {
 
-            try {
-                TreinoConjunto treinoConjunto = new TreinoConjunto(idusuario, idconvite);
-                treinoConjunto.setStatus(false);
-                treinoConjuntoRepository.save(treinoConjunto);
-                return ResponseEntity.ok().build();
-            } catch (Exception e) {
-                logger.info(String.valueOf(e));
-                e.printStackTrace();
-                return ResponseEntity.badRequest().build();
+                try {
+                    TreinoConjunto treinoConjunto = new TreinoConjunto(idusuario, idconvite);
+                    treinoConjunto.setStatus(false);
+                    treinoConjuntoRepository.save(treinoConjunto);
+                    return ResponseEntity.ok().build();
+                } catch (Exception e) {
+                    logger.info(String.valueOf(e));
+                    e.printStackTrace();
+                    return ResponseEntity.badRequest().build();
+                }
             }
         }
         return ResponseEntity.badRequest().build();
     }
+
 
     @PostMapping("/accept")
     public ResponseEntity aceitarSolicitacao(@RequestBody Map<String, String> params ) {
@@ -227,6 +226,7 @@ public class TreinoConjuntoController {
             Optional<TreinoConjunto> treinoConjunto = treinoConjuntoRepository.findByContatoIdAndUsuarioId(conviteid, us.get().getId());
 
             treinoConjunto.get().setStatus(true);
+            treinoConjunto.get().setData(new Date());
             treinoConjuntoRepository.save(treinoConjunto.get());
 
             Notificacao not = new Notificacao(us.get().getId());

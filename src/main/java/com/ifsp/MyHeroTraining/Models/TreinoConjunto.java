@@ -1,9 +1,6 @@
 package com.ifsp.MyHeroTraining.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -17,6 +14,7 @@ public class TreinoConjunto {
 
     private int idUsuario;
 
+    @Column(columnDefinition="DATE DEFAULT SYSDATE")
     private Date data;
 
     private Boolean status;

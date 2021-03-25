@@ -128,7 +128,7 @@ public class AmizadeController {
         Optional<CadastroUsuario> cadusid = cadastraUsuarioRepository.findById(usuarioid);
         Optional<Usuario> us = usuarioRepository.findByEmail(cadusid.get().getEmail());
 
-        Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, usuarioid);
+        Optional<Amizade> amizade = amizadeRepository.findByAmizadeIdAndUsuarioId(amizadeid, us.get().getId());
         logger.info(String.valueOf(amizade.isPresent()));
 
         amizade.get().setStatus(true);
